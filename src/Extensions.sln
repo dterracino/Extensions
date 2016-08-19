@@ -1,0 +1,118 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{52B1014D-5296-47EF-9CBA-F14F88825CDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genesys.Extensions.Test (Full)", "Test\Extensions.Test.Full\Genesys.Extensions.Test (Full).csproj", "{19180040-BB2A-4E45-9423-CF4F4F7875F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genesys.Extensions.Test (Universal)", "Test\Extensions.Test.Universal\Genesys.Extensions.Test (Universal).csproj", "{AD87315C-1488-4057-9721-3740054D961A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genesys.Extras.Test (Full)", "Test\Extras.Test.Full\Genesys.Extras.Test (Full).csproj", "{294BA909-1EE6-4ED8-8840-93C929FA1E54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genesys.Extras.Test (Universal)", "Test\Extras.Test.Universal\Genesys.Extras.Test (Universal).csproj", "{94705071-825E-4522-8B63-6DF94ADCAAED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensions", "Extensions", "{421AB60D-E150-425F-AB9A-091B8DB00C3B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extras", "Extras", "{8963EC02-4294-4B8F-B77A-D1335195854B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genesys.Extensions (Full)", "Extensions\Extensions.Full\Genesys.Extensions (Full).csproj", "{0D42EEC0-CA52-482F-B0CF-02E103ADB665}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genesys.Extensions (Universal)", "Extensions\Extensions.Universal\Genesys.Extensions (Universal).csproj", "{C21FBC0A-299C-4297-A50E-CB3BE059AEE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genesys.Extras (Full)", "Extras\Extras.Full\Genesys.Extras (Full).csproj", "{C92EDAB1-E331-487C-B6E6-306379173DDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genesys.Extras (Universal)", "Extras\Extras.Universal\Genesys.Extras (Universal).csproj", "{39DE41A4-A783-4FD2-B9D6-4214F2E0B87D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19180040-BB2A-4E45-9423-CF4F4F7875F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19180040-BB2A-4E45-9423-CF4F4F7875F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19180040-BB2A-4E45-9423-CF4F4F7875F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19180040-BB2A-4E45-9423-CF4F4F7875F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD87315C-1488-4057-9721-3740054D961A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD87315C-1488-4057-9721-3740054D961A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD87315C-1488-4057-9721-3740054D961A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD87315C-1488-4057-9721-3740054D961A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{294BA909-1EE6-4ED8-8840-93C929FA1E54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{294BA909-1EE6-4ED8-8840-93C929FA1E54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{294BA909-1EE6-4ED8-8840-93C929FA1E54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{294BA909-1EE6-4ED8-8840-93C929FA1E54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94705071-825E-4522-8B63-6DF94ADCAAED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94705071-825E-4522-8B63-6DF94ADCAAED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94705071-825E-4522-8B63-6DF94ADCAAED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94705071-825E-4522-8B63-6DF94ADCAAED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D42EEC0-CA52-482F-B0CF-02E103ADB665}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D42EEC0-CA52-482F-B0CF-02E103ADB665}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D42EEC0-CA52-482F-B0CF-02E103ADB665}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D42EEC0-CA52-482F-B0CF-02E103ADB665}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C21FBC0A-299C-4297-A50E-CB3BE059AEE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C21FBC0A-299C-4297-A50E-CB3BE059AEE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C21FBC0A-299C-4297-A50E-CB3BE059AEE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C21FBC0A-299C-4297-A50E-CB3BE059AEE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C92EDAB1-E331-487C-B6E6-306379173DDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C92EDAB1-E331-487C-B6E6-306379173DDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C92EDAB1-E331-487C-B6E6-306379173DDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C92EDAB1-E331-487C-B6E6-306379173DDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39DE41A4-A783-4FD2-B9D6-4214F2E0B87D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39DE41A4-A783-4FD2-B9D6-4214F2E0B87D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39DE41A4-A783-4FD2-B9D6-4214F2E0B87D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39DE41A4-A783-4FD2-B9D6-4214F2E0B87D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{19180040-BB2A-4E45-9423-CF4F4F7875F9} = {52B1014D-5296-47EF-9CBA-F14F88825CDC}
+		{AD87315C-1488-4057-9721-3740054D961A} = {52B1014D-5296-47EF-9CBA-F14F88825CDC}
+		{294BA909-1EE6-4ED8-8840-93C929FA1E54} = {52B1014D-5296-47EF-9CBA-F14F88825CDC}
+		{94705071-825E-4522-8B63-6DF94ADCAAED} = {52B1014D-5296-47EF-9CBA-F14F88825CDC}
+		{0D42EEC0-CA52-482F-B0CF-02E103ADB665} = {421AB60D-E150-425F-AB9A-091B8DB00C3B}
+		{C21FBC0A-299C-4297-A50E-CB3BE059AEE9} = {421AB60D-E150-425F-AB9A-091B8DB00C3B}
+		{C92EDAB1-E331-487C-B6E6-306379173DDF} = {8963EC02-4294-4B8F-B77A-D1335195854B}
+		{39DE41A4-A783-4FD2-B9D6-4214F2E0B87D} = {8963EC02-4294-4B8F-B77A-D1335195854B}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://vgo-tfs-02:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Extensions\\Extensions.Full\\Genesys.Extensions\u0020(Full).csproj
+		SccProjectTopLevelParentUniqueName1 = Extensions.sln
+		SccProjectName1 = Extensions/Extensions.Full
+		SccLocalPath1 = Extensions\\Extensions.Full
+		SccProjectUniqueName2 = Extensions\\Extensions.Universal\\Genesys.Extensions\u0020(Universal).csproj
+		SccProjectTopLevelParentUniqueName2 = Extensions.sln
+		SccProjectName2 = Extensions/Extensions.Universal
+		SccLocalPath2 = Extensions\\Extensions.Universal
+		SccProjectUniqueName3 = Extras\\Extras.Full\\Genesys.Extras\u0020(Full).csproj
+		SccProjectTopLevelParentUniqueName3 = Extensions.sln
+		SccProjectName3 = Extras/Extras.Full
+		SccLocalPath3 = Extras\\Extras.Full
+		SccProjectUniqueName4 = Extras\\Extras.Universal\\Genesys.Extras\u0020(Universal).csproj
+		SccProjectTopLevelParentUniqueName4 = Extensions.sln
+		SccProjectName4 = Extras/Extras.Universal
+		SccLocalPath4 = Extras\\Extras.Universal
+		SccProjectUniqueName5 = Test\\Extensions.Test.Full\\Genesys.Extensions.Test\u0020(Full).csproj
+		SccProjectTopLevelParentUniqueName5 = Extensions.sln
+		SccProjectName5 = Test/Extensions.Test.Full
+		SccLocalPath5 = Test\\Extensions.Test.Full
+		SccProjectUniqueName6 = Test\\Extensions.Test.Universal\\Genesys.Extensions.Test\u0020(Universal).csproj
+		SccProjectTopLevelParentUniqueName6 = Extensions.sln
+		SccProjectName6 = Test/Extensions.Test.Universal
+		SccLocalPath6 = Test\\Extensions.Test.Universal
+		SccProjectUniqueName7 = Test\\Extras.Test.Full\\Genesys.Extras.Test\u0020(Full).csproj
+		SccProjectTopLevelParentUniqueName7 = Extensions.sln
+		SccProjectName7 = Test/Extras.Test.Full
+		SccLocalPath7 = Test\\Extras.Test.Full
+		SccProjectUniqueName8 = Test\\Extras.Test.Universal\\Genesys.Extras.Test\u0020(Universal).csproj
+		SccProjectTopLevelParentUniqueName8 = Extensions.sln
+		SccProjectName8 = Test/Extras.Test.Universal
+		SccLocalPath8 = Test\\Extras.Test.Universal
+	EndGlobalSection
+EndGlobal

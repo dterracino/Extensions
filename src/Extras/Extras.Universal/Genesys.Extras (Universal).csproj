@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{39DE41A4-A783-4FD2-B9D6-4214F2E0B87D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Genesys.Extras</RootNamespace>
+    <AssemblyName>Genesys.Extras.Universal</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile>Profile151</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Genesys.Extras.Universal.xml</DocumentationFile>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <None Include="PostBuild.bat" />
+    <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Collections\IKeyValuePair.cs" />
+    <Compile Include="Collections\KeyValuePairSafeComparer.cs" />
+    <Compile Include="Collections\KeyValuePairString.cs" />
+    <Compile Include="Collections\ListSafe.cs" />
+    <Compile Include="Collections\KeyValueListSafe.cs" />
+    <Compile Include="Collections\KeyValueListString.cs" />
+    <Compile Include="Collections\KeyValuePairSafe.cs" />
+    <Compile Include="Mathematics.Geometry\Square.cs" />
+    <Compile Include="Mathematics.Geometry\AspectRatio.cs" />
+    <Compile Include="Media\RGBStandardInfo.cs" />
+    <Compile Include="Media\RGBByteInfo.cs" />
+    <Compile Include="Net.HttpRequest\HttpClientBuilder.cs" />
+    <Compile Include="Net.HttpRequest\HttpRequestClient.cs" />
+    <Compile Include="Net.HttpRequest\HttpRequestDelete.cs" />
+    <Compile Include="Net.HttpRequest\HttpRequestGet.cs" />
+    <Compile Include="Net.HttpRequest\HttpRequestDeleteString.cs" />
+    <Compile Include="Net.HttpRequest\HttpRequestGetString.cs" />
+    <Compile Include="Net.HttpRequest\HttpRequestPut.cs" />
+    <Compile Include="Net.HttpRequest\HttpRequestPost.cs" />
+    <Compile Include="Net.HttpRequest\HttpRequestPutString.cs" />
+    <Compile Include="Net.HttpRequest\HttpRequestPostString.cs" />
+    <Compile Include="Configuration\AppSettingList.cs" />
+    <Compile Include="Configuration\AppSettingSafe.cs" />
+    <Compile Include="Configuration\ConfigurationManagerSafe.cs" />
+    <Compile Include="Configuration\ConnectionStringList.cs" />
+    <Compile Include="Configuration\ConnectionStringSafe.cs" />
+    <Compile Include="Mathematics\AgeCalculator.cs" />
+    <Compile Include="Mathematics\Arithmetic.cs" />
+    <Compile Include="Net.HttpRequest\HttpVerbSender.cs" />
+    <Compile Include="Net.Mime\ContentType.cs" />
+    <Compile Include="Net.Mime\ContentTypes.cs" />
+    <Compile Include="Net.Routing\RouteBuilder.cs" />
+    <Compile Include="Net.Url\UrlBuilder.cs" />
+    <Compile Include="Net.Url\UrlInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Text.Cleansing\CleanserFactory.cs" />
+    <Compile Include="Text.Cleansing\CleanserAttribute.cs" />
+    <Compile Include="Text.Cleansing\XmlInvalidCharacterCleanser.cs" />
+    <Compile Include="Text.Cleansing\SqlInjectionCleanser.cs" />
+    <Compile Include="Text.Cleansing\DefaultCleanser.cs" />
+    <Compile Include="Text.Cleansing\HtmlUnsafeCleanser.cs" />
+    <Compile Include="Text.Cleansing\Cleanser.cs" />
+    <Compile Include="Security.Cryptography\CaesarEncryptor.cs" />
+    <Compile Include="Security.Cryptography\IEncryptor.cs" />
+    <Compile Include="Collections\IListSafe.cs" />
+    <Compile Include="Serialization\ISerializerGeneric.cs" />
+    <Compile Include="Serialization\ISerializer.cs" />
+    <Compile Include="Serialization\JsonSerializerGeneric.cs" />
+    <Compile Include="Serialization\JsonSerializer.cs" />
+    <Compile Include="Serialization\SerializerGeneric.cs" />
+    <Compile Include="Serialization\Serializer.cs" />
+    <Compile Include="Text.Encoding\Base64Encoder.cs" />
+    <Compile Include="Text.Encoding\IEncoder.cs" />
+    <Compile Include="Text.Encoding\UrlEncoder.cs" />
+    <Compile Include="Text\DateRelative.cs" />
+    <Compile Include="Text\StringMutable.cs" />
+    <Compile Include="Text\StringRandom.cs" />
+    <Compile Include="Text\TemplateBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Extensions\Extensions.Universal\Genesys.Extensions %28Universal%29.csproj">
+      <Project>{c21fbc0a-299c-4297-a50e-cb3be059aee9}</Project>
+      <Name>Genesys.Extensions %28Universal%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>Call $(ProjectDir)PostBuild.Bat $(TargetDir) $(TargetName)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Genesys.Extensions.Full</name>
+    </assembly>
+    <members>
+        <member name="T:Genesys.Extensions.NameValueCollectionExtension">
+            <summary>
+            Extends System.Type
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.NameValueCollectionExtension.ToArraySafe(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Converts to flattened array of string, string
+            </summary>
+            <param name="item">NameValueCollection to convert to string[count, 2] array</param>
+            <returns>True if this connection can be opened</returns>
+        </member>
+        <member name="T:Genesys.Extensions.SqlConnectionExtension">
+            <summary>
+            Extends System.Type
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.SqlConnectionExtension.ConnectionString(System.Data.SqlClient.SqlConnection,System.String,System.String,System.Int32)">
+            <summary>
+            Constructs a connection string from multiple string elements
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.SqlConnectionExtension.CanOpen(System.Data.SqlClient.SqlConnection)">
+            <summary>
+            Tests a connection to see if can open
+            </summary>
+            <param name="connection"></param>
+            <returns>True if this connection can be opened</returns>
+        </member>
+        <member name="T:Genesys.Extensions.ImageFormatExtension">
+            <summary>
+            Extends the Image Format class
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.ImageFormatExtension.ToContentType(System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            Returns mime content type for an Image Format item
+            </summary>
+            <param name="item">MIME content type of item</param>
+            <returns>String containing the MIME content type text</returns>
+        </member>
+        <member name="T:Genesys.Extensions.IconExtension">
+            <summary>
+            Icon Extension
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.IconExtension.ToBytes(System.Drawing.Icon)">
+            <summary>
+            Converts a System.Drawing.Icon to a byte array
+            </summary>
+            <returns>Byte array containing the icon</returns>
+        </member>
+        <member name="T:Genesys.Extensions.ImageExtension">
+            <summary>
+            Extend System.Drawing.Image class
+            </summary>
+        </member>
+        <member name="P:Genesys.Extensions.ImageExtension.ImageEmpty">
+            <summary>
+            1px x 1px Transparent Image
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.ImageExtension.Resize(System.Drawing.Image,System.Drawing.Size)">
+            <summary>
+            Resizes an image, not allowing smallest edge to go below 1px
+            </summary>
+            <param name="item">Original image to resize</param>
+            <param name="newSize">Desired size</param>
+            <returns>Resized image</returns>
+        </member>
+        <member name="M:Genesys.Extensions.ImageExtension.Crop(System.Drawing.Image,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Crops an image
+            </summary>
+            <param name="item">Image to crop</param>
+            <param name="width">With of cropping area</param>
+            <param name="height">Height of cropping area</param>
+            <param name="x">X of top-left corner of cropping area</param>
+            <param name="y">Y of top-left corner of cropping area</param>
+            <returns>Cropped image</returns>
+        </member>
+        <member name="M:Genesys.Extensions.ImageExtension.ToBytes(System.Drawing.Image)">
+            <summary>
+            Converts a Image to a byte array
+            </summary>
+            <param name="item">Item to convert to byte array</param>
+            <returns>Byte array containing image</returns>
+        </member>
+        <member name="T:Genesys.Extensions.StreamExtension">
+            <summary>
+            Extension methods to the System.IO.Stream class
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.StreamExtension.IsImage(System.IO.Stream,System.Int32)">
+            <summary>
+            Validates a stream to be a image-like type and is less than a maximum size
+            </summary>
+            <param name="item">Stream array to check for image</param>
+            <param name="maxSizeInKb">Default is 4 Mb</param>
+            <returns>True if stream is image</returns>
+        </member>
+        <member name="T:Genesys.Extensions.ModelStateDictionaryExtension">
+            <summary>
+            Extends the System.Web.Mvc.ModelStateDictionary class
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.ModelStateDictionaryExtension.AddModelError(System.Web.Mvc.ModelStateDictionary,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Clears and add new list of model state dictionary errors
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Genesys.Extensions.HttpRequestBaseExtension">
+            <summary>
+            HttpRequestBaseExtension
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.HttpRequestBaseExtension.TryParseUrl(System.Web.HttpRequestBase)">
+            <summary>
+            Finds the root of the url in format: http://SERVER_NAME:SERVER_PORT
+            </summary>
+            <param name="item">Request class of item that contains the Url</param>
+            <returns>Url from server variables collection</returns>
+        </member>
+        <member name="M:Genesys.Extensions.HttpRequestBaseExtension.ConstructUrl(System.String,System.String,System.String,System.String)">
+            <summary>
+            Formats the entire URL, complete with PROTOCOL://SERVER_NAME:PORT/APPLICATION_PATH
+            No trailing slash.
+            </summary>
+            <param name="protocol">Protocol for Url. I.e. http</param>
+            <param name="serverName">Server name for Url. I.e. www.YourDomain.com</param>
+            <param name="port">Port for Url. I.e. 80</param>
+            <param name="applicationPath">Application path for Url. I.e. /Home/Index</param>
+            <returns>Constructed url</returns>
+        </member>
+        <member name="M:Genesys.Extensions.HttpRequestBaseExtension.ConstructUrl(System.String,System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+            <summary>
+            Formats the entire URL, complete with PROTOCOL://SERVER_NAME:PORT/APPLICATION_PATH?Param1=Value1
+            </summary>
+            <param name="fullURLNoQuerystring">Url with everything but parameters and punctuation</param>
+            <param name="parametersAndValues">Collection of parameters to add to Url</param>
+            <returns>Constructed url</returns>
+        </member>
+        <member name="M:Genesys.Extensions.HttpRequestBaseExtension.IsSecured(System.Web.HttpRequestBase)">
+            <summary>
+            Checks for secure sockets, or returns true if localhost
+            </summary>
+            <param name="item">Request to check</param>
+            <returns>True if request is secured, or is localhost</returns>
+        </member>
+        <member name="M:Genesys.Extensions.HttpRequestBaseExtension.IsSecured(System.Boolean,System.String)">
+            <summary>
+            Checks for HTTPS, or returns true if localhost
+            </summary>
+            <param name="isSecureConnection">Returned from Request.IsSecured</param>
+            <param name="url">Url to check</param>
+            <returns>True if request is secured, or is localhost</returns>
+        </member>
+        <member name="T:Genesys.Extensions.HttpRequestExtension">
+            <summary>
+            HttpRequestExtension
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.HttpRequestExtension.TryParseUrl(System.Web.HttpRequest)">
+            <summary>
+            Finds the root of the url in format: http://SERVER_NAME:SERVER_PORT
+            </summary>
+            <param name="item">Request to supply url</param>
+            <returns>Parsed Url</returns>
+        </member>
+        <member name="M:Genesys.Extensions.HttpRequestExtension.IsSecured(System.Web.HttpRequest)">
+            <summary>
+            Checks for HTTPS, or returns true if localhost
+            </summary>
+            <param name="item">Request to check security</param>
+            <returns>True if request is secured with ssl, or localhost</returns>
+        </member>
+        <member name="M:Genesys.Extensions.HttpRequestExtension.BinaryWriteSafe(System.Web.HttpResponse,System.Byte[])">
+            <summary>
+            Writes bytes to Html Binary Output Stream. 
+            Mainly for sending Images/Blobs over http, typically from data access framework to a Html Page img tag.
+            </summary>
+            <param name="item">Item to write byte array</param>
+            <param name="blobBytes">Byte array to write</param>
+        </member>
+        <member name="T:Genesys.Extensions.XmlDocumentExtension">
+            <summary>
+            Extends the XmlDocument class
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.XmlDocumentExtension.Serialize(System.Xml.XmlDocument)">
+            <summary>
+            Outputs a string equivalent to the xml document
+            </summary>
+            <param name="item">XmlDocument to output</param>
+            <returns></returns>
+        </member>
+        <member name="T:Genesys.Extensions.ByteExtension">
+            <summary>
+            Extensions to byte class
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.ByteExtension.ToImage(System.Byte[])">
+            <summary>
+            Converts a byte array to System.Drawing.Image class
+            </summary>
+            <param name="item">Byte array of valid image-compatible data</param>
+            <returns>Converted image class, or empty transparent 1px by 1px image</returns>
+        </member>
+        <member name="M:Genesys.Extensions.ByteExtension.ToFileContentResult(System.Byte[],System.String)">
+            <summary>
+            Converts a byte Array to FileContentResult.
+            Typically to show an image returned from MVC controller in an Html Img tag.
+            </summary>
+            <param name="item"></param>
+            <param name="contentType"></param>
+            <returns>Content (typically images) to display from MVC controller.</returns>
+        </member>
+        <member name="M:Genesys.Extensions.ByteExtension.IsImage(System.Byte[],System.Int32)">
+            <summary>
+            Validates a byte array to be a image-like type and is less than a maximum size
+            </summary>
+            <param name="item">Byte array to check if it is an image.</param>
+            <param name="maxSizeInKb">Invalidate if over this size in Kb. Default is 4mb/4096kb.</param>
+            <returns>True if the byte array is an image</returns>
+        </member>
+    </members>
+</doc>

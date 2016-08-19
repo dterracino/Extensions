@@ -1,0 +1,361 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Genesys.Foundation.Models</name>
+    </assembly>
+    <members>
+        <member name="T:Genesys.Foundation.Entity.ModelBase`1">
+            <summary>
+            ModelBase
+            </summary>
+            <remarks>ModelBase</remarks>
+        </member>
+        <member name="P:Genesys.Foundation.Entity.ModelBase`1.ID">
+            <summary>
+            Primary key of this record. Internal use only, use Key when exposing data externally.
+            </summary>
+        </member>
+        <member name="P:Genesys.Foundation.Entity.ModelBase`1.Key">
+            <summary>
+            Primary key of this record. To be used for external use.
+            </summary>
+        </member>
+        <member name="M:Genesys.Foundation.Entity.ModelBase`1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="E:Genesys.Foundation.Entity.ModelBase`1.PropertyChanged">
+            <summary>
+            Fired when property is changed
+            </summary>
+        </member>
+        <member name="M:Genesys.Foundation.Entity.ModelBase`1.NotifyPropertyChanged(System.String)">
+            <summary>
+            Save and raise changed event
+            </summary>
+            <param name="propertyName"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Genesys.Foundation.Entity.ModelBase`1.Equals(`0)">
+            <summary>
+            Fills this object with another object's data (of the same type)
+            </summary>
+            <param name="newItem"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Genesys.Foundation.Entity.ModelBase`1.ToString">
+            <summary>
+            Start with ID as string representation
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Genesys.Foundation.Entity.ModelBase`1.Fill(System.Object)">
+            <summary>
+            Static ability to fill this class with a class that implements the same Property(s)
+            This method fully constructs TEntity before filling.
+            </summary>
+            <param name="sourceItem">Item to fill TEntity object, must implement at least one common Property.</param>
+            <returns>Fully-constructed, fully-hydrated TEntity class</returns>
+        </member>
+        <member name="M:Genesys.Foundation.Entity.ModelBase`1.Serialize">
+            <summary>
+            Serializes this object into a Json string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Genesys.Foundation.Entity.ModelBase`1.Deserialize(System.String)">
+            <summary>
+            De-serializes a string into this object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Genesys.Foundation.Entity.BytesKeyModel">
+            <summary>
+            Common object across models and business entity
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Genesys.Foundation.Entity.BytesKeyModel.Bytes">
+            <summary>
+            Bytes of BLOB
+            </summary>
+        </member>
+        <member name="M:Genesys.Foundation.Entity.BytesKeyModel.#ctor">
+            <summary>
+            Constructor
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Genesys.Foundation.Entity.BytesKeyModel.#ctor(System.Byte[])">
+            <summary>
+            Constructor
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Genesys.Foundation.Device.DeviceInfo">
+            <summary>
+            Singleton to deliver information on physical device
+            </summary>
+        </member>
+        <member name="P:Genesys.Foundation.Device.DeviceInfo.DeviceUUID">
+            <summary>
+            DeviceUUID - ASHWID or IMEI or OS Device ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Genesys.Foundation.Device.DeviceInfo.ApplicationUUID">
+            <summary>
+            ApplicationUUID - Device + App ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Genesys.Foundation.Device.DeviceInfo.StoreAppID">
+            <summary>
+            ApplicationID in the context of the "store" serving this app per ecosystem
+            </summary>
+        </member>
+        <member name="P:Genesys.Foundation.Device.DeviceInfo.Model">
+            <summary>
+            Model of device
+            </summary>
+        </member>
+        <member name="P:Genesys.Foundation.Device.DeviceInfo.Manufacturer">
+            <summary>
+            Manufacturer of device
+            </summary>
+        </member>
+        <member name="P:Genesys.Foundation.Device.DeviceInfo.Name">
+            <summary>
+            Name of device
+            </summary>
+        </member>
+        <member name="P:Genesys.Foundation.Device.DeviceInfo.OSName">
+            <summary>
+            OS Name of device
+            </summary>
+        </member>
+        <member name="M:Genesys.Foundation.Device.DeviceInfo.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Foundation.Device.DeviceInfo.Create">
+            <summary>
+            Issues singleton class
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Genesys.Foundation.Device.DeviceInfo.ToString">
+            <summary>
+            Concatenates device info into friendly string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Genesys.Foundation.Device.DeviceInfo.GetDeviceUUID">
+            <summary>
+            Pulls unique device ID. This only works when in the UI App assembly.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Genesys.Foundation.Device.DeviceStorage">
+            <summary>
+            Handles all local data storage
+            </summary>
+        </member>
+        <member name="P:Genesys.Foundation.Device.DeviceStorage.MyWebService">
+            <summary>
+            MyWebService Url
+            </summary>
+        </member>
+        <member name="P:Genesys.Foundation.Device.DeviceStorage.ConfigurationManager">
+            <summary>
+            ConfigurationManager xml information
+            Emulate web.config, Local\AppSettings.config and Local\ConnectionStrings.config
+            </summary>
+        </member>
+        <member name="M:Genesys.Foundation.Device.DeviceStorage.#ctor">
+            <summary>
+            Private Constructor to force singleton
+            </summary>
+        </member>
+        <member name="M:Genesys.Foundation.Device.DeviceStorage.Create(System.String)">
+            <summary>
+            Issues singleton class
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Genesys.Foundation.Device.DeviceStorage.SettingGet(System.String)">
+            <summary>
+            Gets setting from local resources (hard-coded for String)
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Genesys.Foundation.Device.DeviceStorage.SettingGetGuid(System.String)">
+            <summary>
+            Gets setting from local resources (hard-coded for String)
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Genesys.Foundation.Device.DeviceStorage.SettingGet``1(System.String)">
+            <summary>
+            Gets setting from local resources
+            </summary>
+            <typeparam name="TValue"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Genesys.Foundation.Device.DeviceStorage.SettingSet(System.String,System.String)">
+            <summary>
+            Writes to the local settings (hard-coded for String)
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Genesys.Foundation.Device.DeviceStorage.SettingSet(System.String,System.Guid)">
+            <summary>
+            Writes to the local settings (hard-coded for guid)
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Genesys.Foundation.Device.DeviceStorage.SettingSet``1(System.String,``0)">
+            <summary>
+            Writes to the local settings
+            </summary>
+            <typeparam name="TValue"></typeparam>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:Genesys.Foundation.Device.DeviceStorage.ApplicationDataContainer">
+            <summary>
+            Key Value Pair dictionary of user session-specific data
+            </summary>
+        </member>
+        <member name="T:Genesys.Foundation.Device.MyApplication">
+            <summary>
+            Adds critical functionality to allow a Mvc app to work with the GenesysFramework
+            </summary>    
+        </member>
+        <member name="M:Genesys.Foundation.Device.MyApplication.Current">
+            <summary>
+            Issues singleton class
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Genesys.Foundation.Device.MyApplication.ApplicationUUID">
+            <summary>
+            ID of application
+            </summary>
+        </member>
+        <member name="P:Genesys.Foundation.Device.MyApplication.MyDevice">
+            <summary>
+            Device info. Enough to determine device + application combination.
+            </summary>
+        </member>
+        <member name="P:Genesys.Foundation.Device.MyApplication.MyData">
+            <summary>
+            Local storage
+            </summary>
+        </member>
+        <member name="P:Genesys.Foundation.Device.MyApplication.MyContext">
+            <summary>
+            Context
+            </summary>
+        </member>
+        <member name="P:Genesys.Foundation.Device.MyApplication.MyWebService">
+            <summary>
+            MyWebService
+            </summary>
+        </member>
+        <member name="P:Genesys.Foundation.Device.MyApplication.MyCopyright">
+            <summary>
+            Display copyright information
+            </summary>
+        </member>
+        <member name="P:Genesys.Foundation.Device.MyApplication.EntryPoint">
+            <summary>
+            Entry point Screen (Typically login screen)
+            </summary>
+        </member>
+        <member name="P:Genesys.Foundation.Device.MyApplication.HomeScreen">
+            <summary>
+            Home dashboard screen
+            </summary>
+        </member>
+        <member name="P:Genesys.Foundation.Device.MyApplication.ErrorScreen">
+            <summary>
+            Error screen
+            </summary>
+        </member>
+        <member name="M:Genesys.Foundation.Device.MyApplication.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Foundation.Device.MyApplication.WakeServicesAsync">
+            <summary>
+            Wakes up any sleeping threads, and MyWebService chain
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Genesys.Foundation.Device.MyApplication.CanGoBack">
+            <summary>
+            Can this screen go back
+            </summary>
+        </member>
+        <member name="M:Genesys.Foundation.Device.MyApplication.GoBack">
+            <summary>
+            Navigates back to previous screen
+            </summary>
+        </member>
+        <member name="M:Genesys.Foundation.Device.MyApplication.Navigate(Genesys.Extras.Net.UrlInfo,System.Object)">
+            <summary>
+            Navigates to any screen
+            </summary>
+            <param name="destination"></param>
+            <param name="dataToPass"></param>
+        </member>
+        <member name="T:Genesys.Foundation.Name.NameDescriptionModel">
+            <summary>
+            Common object across models and business entity
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Genesys.Foundation.Name.NameDescriptionModel.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Genesys.Foundation.Name.NameDescriptionModel.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="M:Genesys.Foundation.Name.NameDescriptionModel.#ctor">
+            <summary>
+            Constructor
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Genesys.Foundation.Name.NameIDModel">
+            <summary>
+            Common object across models and business entity
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Genesys.Foundation.Name.NameIDModel.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:Genesys.Foundation.Name.NameIDModel.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+    </members>
+</doc>
