@@ -28,7 +28,7 @@ namespace Genesys.Extras.Test
         public void Text_DateRelative_ToString()
         {
             DateRelative objDateRelative = new DateRelative(new System.DateTime(2000, 3, 6));
-            Assert.IsTrue(objDateRelative.ToString() == "less than a minute ago", "Failure");
+            Assert.IsTrue(objDateRelative.ToString() == "less than a minute ago", "Did not work");
         }
     }
 }

@@ -98,8 +98,8 @@ namespace Genesys.Extras.Security.Cryptography
         /// <summary>
         /// Decrypts an salted string
         /// </summary>
-        /// <param name="originalString"></param>
-        public string Decrypt(string originalString)
+        /// <param name="encryptedString"></param>
+        public string Decrypt(string encryptedString)
         {
             string returnValue = TypeExtension.DefaultString;
 
@@ -107,7 +107,7 @@ namespace Genesys.Extras.Security.Cryptography
             {
                 TripleDES des = CreateDes();
                 ICryptoTransform decryptor = des.CreateDecryptor();
-                byte[] encryptedByte = Convert.FromBase64String(originalString);
+                byte[] encryptedByte = Convert.FromBase64String(encryptedString);
                 byte[] decryptedByte = decryptor.TransformFinalBlock(encryptedByte, 0, encryptedByte.Length);
                 string decryptedSaltedString = Encoding.Unicode.GetString(decryptedByte);
                 // Final decryption and return

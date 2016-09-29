@@ -31,17 +31,17 @@ namespace Genesys.Extras.Serialization
     /// </summary>
     /// <remarks></remarks>
     [CLSCompliant(true)]
-    public class XMLSerializer : Serializer
+    public class XmlSerializer : Serializer
     {
         /// <summary>
         /// Constructor
         /// </summary>
-        public XMLSerializer() : base() { }
+        public XmlSerializer() : base() { }
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public XMLSerializer(IListSafe<Type> knownTypes) : base(knownTypes) { }
+        public XmlSerializer(IListSafe<Type> knownTypes) : base(knownTypes) { }
         
         /// <summary>
         /// Serializes the passed object to a string

@@ -17,6 +17,8 @@
 //       limitations under the License. 
 // </copyright>
 //-----------------------------------------------------------------------
+using Genesys.Extensions;
+using Genesys.Extras.Text.Encoding;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Genesys.Extras.Test
@@ -27,7 +29,13 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Text_Encoding_Base64Encoder()
         {
-            // ToDo: Assert.Fail();
+            string rawValue = "Raw data value";
+            string encodedValue = TypeExtension.DefaultString;
+
+            Base64Encoder encoder = new Base64Encoder(rawValue);
+            encodedValue = encoder.Encode();
+            encoder = new Base64Encoder(encodedValue);
+            Assert.IsTrue(encoder.Decode() == rawValue, "Did not work.");
         }
     }
 }

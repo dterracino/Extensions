@@ -8,8 +8,8 @@ This version of the Genesys Framework Extensions is still an infant but we're ea
 ### Reference Site and Documentation
 Genesys Framework Extensions documentation is available at [GetFramework.com](http://www.GetFramework.com):
 
-* [Genesys Framework Extensions and Extras for Universal Apps](http://docs.GetFramework.com/reference/extensions-and-extras)
-* [Genesys Framework Extensions and Extras for MVC/Web Apps](http://docs.GetFramework.com/reference/extensions-and-extras-full)
+* [Genesys Framework Extensionss](http://docs.GetFramework.com/reference/Genesys-Framework-Extensions)
+* [Genesys Framework Foundation](http://docs.GetFramework.com/reference/Genesys-Framework-Foundation)
 
 ### Dev Environment and Compiling
 Please use VisualStudio 2015 Ultimate and build using the IDE or MSBuild.exe.

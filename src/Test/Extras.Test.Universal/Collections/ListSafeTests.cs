@@ -19,6 +19,7 @@
 //-----------------------------------------------------------------------
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Genesys.Extras.Collections;
+using Genesys.Extensions;
 
 namespace Genesys.Extras.Test
 {
@@ -39,29 +40,36 @@ namespace Genesys.Extras.Test
         public void Collections_ListSafe_Add()
         {
             ListSafe<string> kvList = new ListSafe<string>();
-            kvList.Add("TestKey");
-            Assert.AreEqual(1, kvList.Count);
-            //kvString.Add("TestKey", "TestValue2");
-            //Assert.AreNotEqual(2, kvString.Count);
-
+            kvList.Add("TestKey1");
+            Assert.AreEqual(1, kvList.Count, "Did not work");
         }
 
         [TestMethod()]
         public void Collections_ListSafe_Remove()
         {
-            // ToDo: Assert.Fail()
+            ListSafe<string> kvList = new ListSafe<string>();
+            kvList.Add("TestKey1");
+            kvList.Add("TestKey2");
+            kvList.Remove("TestKey1");
+            Assert.IsTrue(kvList.Count == 1, "Did not work");
         }
 
         [TestMethod()]
         public void Collections_ListSafe_FindIndex()
         {
-            // ToDo: Assert.Fail()
+            ListSafe<string> kvList = new ListSafe<string>();
+            kvList.Add("TestKey1");
+            kvList.Add("TestKey2");
+            Assert.IsTrue(kvList.FindIndex("TestKey2") == 2, "Did not work");
         }
 
         [TestMethod()]
         public void Collections_ListSafe_GetValue()
         {
-            // ToDo: Assert.Fail()
+            ListSafe<string> kvList = new ListSafe<string>();
+            kvList.Add("TestKey1");
+            kvList.Add("TestKey2");
+            Assert.IsTrue(kvList.GetValue("TestKey2") != TypeExtension.DefaultString, "Did not work");
         }
     }
 }

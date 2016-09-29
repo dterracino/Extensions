@@ -32,7 +32,7 @@ namespace Genesys.Extras.Test
         public void Media_RGBByteInfo()
         {
             RGBByteInfo RGBByteObject = new RGBByteInfo();
-            Assert.IsTrue(RGBByteObject.ToHex() == "#000000", "Invalid RGB");
+            Assert.IsTrue(RGBByteObject.ToHex() == "#000000", "Did not work");
         }
     }
 }

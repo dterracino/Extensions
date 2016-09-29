@@ -32,7 +32,7 @@ namespace Genesys.Extras.Test
         public void Media_RGBStandardInfo()
         {
             RGBStandardInfo RGBStandardObject = new RGBStandardInfo();
-            Assert.IsTrue(RGBStandardObject.Inverse().Red == 1, "Invalid RGBStandard");
+            Assert.IsTrue(RGBStandardObject.Inverse().Red == 1, "Did not work");
         }
     }
 }

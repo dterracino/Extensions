@@ -4,54 +4,54 @@
         <name>Genesys.Foundation.Models</name>
     </assembly>
     <members>
-        <member name="T:Genesys.Foundation.Entity.ModelBase`1">
+        <member name="T:Genesys.Foundation.Entity.ModelEntity`1">
             <summary>
             ModelBase
             </summary>
             <remarks>ModelBase</remarks>
         </member>
-        <member name="P:Genesys.Foundation.Entity.ModelBase`1.ID">
+        <member name="P:Genesys.Foundation.Entity.ModelEntity`1.ID">
             <summary>
             Primary key of this record. Internal use only, use Key when exposing data externally.
             </summary>
         </member>
-        <member name="P:Genesys.Foundation.Entity.ModelBase`1.Key">
+        <member name="P:Genesys.Foundation.Entity.ModelEntity`1.Key">
             <summary>
             Primary key of this record. To be used for external use.
             </summary>
         </member>
-        <member name="M:Genesys.Foundation.Entity.ModelBase`1.#ctor">
+        <member name="M:Genesys.Foundation.Entity.ModelEntity`1.#ctor">
             <summary>
             Constructor
             </summary>
         </member>
-        <member name="E:Genesys.Foundation.Entity.ModelBase`1.PropertyChanged">
+        <member name="E:Genesys.Foundation.Entity.ModelEntity`1.PropertyChanged">
             <summary>
             Fired when property is changed
             </summary>
         </member>
-        <member name="M:Genesys.Foundation.Entity.ModelBase`1.NotifyPropertyChanged(System.String)">
+        <member name="M:Genesys.Foundation.Entity.ModelEntity`1.NotifyPropertyChanged(System.String)">
             <summary>
             Save and raise changed event
             </summary>
             <param name="propertyName"></param>
             <remarks></remarks>
         </member>
-        <member name="M:Genesys.Foundation.Entity.ModelBase`1.Equals(`0)">
+        <member name="M:Genesys.Foundation.Entity.ModelEntity`1.Equals(`0)">
             <summary>
             Fills this object with another object's data (of the same type)
             </summary>
             <param name="newItem"></param>
             <remarks></remarks>
         </member>
-        <member name="M:Genesys.Foundation.Entity.ModelBase`1.ToString">
+        <member name="M:Genesys.Foundation.Entity.ModelEntity`1.ToString">
             <summary>
             Start with ID as string representation
             </summary>
             <returns></returns>
             <remarks></remarks>
         </member>
-        <member name="M:Genesys.Foundation.Entity.ModelBase`1.Fill(System.Object)">
+        <member name="M:Genesys.Foundation.Entity.ModelEntity`1.Fill(System.Object)">
             <summary>
             Static ability to fill this class with a class that implements the same Property(s)
             This method fully constructs TEntity before filling.
@@ -59,13 +59,13 @@
             <param name="sourceItem">Item to fill TEntity object, must implement at least one common Property.</param>
             <returns>Fully-constructed, fully-hydrated TEntity class</returns>
         </member>
-        <member name="M:Genesys.Foundation.Entity.ModelBase`1.Serialize">
+        <member name="M:Genesys.Foundation.Entity.ModelEntity`1.Serialize">
             <summary>
             Serializes this object into a Json string
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Genesys.Foundation.Entity.ModelBase`1.Deserialize(System.String)">
+        <member name="M:Genesys.Foundation.Entity.ModelEntity`1.Deserialize(System.String)">
             <summary>
             De-serializes a string into this object
             </summary>

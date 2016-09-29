@@ -561,7 +561,7 @@
         </member>
         <member name="M:Genesys.Extras.Net.HttpRequestClient.ToString">
             <summary>
-            String format of the request Url
+            string format of the request Url
             </summary>
             <returns></returns>
         </member>

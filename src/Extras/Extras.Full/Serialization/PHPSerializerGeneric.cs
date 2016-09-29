@@ -36,7 +36,7 @@ namespace Genesys.Extras.Serialization
     /// a = array
     /// </summary>
     [CLSCompliant(true)]
-    public class PHPSerializerFull<ObjectType> : Serializer<ObjectType> where ObjectType : new()
+    public class PhpSerializer<ObjectType> : Serializer<ObjectType> where ObjectType : new()
     {
         private Dictionary<Hashtable, bool> seenHashtables;
         private Dictionary<ArrayList, bool> seenArrayLists;
@@ -56,7 +56,7 @@ namespace Genesys.Extras.Serialization
         /// <summary>
         /// Constructor
         /// </summary>
-        public PHPSerializerFull() : base()
+        public PhpSerializer() : base()
         {
             nfi = new System.Globalization.NumberFormatInfo();
             nfi.NumberGroupSeparator = TypeExtension.DefaultString;
@@ -90,7 +90,7 @@ namespace Genesys.Extras.Serialization
         /// Serialize
         /// </summary>
         /// <param name="obj">Object to serialize</param>
-        /// <param name="sb">String builder to append</param>
+        /// <param name="sb">string builder to append</param>
         /// <returns></returns>
         private StringBuilder SerializeWorker(object obj, StringBuilder sb)
         {
@@ -197,7 +197,7 @@ namespace Genesys.Extras.Serialization
         /// <summary>
         /// Deserialize
         /// </summary>
-        /// <param name="str">String to deserialize</param>
+        /// <param name="str">string to deserialize</param>
         /// <returns>De-serialized string</returns>
         private object DeserializeWorker(string str)
         {

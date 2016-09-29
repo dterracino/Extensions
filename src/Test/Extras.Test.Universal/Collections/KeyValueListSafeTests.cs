@@ -50,19 +50,20 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Collections_KeyValueListSafe_Remove()
         {
-            // ToDo: Assert.Fail()
-        }
-
-        [TestMethod()]
-        public void Collections_KeyValueListSafe_FindIndex()
-        {
-            // ToDo: Assert.Fail()
-        }
+            KeyValueListSafe<int, double> kvList = new KeyValueListSafe<int, double>();
+            kvList.Add(1, 100.00);
+            kvList.Add(2, 200.00);
+            kvList.Remove(1);
+            Assert.IsTrue(kvList.Count == 1, "Did not work");
+        }        
 
         [TestMethod()]
         public void Collections_KeyValueListSafe_GetValue()
         {
-            // ToDo: Assert.Fail()
+            KeyValueListSafe<int, double> kvList = new KeyValueListSafe<int, double>();
+            kvList.Add(1, 100.00);
+            kvList.Add(2, 200.00);
+            Assert.IsTrue(kvList.GetValue(2) == 200.00, "Did not work");
         }
     }
 }

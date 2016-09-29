@@ -17,7 +17,11 @@
 //       limitations under the License. 
 // </copyright>
 //-----------------------------------------------------------------------
+using Genesys.Extras.Collections;
+using Genesys.Extras.Net;
+using Genesys.Extras.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Threading.Tasks;
 
 namespace Genesys.Extras.Test
 {
@@ -25,15 +29,13 @@ namespace Genesys.Extras.Test
     public class HttpRequestPostTests
     {
         [TestMethod()]
-        public void Net_HttpRequestPost_Send()
+        public async Task Net_HttpRequestPost_SendAsync()
         {
-            // ToDo: Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void Net_HttpRequestPost_SendAsync()
-        {
-            // ToDo: Assert.Fail();
+            KeyValuePairString dataIn = new KeyValuePairString() { Key = "MyKey", Value = "MyValue" };
+            StringMutable dataOut = new StringMutable();
+            HttpRequestPost<KeyValuePairString, StringMutable> request = new HttpRequestPost<KeyValuePairString, StringMutable>("http://sampler.dev.getframework.com/Sampler-for-Foundation-WebServices", dataIn);
+            dataOut = await request.SendAsync();
+            Assert.IsTrue(dataOut.Value.Length > 0, "Did not work");
         }
     }
 }

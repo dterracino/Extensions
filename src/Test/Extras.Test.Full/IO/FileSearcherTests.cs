@@ -26,25 +26,17 @@ using Genesys.Extras.IO;
 
 namespace Genesys.Extras.Test
 {
-    /// <summary>
-    /// Exercises the file searcher class
-    /// </summary>
     [TestClass()]
     public class FileSearcherTests
     {
         [TestMethod()]
         public void IO_FileSearcher()
         {
-            // Initialize
             List<String> PathsToSearch = new List<String>() { Directory.GetCurrentDirectory() };
-            String MaskToSearch = @"app.config";
+            string MaskToSearch = @"app.config";
             FileSearcher Searcher = new FileSearcher(PathsToSearch, MaskToSearch, 2);
-
-            // Look for this assembly App.Config            
             Searcher.Search();
-
-            // Ssarch
-            Assert.IsTrue(Searcher.FoundFiles.Count() > 0, "Failed.");
+            Assert.IsTrue(Searcher.FoundFiles.Count() > 0, "Did not work");
         }
     }
 }

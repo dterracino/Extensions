@@ -27,25 +27,37 @@ namespace Genesys.Extensions.Test
         [TestMethod()]
         public void Decimal_ToDouble()
         {
-            // ToDo: Assert.Fail();
+            decimal original = 10.00M;
+            double castedValue = TypeExtension.DefaultDouble;
+            castedValue = original.ToDouble();
+            Assert.IsTrue(castedValue == (double)original, "Did not work");
         }
 
         [TestMethod()]
         public void Decimal_ToInt()
         {
-            // ToDo: Assert.Fail();
+            decimal original = 10.00M;
+            int castedValue = TypeExtension.DefaultInteger;
+            castedValue = original.ToInt();
+            Assert.IsTrue(castedValue == (int)original, "Did not work");
         }
 
         [TestMethod()]
         public void Decimal_ToShort()
         {
-            // ToDo: Assert.Fail();
+            decimal original = 10.00M;
+            short castedValue = TypeExtension.DefaultShort;
+            castedValue = original.ToShort();
+            Assert.IsTrue(castedValue == (short)original, "Did not work");
         }
 
         [TestMethod()]
         public void Decimal_ToLong()
         {
-            // ToDo: Assert.Fail();
+            decimal original = 10.00M;
+            long castedValue = TypeExtension.DefaultLong;
+            castedValue = original.ToLong();
+            Assert.IsTrue(castedValue == (long)original, "Did not work");
         }
     }
 }

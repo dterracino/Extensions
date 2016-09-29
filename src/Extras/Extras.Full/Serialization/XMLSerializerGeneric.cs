@@ -19,10 +19,8 @@
 // </copyright>
 //-----------------------------------------------------------------------
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Xml;
-using System.Xml.Serialization;
 using Genesys.Extensions;
 using Genesys.Extras.Collections;
 
@@ -33,7 +31,7 @@ namespace Genesys.Extras.Serialization
     /// XML serialization and deserialization
     /// </summary>
     [CLSCompliant(true)]
-    public class XMLSerializerFull<T> : Serializer<T> where T : new()
+    public class XmlSerializer<T> : Serializer<T> where T : new()
     {
         /// <summary>
         /// List of types that allow serializer to use a type not explicitly defined. 
@@ -45,7 +43,7 @@ namespace Genesys.Extras.Serialization
         /// <summary>
         /// Constructor
         /// </summary>
-        public XMLSerializerFull()
+        public XmlSerializer()
             : base()
         {
 
@@ -55,7 +53,7 @@ namespace Genesys.Extras.Serialization
         /// Serializes and returns the JSON as a string
         /// </summary>
         /// <param name="objectToSerialize">Item to serialize</param>
-        /// <returns>String serialized with passed object</returns>
+        /// <returns>string serialized with passed object</returns>
         public override string Serialize(T objectToSerialize)
         {
             return this.Serialize<T>(objectToSerialize);

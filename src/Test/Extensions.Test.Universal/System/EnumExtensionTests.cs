@@ -18,28 +18,59 @@
 // </copyright>
 //-----------------------------------------------------------------------
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Genesys.Extensions;
+using System;
 
 namespace Genesys.Extensions.Test
 {
     [TestClass()]
     public class EnumExtensionTests
     {
+        public class EnumConsumer
+        {
+            public enum MyEnumInts
+            {
+                one = 1,
+                two = 2,
+                three = 3
+            }
+
+            [Flags]
+            public enum MyEnumFlags
+            {
+                one = 0x01,
+                two = 0x02,
+                four = 0x04,
+                eight = 0x08
+            }
+
+            public MyEnumInts enumInt = MyEnumInts.one;
+            public MyEnumFlags enumFlag = MyEnumFlags.one;
+        }
+
         [TestMethod()]
         public void Enum_Add()
         {
-            // ToDo: Assert.Fail();
+            EnumConsumer consumer = new EnumConsumer();
+            int sixteen = 0x16;
+            consumer.enumFlag.Add(sixteen);
+            Assert.IsTrue(consumer.enumInt.Contains(0x16) == true, "Did not work");
         }
 
         [TestMethod()]
         public void Enum_Remove()
         {
-            // ToDo: Assert.Fail();
+            EnumConsumer consumer = new EnumConsumer();
+            consumer.enumFlag.Remove(0x01);
+            Assert.IsTrue(consumer.enumInt.Contains(0x01) == false, "Did not work");
         }
 
         [TestMethod()]
         public void Enum_Contains()
         {
-            // ToDo: Assert.Fail();
+            EnumConsumer consumer = new EnumConsumer();
+            consumer.enumFlag.Remove(0x01);
+            Assert.IsTrue(consumer.enumInt.Contains(0x01) == true, "Did not work");
         }
     }
 }

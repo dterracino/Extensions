@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------
-// <copyright file="MD5HashBuilderTests.cs" company="Genesys Source">
+// <copyright file="Md5HashBuilderTests.cs" company="Genesys Source">
 //      Copyright (c) 2016 Genesys Source. All rights reserved.
 //      Licensed to the Apache Software Foundation (ASF) under one or more 
 //      contributor license agreements.  See the NOTICE file distributed with 
@@ -17,6 +17,7 @@
 //       limitations under the License. 
 // </copyright>
 //-----------------------------------------------------------------------
+using Genesys.Extras.Security.Cryptography;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Genesys.Extras.Test
@@ -27,7 +28,11 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Security_Cryptography_MD5HashBuilder_Compare()
         {
-            // ToDo: Assert.Fail();
+            string rawData = "Hello, I am raw";
+            Md5HashBuilder hasher = new Md5HashBuilder(rawData);
+            string hashed = hasher.HashedString;
+            Assert.IsTrue(rawData != hashed, "Did not work");
+            Assert.IsTrue(hasher.Compare(rawData) == true, "Did not work");
         }
     }
 }

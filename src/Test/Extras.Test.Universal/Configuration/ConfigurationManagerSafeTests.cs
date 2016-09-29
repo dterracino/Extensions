@@ -21,6 +21,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Configuration;
 using Genesys.Extensions;
 using Genesys.Extras.Configuration;
+using System.Collections.Specialized;
 
 namespace Genesys.Extras.Test
 {
@@ -36,12 +37,22 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Configuration_ConfigurationManagerSafe_AppSettings()
         {
-            // Shouldnt need (full) reference. Replace with simple file text reader
+            AppSettingSafe ItemToTest = new AppSettingSafe();
+            NameValueCollection itemToConvert = ConfigurationManager.AppSettings;
+            string[,] configData = new string[itemToConvert.Count, 2];
 
-            //AppSettingSafe ItemToTest = new AppSettingSafe();
-            //ConfigurationManagerSafe Configuration = new ConfigurationManagerSafe(ConfigurationManager.AppSettings.ToArraySafe());
-            //ItemToTest = Configuration.AppSetting("TestAppSetting");
-            //Assert.IsTrue(ItemToTest.Value != TypeExtension.DefaultString, "Failed.");
+            for (int count = 0; count < itemToConvert.Count; count++)
+            {
+                foreach (string itemKey in itemToConvert)
+                {
+                    configData[count, 0] = itemKey;
+                    configData[count, 1] = itemToConvert[count];
+                }
+            }
+
+            ConfigurationManagerSafe Configuration = new ConfigurationManagerSafe(configData);
+            ItemToTest = Configuration.AppSetting("TestAppSetting");
+            Assert.IsTrue(ItemToTest.Value != TypeExtension.DefaultString, "Did not work");
         }
 
         /// <summary>
@@ -50,23 +61,30 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Configuration_ConfigurationManagerSafe_ConnectionStrings()
         {
-            // Shouldnt need (full) reference. Replace with simple file text reader
-
             ConnectionStringSafe ItemToTest = new ConnectionStringSafe();
-            // This needs to be a string representation, without file access
-            // FileReader connectionFile = new FileReader(@"Local\ConnectionStrings.config");
-            //ConfigurationManagerSafe Configuration = new ConfigurationManagerSafe("", connectionFile.ReadToEnd());
+            ConnectionStringSettingsCollection itemToConvert = ConfigurationManager.ConnectionStrings;
+            string[,] configData = new string[itemToConvert.Count, 2];
 
-            //ItemToTest = Configuration.ConnectionString("TestADOConnection");
-            //Assert.IsTrue(ItemToTest.Value != TypeExtension.DefaultString, "Failed.");
-            //ItemToTest.EDMXFileName = "TestEDMXFile";
-            //Assert.IsTrue(ItemToTest.ToString("EF") != TypeExtension.DefaultString);
-            //Assert.IsTrue(ItemToTest.ToEF(this.GetType()) != TypeExtension.DefaultString);
+            for (int count = 0; count < itemToConvert.Count; count++)
+            {
+                foreach (string itemKey in itemToConvert)
+                {
+                    configData[count, 0] = itemKey;
+                    configData[count, 1] = itemToConvert[count].ConnectionString;
+                }
+            }
+            ConfigurationManagerSafe Configuration = new ConfigurationManagerSafe(configData);
 
-            //ItemToTest = Configuration.ConnectionString("TestEFConnection");
-            //Assert.IsTrue(ItemToTest.Value != TypeExtension.DefaultString, "Failed.");
-            //Assert.IsTrue(ItemToTest.ToString("ADO") != TypeExtension.DefaultString);
-            //Assert.IsTrue(ItemToTest.ToADO() != TypeExtension.DefaultString);
+            ItemToTest = Configuration.ConnectionString("TestADOConnection");
+            Assert.IsTrue(ItemToTest.Value != TypeExtension.DefaultString, "Did not work");
+            ItemToTest.EDMXFileName = "TestEDMXFile";
+            Assert.IsTrue(ItemToTest.ToString("EF") != TypeExtension.DefaultString);
+            Assert.IsTrue(ItemToTest.ToEF(this.GetType()) != TypeExtension.DefaultString);
+
+            ItemToTest = Configuration.ConnectionString("TestEFConnection");
+            Assert.IsTrue(ItemToTest.Value != TypeExtension.DefaultString, "Did not work");
+            Assert.IsTrue(ItemToTest.ToString("ADO") != TypeExtension.DefaultString);
+            Assert.IsTrue(ItemToTest.ToADO() != TypeExtension.DefaultString);
         }
     }
 }

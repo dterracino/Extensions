@@ -26,44 +26,36 @@ using Genesys.Extras.Text;
 
 namespace Genesys.Extras.Test
 {
-    /// <summary>
-    /// Serialization Tests
-    /// </summary>
     [TestClass()]
     public class SerializerGenericTests
     {
-        /// <summary>
-        /// Test standard value types
-        /// </summary>
+
         [TestMethod()]
         public void Serialization_SerializerGeneric_ValueTypes()
         {
             // Immutable string class
-            String Data1 = TypeExtension.DefaultString;
-            String TestData1 = "TestDataHere";
+            string Data1 = TypeExtension.DefaultString;
+            string TestData1 = "TestDataHere";
             ISerializer<Object> Serialzer1 = new JsonSerializer<Object>();
             Data1 = Serialzer1.Serialize(TestData1);
             Assert.IsTrue(Serialzer1.Deserialize(Data1).ToString() == TestData1);
 
-            // Mutable string class
-            String Data = Data = TypeExtension.DefaultString;
+            
+            string Data = Data = TypeExtension.DefaultString;
             StringMutable TestData = "TestDataHere";
             ISerializer<StringMutable> Serialzer = new JsonSerializer<StringMutable>();
             Data = Serialzer.Serialize(TestData);
             Assert.IsTrue(Serialzer.Deserialize(Data).ToString() == TestData.ToString());
         }
 
-        /// <summary>
-        /// Test standard reference types
-        /// </summary>
         [TestMethod()]
         public void Serialization_SerializerGeneric_ReferenceTypes()
         {
             // Collections, etc
             List<Int32> ItemL = new List<Int32> { 1, 2, 3 };
             JsonSerializer<List<Int32>> Serializer = new JsonSerializer<List<Int32>>();
-            String SerializedDataL = Serializer.Serialize(ItemL);
-            Assert.IsTrue(ItemL.Count == Serializer.Deserialize(SerializedDataL).Count, "Failed.");
+            string SerializedDataL = Serializer.Serialize(ItemL);
+            Assert.IsTrue(ItemL.Count == Serializer.Deserialize(SerializedDataL).Count, "Did not work");
         }
     }
 }

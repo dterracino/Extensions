@@ -17,14 +17,7 @@
 //       limitations under the License. 
 // </copyright>
 //-----------------------------------------------------------------------
-#region Using
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Genesys.Extensions;
-#endregion
 
 namespace Genesys.Extensions.Test
 {
@@ -34,19 +27,16 @@ namespace Genesys.Extensions.Test
         [TestMethod()]
         public void Image_Resize()
         {
-            // ToDo: Assert.Fail();
         }
 
         [TestMethod()]
         public void Image_Crop()
         {
-            // ToDo: Assert.Fail();
         }
 
         [TestMethod()]
         public void Image_ToBytes()
         {
-            // ToDo: Assert.Fail();
         }
     }
 }

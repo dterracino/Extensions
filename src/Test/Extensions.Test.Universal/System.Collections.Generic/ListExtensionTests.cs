@@ -18,58 +18,31 @@
 // </copyright>
 //-----------------------------------------------------------------------
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace Genesys.Extensions.Test
 {
     [TestClass()]
     public class ListExtensionTests
     {
+        public List<string> names1 = new List<string>(){ "Burke", "Connor", "Frank",
+                       "Everett", "Albert", "George",
+                       "Harris", "David" };
+        public List<string> names2 = new List<string>(){ "Joe", "James", "Jack" };
+
         [TestMethod()]
         public void List_FirstOrDefaultSafe()
         {
-            // ToDo: Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void List_Index()
-        {
-            // ToDo: Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void List_FindSafe()
-        {
-            // ToDo: Assert.Fail();
+            Assert.IsTrue(names1.FirstOrDefaultSafe("Not found") == names1[0], "Did not work");
         }
 
         [TestMethod()]
         public void List_AddRange()
         {
-            // ToDo: Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void List_GetListType()
-        {
-            // ToDo: Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void List_GetEnumerableType()
-        {
-            // ToDo: Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void List_FillByInterface()
-        {
-            // ToDo: Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void List_FillByProperty()
-        {
-            // ToDo: Assert.Fail();
-        }
+            List<string> allNames = new List<string>();
+            allNames.AddRange(names1);
+            allNames.AddRange(names2);
+            Assert.IsTrue(allNames.Count == (names1.Count + names2.Count), "Did not work");
+        }        
     }
 }

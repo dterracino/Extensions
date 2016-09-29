@@ -105,7 +105,7 @@ namespace Genesys.Extras.Net
         public abstract Task<string> SendAsync();
 
         /// <summary>
-        /// String format of the request Url
+        /// string format of the request Url
         /// </summary>
         /// <returns></returns>
         public override string ToString()

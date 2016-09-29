@@ -63,7 +63,6 @@
     <Compile Include="Media\RGBStandardInfoTests.cs" />
     <Compile Include="Media\RGBByteInfoTests.cs" />
     <Compile Include="Net.HttpRequest\HttpClientBuilderTests.cs" />
-    <Compile Include="Net.HttpRequest\HttpRequestBaseTests.cs" />
     <Compile Include="Net.HttpRequest\HttpRequestGetStringTests.cs" />
     <Compile Include="Net.HttpRequest\HttpRequestGetTests.cs" />
     <Compile Include="Net.HttpRequest\HttpRequestPostStringTests.cs" />

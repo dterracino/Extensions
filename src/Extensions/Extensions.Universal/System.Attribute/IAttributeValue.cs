@@ -26,7 +26,7 @@ namespace Genesys.Extensions
     public interface IAttributeValue<TValue>
     {
         /// <summary>
-        /// String value of the attribute
+        /// string value of the attribute
         /// </summary>
         TValue Value { get; set; }
     }

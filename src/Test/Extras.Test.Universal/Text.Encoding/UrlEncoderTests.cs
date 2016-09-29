@@ -17,6 +17,7 @@
 //       limitations under the License. 
 // </copyright>
 //-----------------------------------------------------------------------
+using Genesys.Extras.Text.Encoding;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Genesys.Extras.Test
@@ -27,7 +28,9 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Text_Encoding_UrlEncoder()
         {
-            // ToDo: Assert.Fail();
+            UrlEncoder testObject = new UrlEncoder("% and & and <");
+            string result = testObject.Encode();
+            Assert.IsTrue(result.Contains("%") == false && result.Length > 0, "Item did not work.");
         }
     }
 }

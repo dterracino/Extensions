@@ -33,7 +33,7 @@ namespace Genesys.Extensions
         /// Returns mime content type for an Image Format item
         /// </summary>
         /// <param name="item">MIME content type of item</param>
-        /// <returns>String containing the MIME content type text</returns>
+        /// <returns>string containing the MIME content type text</returns>
         public static string ToContentType(this ImageFormat item)
         {
             string returnValue = "image/unknown";

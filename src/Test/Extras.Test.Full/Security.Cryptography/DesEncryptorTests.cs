@@ -17,6 +17,7 @@
 //       limitations under the License. 
 // </copyright>
 //-----------------------------------------------------------------------
+using Genesys.Extras.Security.Cryptography;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Genesys.Extras.Test
@@ -27,13 +28,11 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Security_Cryptography_DesEncryptor()
         {
-            // ToDo: Assert.Fail();
+            string rawData = "Hello, I am raw";
+            DesEncryptor encryptor = new DesEncryptor(rawData);
+            string encrypted = encryptor.Encrypt(rawData);
+            Assert.IsTrue(rawData != encrypted, "Did not work");
+            Assert.IsTrue(encryptor.Decrypt(encrypted) == rawData, "Did not work");
         }        
-
-        [TestMethod()]
-        public void Security_Cryptography_DesEncryptor_EncryptDecrypt()
-        {
-            // ToDo: Assert.Fail();
-        }
     }
 }

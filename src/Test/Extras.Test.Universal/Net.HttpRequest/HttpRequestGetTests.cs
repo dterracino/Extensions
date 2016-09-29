@@ -17,7 +17,11 @@
 //       limitations under the License. 
 // </copyright>
 //-----------------------------------------------------------------------
+using Genesys.Extensions;
+using Genesys.Extras.Net;
+using Genesys.Extras.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Threading.Tasks;
 
 namespace Genesys.Extras.Test
 {
@@ -25,15 +29,12 @@ namespace Genesys.Extras.Test
     public class HttpRequestGetTests
     {
         [TestMethod()]
-        public void Net_HttpRequestGet_Send()
+        public async Task Net_HttpRequestGet_SendAsync()
         {
-            // ToDo: Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void Net_HttpRequestGet_SendAsync()
-        {
-            // ToDo: Assert.Fail();
+            string dataOut = TypeExtension.DefaultString;
+            HttpRequestGet<StringMutable> request = new HttpRequestGet<StringMutable>("http://www.getframework.com");
+            dataOut = await request.SendAsync();
+            Assert.IsTrue(dataOut.Length > 0, "Did not work");
         }
     }
 }

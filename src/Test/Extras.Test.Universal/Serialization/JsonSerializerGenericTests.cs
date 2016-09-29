@@ -26,9 +26,6 @@ using Genesys.Extras.Text;
 
 namespace Genesys.Extras.Test
 {
-    /// <summary>
-    /// Serialization Tests
-    /// </summary>
     [TestClass()]
     public class JsonSerializerGenericTests
     {
@@ -36,55 +33,43 @@ namespace Genesys.Extras.Test
         private const string testPhraseSerialized = "\"Services up and running...\"";
         private const string testPhraseMutableSerialized = "{\"Value\":\"Services up and running...\"}";
 
-        /// <summary>
-        /// Test standard value types
-        /// </summary>
         [TestMethod()]
         public void Serialization_Json_ValueTypes()
         {
             // Immutable string class
-            String Data1 = TypeExtension.DefaultString;
-            String TestData1 = "TestDataHere";
+            string Data1 = TypeExtension.DefaultString;
+            string TestData1 = "TestDataHere";
             ISerializer<Object> Serialzer1 = new JsonSerializer<Object>();
             Data1 = Serialzer1.Serialize(TestData1);
-            Assert.IsTrue(Serialzer1.Deserialize(Data1).ToString() == TestData1);
+            Assert.IsTrue(Serialzer1.Deserialize(Data1).ToString() == TestData1, "Did not work");
 
-            // Mutable string class
-            String Data = Data = TypeExtension.DefaultString;
+            
+            string Data = Data = TypeExtension.DefaultString;
             StringMutable TestData = "TestDataHere";
             ISerializer<StringMutable> Serialzer = new JsonSerializer<StringMutable>();
             Data = Serialzer.Serialize(TestData);
-            Assert.IsTrue(Serialzer.Deserialize(Data).ToString() == TestData.ToString());
+            Assert.IsTrue(Serialzer.Deserialize(Data).ToString() == TestData.ToString(), "Did not work");
         }
 
-        /// <summary>
-        /// Test serialization and deserialization
-        /// </summary>
         [TestMethod()]
         public void Serialization_Json_ReferenceTypes()
         {
             // Collections, etc
             List<Int32> ItemL = new List<Int32> { 1, 2, 3 };
             JsonSerializer<List<Int32>> Serializer = new JsonSerializer<List<Int32>>();
-            String SerializedDataL = Serializer.Serialize(ItemL);
-            Assert.IsTrue(ItemL.Count == Serializer.Deserialize(SerializedDataL).Count, "Failed.");
+            string SerializedDataL = Serializer.Serialize(ItemL);
+            Assert.IsTrue(ItemL.Count == Serializer.Deserialize(SerializedDataL).Count, "Did not work");
         }
 
-        /// <summary>
-        /// Test serialization and deserialization
-        /// </summary>
         [TestMethod()]
         public void Serialization_Json_String()
         {
             JsonSerializer<string> serializer = new JsonSerializer<string>();
 
-            Assert.IsTrue(testPhraseSerialized == serializer.Serialize(testPhrase), "Does not work.");
-            Assert.IsTrue(testPhrase == serializer.Deserialize(testPhraseSerialized), "Does not work.");
+            Assert.IsTrue(testPhraseSerialized == serializer.Serialize(testPhrase), "Did not work");
+            Assert.IsTrue(testPhrase == serializer.Deserialize(testPhraseSerialized), "Did not work");
         }
 
-        /// <summary>
-        /// Test serialization and deserialization
-        /// </summary>
         [TestMethod()]
         public void Serialization_Json_StringMutable()
         {
@@ -96,16 +81,13 @@ namespace Genesys.Extras.Test
             // Serialization            
             testPhraseMutable = testPhrase;
             result = serializerMutable.Serialize(testPhraseMutable);
-            Assert.IsTrue(result == testPhraseMutableSerialized, "Does not work.");
+            Assert.IsTrue(result == testPhraseMutableSerialized, "Did not work");
 
             // Deserialization
             resultMutable = serializerMutable.Deserialize(testPhraseMutableSerialized);
-            Assert.IsTrue(resultMutable == testPhrase, "Does not work.");
+            Assert.IsTrue(resultMutable == testPhrase, "Did not work");
         }
 
-        /// <summary>
-        /// Test serialization and deserialization
-        /// </summary>
         [TestMethod()]
         public void Serialization_Json_StringToStringMutable()
         {
@@ -115,19 +97,19 @@ namespace Genesys.Extras.Test
             JsonSerializer<StringMutable> serializerMutable = new JsonSerializer<StringMutable>();
             JsonSerializer<string> serializer = new JsonSerializer<string>();
 
-            // String Mutable can be serialized as string, then deserialized as string after transport 
+            // string Mutable can be serialized as string, then deserialized as string after transport 
             //  So that consumers don't need to know original was StringMutable
             result = serializer.Serialize(testPhraseMutable);
-            Assert.IsTrue(testPhraseSerialized == result, "Does not work.");
+            Assert.IsTrue(testPhraseSerialized == result, "Did not work");
 
-            // StringMutable serialize -> String deserialize
+            // StringMutable serialize -> string deserialize
             result = serializerMutable.Deserialize(testPhraseSerialized); // Not supported scenario, should default ot empty string
-            Assert.IsTrue(result == TypeExtension.DefaultString, "Does not work."); 
+            Assert.IsTrue(result == TypeExtension.DefaultString, "Did not work"); 
 
             result = serializerMutable.Deserialize(testPhraseMutableSerialized);
-            Assert.IsTrue(result == testPhrase, "Does not work.");
+            Assert.IsTrue(result == testPhrase, "Did not work");
             resultMutable = serializerMutable.Deserialize(testPhraseMutableSerialized);
-            Assert.IsTrue(resultMutable == testPhrase, "Does not work.");
+            Assert.IsTrue(resultMutable == testPhrase, "Did not work");
         }
     }
 }

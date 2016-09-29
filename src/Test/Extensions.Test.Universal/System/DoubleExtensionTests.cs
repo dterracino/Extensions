@@ -27,7 +27,10 @@ namespace Genesys.Extensions.Test
         [TestMethod()]
         public void Double_ToDecimal()
         {
-            // ToDo: Assert.Fail();
+            double original = 10.00;
+            decimal castedValue = TypeExtension.DefaultDecimal;
+            castedValue = original.ToDecimal();
+            Assert.IsTrue(castedValue == (decimal)original, "Did not work");
         }
     }
 }

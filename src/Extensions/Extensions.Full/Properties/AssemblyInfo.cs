@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Genesys .Net Extensions for .Net Full")]
-[assembly: AssemblyDescription("Genesys .Net Extras for your .Net Full libraries, WebApi services, Desktop apps, Asp.Net and Asp.Net Mvc sites.")]
+[assembly: AssemblyDescription("Genesys .Net Extensions for your .Net Full libraries, WebApi services, Desktop apps, Asp.Net and Asp.Net Mvc sites.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Genesys Source")]
 [assembly: AssemblyProduct("Genesys .Net Extensions for .Net Full")]

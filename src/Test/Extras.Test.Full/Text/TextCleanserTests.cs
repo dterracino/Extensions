@@ -18,16 +18,11 @@
 // </copyright>
 //-----------------------------------------------------------------------
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-using System.Reflection;
 using Genesys.Extensions;
 using Genesys.Extras.Text.Cleansing;
 
 namespace Genesys.Extras.Test
 {
-    /// <summary>
-    /// Tests functionality that cleanses text
-    /// </summary>
     [TestClass()]
     public class TextCleaningTests
     {
@@ -36,9 +31,6 @@ namespace Genesys.Extras.Test
         private string unsafeTag2 = "<script type=\"text\\javascript/\">function () { var unsafeX = 2;}</script>";
         private string unsafeHtml { get { return string.Format("{0}{1}{2}", unsafeTag1, safeTag1, unsafeTag2); } }
 
-        /// <summary>
-        /// Tests cleansing unsafe html from strings, via Xml parsing
-        /// </summary>
         [TestMethod()]
         public void Text_Cleanser_HtmlUnsafe()
         {
@@ -49,9 +41,6 @@ namespace Genesys.Extras.Test
             Assert.IsTrue(safeHtml.Contains(safeTag1) == true, "Did not work.");
         }
 
-        /// <summary>
-        /// Tests property cleansing triggered by attribute
-        /// </summary>
         [TestMethod()]
         public void Text_Cleanser_Attribute()
         {
@@ -63,9 +52,6 @@ namespace Genesys.Extras.Test
             Assert.IsTrue(testItem.CleanseMe.Contains(safeTag1) == true, "Did not work.");
         }
 
-        /// <summary>
-        /// Test class for cleanser attribute
-        /// </summary>
         private class CleanserAttributeTester
         {
             [CleanseFor(CleanserIDs.UnsafeHtml)]

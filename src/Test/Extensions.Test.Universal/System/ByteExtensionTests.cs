@@ -30,13 +30,8 @@ namespace Genesys.Extensions.Test
         [TestMethod()]
         public void Byte_ToString()
         {
-            // ToDo: Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void Byte_ToRGB()
-        {
-            // ToDo: Assert.Fail();
+            byte[] bytes = { 0, 0, 0, 25 };
+            Assert.IsTrue(bytes.ToString().Length > 0, "Did not work");
         }
     }
 }

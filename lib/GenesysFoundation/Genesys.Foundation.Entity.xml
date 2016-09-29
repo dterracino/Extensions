@@ -599,7 +599,7 @@
         </member>
         <member name="P:Genesys.Foundation.Entity.SaveableEntity`1.IsNew">
             <summary>
-            Is a new object, and most likely not yet committed to the database
+            Is this a new object not yet committed to the database
             </summary>
         </member>
         <member name="M:Genesys.Foundation.Entity.SaveableEntity`1.#ctor">

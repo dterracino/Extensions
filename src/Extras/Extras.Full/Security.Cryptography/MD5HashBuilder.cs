@@ -50,7 +50,7 @@ namespace Genesys.Extras.Security.Cryptography
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="stringToHash">String to hash</param>
+        /// <param name="stringToHash">string to hash</param>
         /// <param name="salt">Salted value to add to hashed string</param>
         public Md5HashBuilder(string stringToHash, string salt = "")
             : this(salt)
@@ -61,7 +61,7 @@ namespace Genesys.Extras.Security.Cryptography
         /// <summary>
         /// Hashes a String
         /// </summary>
-        /// <param name="stringToHash">String to hash</param>
+        /// <param name="stringToHash">string to hash</param>
         /// <returns>Hashed string data</returns>
         private string HashCreate(string stringToHash)
         {
@@ -92,7 +92,7 @@ namespace Genesys.Extras.Security.Cryptography
         /// <summary>
         /// Hashes and compares a string
         /// </summary>
-        /// <param name="rawString">String to hash compare</param>
+        /// <param name="rawString">string to hash compare</param>
         /// <returns>True if string + salt hashed matches current hash string</returns>
         public bool Compare(string rawString)
         {

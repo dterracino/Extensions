@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Genesys .Net Extras for .Net Core")]
-[assembly: AssemblyDescription("Genesys .Net Extras for your .Net Core PCL/libraries and Universal x-platform mobile apps. Also compatible with all .Net Full libraries and apps.")]
+[assembly: AssemblyTitle("Genesys .Net Extensions for .Net Core")]
+[assembly: AssemblyDescription("Genesys .Net Extensions for your .Net Core PCL/libraries and Universal x-platform mobile apps. Also compatible with all .Net Full libraries and apps.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Genesys Source")]
-[assembly: AssemblyProduct("Genesys .Net Extras for .Net Core")]
+[assembly: AssemblyProduct("Genesys .Net Extensions for .Net Core")]
 [assembly: AssemblyCopyright("Copyright © 2016 Genesys Source. All rights reserved")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

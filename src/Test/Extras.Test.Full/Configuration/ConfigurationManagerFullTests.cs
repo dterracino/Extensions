@@ -26,9 +26,6 @@ namespace Genesys.Extras.Test
     [TestClass()]
     public partial class ConfigurationManagerFullTests
     {
-        /// <summary>
-        /// Connection strings in safe version of configuration manager
-        /// </summary>
         [TestMethod()]
         public void Configuration_ConfigurationManagerFull_AppSettings()
         {
@@ -36,27 +33,22 @@ namespace Genesys.Extras.Test
             AppSettingSafe itemToTest = new AppSettingSafe();
             ConfigurationManagerSafe configuration = new ConfigurationManagerFull();
             itemToTest = configuration.AppSetting("TestAppSetting");
-            Assert.IsTrue(itemToTest.Value != TypeExtension.DefaultString, "Failed.");
+            Assert.IsTrue(itemToTest.Value != TypeExtension.DefaultString, "Did not work");
             itemToTestString = ConfigurationManagerFull.AppSettings.GetValue("TestAppSetting");
-            Assert.IsTrue(itemToTestString != TypeExtension.DefaultString, "Failed.");
+            Assert.IsTrue(itemToTestString != TypeExtension.DefaultString, "Did not work");
         }
 
-        /// <summary>
-        /// App settings in safe version of configuration manager
-        /// </summary>
         [TestMethod()]
         public void Configuration_ConfigurationManagerFull_ConnectionStrings()
         {
             ConnectionStringSafe itemToTest = new ConnectionStringSafe();
             ConfigurationManagerSafe configuration = new ConfigurationManagerFull();
-            // EF string
             itemToTest = configuration.ConnectionString("TestEFConnection");
-            Assert.IsTrue(itemToTest.Value != TypeExtension.DefaultString, "Failed.");
-            Assert.IsTrue(itemToTest.IsEF(), "Failed.");
-            // ADO string
+            Assert.IsTrue(itemToTest.Value != TypeExtension.DefaultString, "Did not work");
+            Assert.IsTrue(itemToTest.IsEF(), "Did not work");
             itemToTest = configuration.ConnectionString("TestADOConnection");
-            Assert.IsTrue(itemToTest.Value != TypeExtension.DefaultString, "Failed.");
-            Assert.IsTrue(itemToTest.IsADO(), "Failed.");
+            Assert.IsTrue(itemToTest.Value != TypeExtension.DefaultString, "Did not work");
+            Assert.IsTrue(itemToTest.IsADO(), "Did not work");
         }        
     }
 }

@@ -27,13 +27,21 @@ namespace Genesys.Extensions.Test
     [TestClass()]
     public class ObjectExtensionTests
     {
-        /// <summary>
-        /// Extensions_Object_DirectCastSafe
-        /// </summary>
-        [TestMethod()]
-        public void Object_DefaultSafe()
+        public interface IMyClass
         {
-            // ToDo: Assert.Fail();
+            string MyProperty { get; set; }
+        }
+        public class MyClass1 : IMyClass
+        {
+            public string MyProperty { get; set; } = "PropertyData1";
+        }
+        public class MyClass2 : IMyClass
+        {
+            public string MyProperty { get; set; } = "PropertyData2";
+        }
+        public class MyClass3
+        {
+            public string MyProperty { get; set; } = "PropertyData3";
         }
 
         /// <summary>
@@ -42,15 +50,9 @@ namespace Genesys.Extensions.Test
         [TestMethod()]
         public void Object_DirectCastSafe()
         {
-            // ToDo: Assert.Fail();
-        }
-        /// <summary>
-        /// Extensions_Object_ToStringSafe
-        /// </summary>
-        [TestMethod()]
-        public void Object_ToStringSafe()
-        {
-            // ToDo: Assert.Fail();
+            MyClass1 testItem = new MyClass1();
+            MyClass3 compareItem = new MyClass3();
+            Assert.IsTrue(testItem.DirectCastSafe<MyClass3>().GetType() == compareItem.GetType(), "Did not work");
         }
 
         /// <summary>
@@ -59,16 +61,30 @@ namespace Genesys.Extensions.Test
         [TestMethod()]
         public void Object_FillByProperty()
         {
-           
+            MyClass1 testItem = new MyClass1();
+            MyClass2 fillItem1 = new MyClass2();
+            MyClass3 fillItem2 = new MyClass3();
+            fillItem1.FillByProperty(testItem);
+            fillItem2.FillByProperty(testItem);
+            Assert.IsTrue(testItem.MyProperty == fillItem1.MyProperty, "Did not work");
+            Assert.IsTrue(testItem.MyProperty == fillItem2.MyProperty, "Did not work");
+            Assert.IsTrue(testItem.MyProperty != new MyClass2().MyProperty, "Did not work");
         }
+
         /// <summary>
         /// Extensions_Object_FillByInterface
         /// </summary>
         [TestMethod()]
         public void Object_FillByInterface()
         {
-            
-
+            MyClass1 testItem = new MyClass1();
+            MyClass2 fillItem1 = new MyClass2();
+            MyClass3 fillItem2 = new MyClass3();
+            fillItem1.FillByInterface(testItem);
+            fillItem2.FillByInterface(testItem);
+            Assert.IsTrue(testItem.MyProperty == fillItem1.MyProperty, "Did not work");
+            Assert.IsTrue(testItem.MyProperty != fillItem2.MyProperty, "Did not work");
+            Assert.IsTrue(testItem.MyProperty != new MyClass2().MyProperty, "Did not work");
         }
     }
 }

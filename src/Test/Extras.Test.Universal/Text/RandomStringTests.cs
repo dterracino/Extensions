@@ -28,7 +28,7 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Text_RandomString_Next()
         {
-            Assert.IsTrue(RandomString.Next().Length == 10, "Failure");
+            Assert.IsTrue(RandomString.Next().Length == 10, "Did not work");
         }
     }
 }

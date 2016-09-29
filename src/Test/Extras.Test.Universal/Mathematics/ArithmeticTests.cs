@@ -32,32 +32,32 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Mathematics_Arithmetic_Addition()
         {
-            Assert.IsTrue(Arithmetic.Addition(5, 6) == 11, "Arithmetic Addition Failed");
+            Assert.IsTrue(Arithmetic.Addition(5, 6) == 11, "Did not work");
         }
 
         [TestMethod()]
         public void Mathematics_Arithmetic_Subtraction()
         {
-            Assert.IsTrue(Arithmetic.Subtraction(6, 6) == 0, "Arithmetic Subtraction Failed");
+            Assert.IsTrue(Arithmetic.Subtraction(6, 6) == 0, "Did not work");
         }
 
         [TestMethod()]
         public void Mathematics_Arithmetic_Multiply()
         {
-            Assert.IsTrue(Arithmetic.Multiply(5, 6) == 30, "Arithmetic Multiply Failed");
+            Assert.IsTrue(Arithmetic.Multiply(5, 6) == 30, "Did not work");
         }
 
         [TestMethod()]
         public void Mathematics_Arithmetic_Divide()
         {
-            Assert.IsTrue(Arithmetic.Divide(5, 5) == 1, "Arithmetic Divide Failed");
+            Assert.IsTrue(Arithmetic.Divide(5, 5) == 1, "Did not work");
         }
         
         [TestMethod()]
         public void Mathematics_Arithmetic_AverageDecimal()
         {
             List<decimal> data = new List<decimal>() { 1, 1, 3, 3 };
-            Assert.IsTrue(Arithmetic.AverageDecimal(data) == 2, "Did not work.");            
+            Assert.IsTrue(Arithmetic.AverageDecimal(data) == 2, "Did not work");
         }
 
         [TestMethod()]
@@ -80,33 +80,15 @@ namespace Genesys.Extras.Test
                 randoms.Add(random);
             }
             int doubleCheck = Arithmetic.Random();
-            Assert.IsTrue(randoms.Contains(doubleCheck) == false , "Did not work.");
-            
+            Assert.IsTrue(randoms.Contains(doubleCheck) == false, "Did not work");
+
             // Should be able to be defined by length, for pin codes, etc.
-            for(int count = 1; count < 11; count++)
+            for (int count = 1; count < 11; count++)
             {
                 long randomResult = (long)Arithmetic.Random(count);
                 int length = randomResult.ToString().Length;
                 Assert.IsTrue(length == count, "Did not work.");
             }            
-        }
-
-        [TestMethod()]
-        public void Mathematics_Arithmetic_GCD()
-        {
-            // ToDo: Assert.Fail();
-        }
-        
-        [TestMethod()]
-        public void Mathematics_Arithmetic_LCM()
-        {
-            // ToDo: Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void Mathematics_Arithmetic_WidthGet()
-        {
-            // ToDo: Assert.Fail();
-        }
+        }        
     }
 }

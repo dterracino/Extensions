@@ -11,7 +11,7 @@
         </member>
         <member name="P:Genesys.Extensions.IAttributeValue`1.Value">
             <summary>
-            String value of the attribute
+            string value of the attribute
             </summary>
         </member>
         <member name="T:Genesys.Extensions.ListExtension">
@@ -108,19 +108,19 @@
             <param name="item">Item to search</param>
             <returns>First item in IQueryable, else returns new() constructed item</returns>
         </member>
-        <member name="T:Genesys.Extensions.HttpRequestExtension">
+        <member name="T:Genesys.Extensions.HttpWebRequestExtension">
             <summary>
             HttpRequestBaseExtension
             </summary>
         </member>
-        <member name="M:Genesys.Extensions.HttpRequestExtension.TryParseUrl(System.Net.HttpWebRequest)">
+        <member name="M:Genesys.Extensions.HttpWebRequestExtension.TryParseUrl(System.Net.HttpWebRequest)">
             <summary>
             Finds the root of the URL in format: HTTP://SERVER_NAME:SERVER_PORT
             </summary>
             <param name="item">Item to parse</param>
             <returns>Url from item</returns>
         </member>
-        <member name="M:Genesys.Extensions.HttpRequestExtension.IsSecured(System.Net.HttpWebRequest)">
+        <member name="M:Genesys.Extensions.HttpWebRequestExtension.IsSecured(System.Net.HttpWebRequest)">
             <summary>
             Checks for HTTPS, or returns true if ://localhost
             </summary>

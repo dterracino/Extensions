@@ -26,7 +26,7 @@ namespace Genesys.Extensions
     /// HttpRequestBaseExtension
     /// </summary>
     [CLSCompliant(true)]
-    public static class HttpRequestExtension
+    public static class HttpWebRequestExtension
     {
         /// <summary>
         /// Finds the root of the URL in format: HTTP://SERVER_NAME:SERVER_PORT

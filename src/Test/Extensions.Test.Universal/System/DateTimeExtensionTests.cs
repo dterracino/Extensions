@@ -18,6 +18,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace Genesys.Extensions.Test
 {
@@ -27,43 +28,36 @@ namespace Genesys.Extensions.Test
         [TestMethod()]
         public void DateTime_Tomorrow()
         {
-            // ToDo: Assert.Fail();
+            DateTime date = DateTime.Now;
+            Assert.IsTrue(date.Tomorrow().Day == DateTime.Now.AddDays(1).Day, "Did not work");
         }
 
         [TestMethod()]
         public void DateTime_Yesterday()
         {
-            // ToDo: Assert.Fail();
+            DateTime date = DateTime.Now;
+            Assert.IsTrue(date.Yesterday().Day == DateTime.Now.AddDays(-1).Day, "Did not work");
         }
 
         [TestMethod()]
         public void DateTime_FirstDayOfMonth()
         {
-            // ToDo: Assert.Fail();
+            DateTime date = new DateTime(2016, 8, 15);
+            Assert.IsTrue(date.FirstDayOfMonth().Day == 1, "Did not work");
         }
 
         [TestMethod()]
         public void DateTime_LastDayOfMonth()
         {
-            // ToDo: Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void DateTime_AddWeekdays()
-        {
-            // ToDo: Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void DateTime_Age()
-        {
-            // ToDo: Assert.Fail();
+            DateTime date = new DateTime(2016, 8, 15);
+            Assert.IsTrue(date.LastDayOfMonth().Day == 31, "Did not work");
         }
 
         [TestMethod()]
         public void DateTime_IsSavable()
         {
-            // ToDo: Assert.Fail();
+            DateTime date = new DateTime(1700, 1, 1);
+            Assert.IsTrue(date.IsSavable() == false, "Did not work");
         }
     }
 }

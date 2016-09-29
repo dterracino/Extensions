@@ -17,6 +17,7 @@
 //       limitations under the License. 
 // </copyright>
 //-----------------------------------------------------------------------
+using Genesys.Extras.Serialization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Genesys.Extras.Test
@@ -24,16 +25,27 @@ namespace Genesys.Extras.Test
     [TestClass()]
     public class XMLSerializerGenericTests
     {
-        [TestMethod()]
-        public void Serialization_XMLGeneric_Serialize()
+        public class MyClass
         {
-            // ToDo: Assert.Fail();
+            public static string XmlData = "<?xml version=\"1.0\"?>\r\n<MyClass xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n  <MyProperty>PropertyData</MyProperty>\r\n</MyClass>";
+            public string MyProperty { get; set; } = "PropertyData";
         }
 
         [TestMethod()]
-        public void Serialization_XMLGeneric_Deserialize()
+        public void Serialization_XmlGeneric_Serialize()
         {
-            // ToDo: Assert.Fail();
+            XmlSerializer<MyClass> serializer = new XmlSerializer<MyClass>();
+            MyClass testClass = new MyClass();
+            string deserializedData = serializer.Serialize(testClass);
+            Assert.IsTrue(deserializedData == MyClass.XmlData, "Did not work");
+        }
+
+        [TestMethod()]
+        public void Serialization_XmlGeneric_Deserialize()
+        {
+            XmlSerializer<MyClass> serializer = new XmlSerializer<MyClass>();
+            MyClass serializedData = serializer.Deserialize(MyClass.XmlData);
+            Assert.IsTrue(serializedData.MyProperty == new MyClass().MyProperty, "Did not work");
         }
     }
 }

@@ -28,8 +28,8 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Net_Routing_RouteBuilder()
         {
-            RouteBuilder RouteBuilderObj = new RouteBuilder("Home","Index");
-            Assert.IsTrue(RouteBuilderObj.ToString() != string.Empty, "Data Failed");
+            RouteBuilder RouteBuilderObj = new RouteBuilder("Home" ,"Index");
+            Assert.IsTrue(RouteBuilderObj.ToString() != string.Empty, "Did not work");
         }
     }
 }

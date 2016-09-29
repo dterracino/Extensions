@@ -344,21 +344,21 @@
             <summary>
             Constructor
             </summary>
-            <param name="stringToHash">String to hash</param>
+            <param name="stringToHash">string to hash</param>
             <param name="salt">Salted value to add to hashed string</param>
         </member>
         <member name="M:Genesys.Extras.Security.Cryptography.Md5HashBuilder.HashCreate(System.String)">
             <summary>
             Hashes a String
             </summary>
-            <param name="stringToHash">String to hash</param>
+            <param name="stringToHash">string to hash</param>
             <returns>Hashed string data</returns>
         </member>
         <member name="M:Genesys.Extras.Security.Cryptography.Md5HashBuilder.Compare(System.String)">
             <summary>
             Hashes and compares a string
             </summary>
-            <param name="rawString">String to hash compare</param>
+            <param name="rawString">string to hash compare</param>
             <returns>True if string + salt hashed matches current hash string</returns>
         </member>
         <member name="T:Genesys.Extras.Security.Cryptography.DesEncryptor">
@@ -402,7 +402,7 @@
             <summary>
             Decrypts an salted string
             </summary>
-            <param name="originalString"></param>
+            <param name="encryptedString"></param>
         </member>
         <member name="M:Genesys.Extras.Security.Cryptography.DesEncryptor.CreateDes">
             <summary>
@@ -410,7 +410,7 @@
             This hash value would be used as real key for the encryption. 
             </summary>
         </member>
-        <member name="T:Genesys.Extras.Serialization.PHPSerializerFull`1">
+        <member name="T:Genesys.Extras.Serialization.PhpSerializer`1">
              <summary>
              Serializer Class for PHP
             types:
@@ -421,89 +421,89 @@
              a = array
              </summary>
         </member>
-        <member name="F:Genesys.Extras.Serialization.PHPSerializerFull`1.XMLSafe">
+        <member name="F:Genesys.Extras.Serialization.PhpSerializer`1.XMLSafe">
             <summary>
             for deserialize
             </summary>
         </member>
-        <member name="F:Genesys.Extras.Serialization.PHPSerializerFull`1.StringEncoding">
+        <member name="F:Genesys.Extras.Serialization.PhpSerializer`1.StringEncoding">
             <summary>
             StringEncoding
             </summary>
         </member>
-        <member name="M:Genesys.Extras.Serialization.PHPSerializerFull`1.#ctor">
+        <member name="M:Genesys.Extras.Serialization.PhpSerializer`1.#ctor">
             <summary>
             Constructor
             </summary>
         </member>
-        <member name="M:Genesys.Extras.Serialization.PHPSerializerFull`1.Serialize(`0)">
+        <member name="M:Genesys.Extras.Serialization.PhpSerializer`1.Serialize(`0)">
             <summary>
             Serializes and returns the object as a string
             </summary>
             <param name="objectToSerialize"></param>
             <returns>Serialized string</returns>
         </member>
-        <member name="M:Genesys.Extras.Serialization.PHPSerializerFull`1.Serialize``1(``0)">
+        <member name="M:Genesys.Extras.Serialization.PhpSerializer`1.Serialize``1(``0)">
             <summary>
             Performs serialization based on object type
             </summary>
             <param name="objectToSerialize"></param>
             <returns>Serialized string</returns>
         </member>
-        <member name="M:Genesys.Extras.Serialization.PHPSerializerFull`1.SerializeWorker(System.Object,System.Text.StringBuilder)">
+        <member name="M:Genesys.Extras.Serialization.PhpSerializer`1.SerializeWorker(System.Object,System.Text.StringBuilder)">
             <summary>
             Serialize
             </summary>
             <param name="obj">Object to serialize</param>
-            <param name="sb">String builder to append</param>
+            <param name="sb">string builder to append</param>
             <returns></returns>
         </member>
-        <member name="M:Genesys.Extras.Serialization.PHPSerializerFull`1.Deserialize(System.String)">
+        <member name="M:Genesys.Extras.Serialization.PhpSerializer`1.Deserialize(System.String)">
             <summary>
             Deserialize from string
             </summary>
             <param name="StringToDeserialize"></param>
             <returns>Deserialized string</returns>
         </member>
-        <member name="M:Genesys.Extras.Serialization.PHPSerializerFull`1.Deserialize``1(System.String)">
+        <member name="M:Genesys.Extras.Serialization.PhpSerializer`1.Deserialize``1(System.String)">
             <summary>
             De-serializes into T
             </summary>
             <param name="StringToDeserialize">Serialized string</param>
             <returns>De-serialized string</returns>
         </member>
-        <member name="M:Genesys.Extras.Serialization.PHPSerializerFull`1.DeserializeWorker(System.String)">
+        <member name="M:Genesys.Extras.Serialization.PhpSerializer`1.DeserializeWorker(System.String)">
             <summary>
             Deserialize
             </summary>
-            <param name="str">String to deserialize</param>
+            <param name="str">string to deserialize</param>
             <returns>De-serialized string</returns>
         </member>
-        <member name="T:Genesys.Extras.Serialization.XMLSerializerFull`1">
+        <member name="T:Genesys.Extras.Serialization.XmlSerializer`1">
             <summary>
             XML serialization and deserialization
             </summary>
         </member>
-        <member name="P:Genesys.Extras.Serialization.XMLSerializerFull`1.KnownTypes">
+        <member name="P:Genesys.Extras.Serialization.XmlSerializer`1.KnownTypes">
             <summary>
             List of types that allow serializer to use a type not explicitly defined. 
               Primarily used to define ISerialier Of IMyType, but pass in object of MyType 
               (serializer blows up on now knowing that MyType exists, only knows about IMyType)
             </summary>
         </member>
-        <member name="M:Genesys.Extras.Serialization.XMLSerializerFull`1.#ctor">
+        <member name="M:Genesys.Extras.Serialization.XmlSerializer`1.#ctor">
             <summary>
             Constructor
             </summary>
         </member>
-        <member name="M:Genesys.Extras.Serialization.XMLSerializerFull`1.Serialize(`0)">
+        <member name="M:Genesys.Extras.Serialization.XmlSerializer`1.Serialize(`0)">
             <summary>
             Serializes and returns the JSON as a string
             </summary>
             <param name="objectToSerialize">Item to serialize</param>
-            <returns>String serialized with passed object</returns>
+            <returns>string serialized with passed object</returns>
         </member>
-        <member name="M:Genesys.Extras.Serialization.XMLSerializerFull`1.Serialize``1(``0)">
+        <member name="M:Genesys.Extras.Serialization.XmlSerializer`1.Serialize``1(``0)">
             <summary>
             Serializes the passed object to a string
             </summary>
@@ -511,14 +511,14 @@
             <param name="objectToSerialize">Object to serialize</param>
             <returns>Json string</returns>
         </member>
-        <member name="M:Genesys.Extras.Serialization.XMLSerializerFull`1.Deserialize(System.String)">
+        <member name="M:Genesys.Extras.Serialization.XmlSerializer`1.Deserialize(System.String)">
             <summary>
             Deserialize from JSON
             </summary>
             <param name="stringToDeserialize"></param>
             <returns>De-serialized object</returns>
         </member>
-        <member name="M:Genesys.Extras.Serialization.XMLSerializerFull`1.Deserialize``1(System.String)">
+        <member name="M:Genesys.Extras.Serialization.XmlSerializer`1.Deserialize``1(System.String)">
             <summary>
             De-serializes the passed string to an object
             </summary>
@@ -526,23 +526,23 @@
             <param name="stringToDeserialize">Object to deserialize</param>
             <returns>Concrete class</returns>
         </member>
-        <member name="T:Genesys.Extras.Serialization.XMLSerializer">
+        <member name="T:Genesys.Extras.Serialization.XmlSerializer">
             <summary>
             Xml serialization and deserialization
             </summary>
             <remarks></remarks>
         </member>
-        <member name="M:Genesys.Extras.Serialization.XMLSerializer.#ctor">
+        <member name="M:Genesys.Extras.Serialization.XmlSerializer.#ctor">
             <summary>
             Constructor
             </summary>
         </member>
-        <member name="M:Genesys.Extras.Serialization.XMLSerializer.#ctor(Genesys.Extras.Collections.IListSafe{System.Type})">
+        <member name="M:Genesys.Extras.Serialization.XmlSerializer.#ctor(Genesys.Extras.Collections.IListSafe{System.Type})">
             <summary>
             Constructor
             </summary>
         </member>
-        <member name="M:Genesys.Extras.Serialization.XMLSerializer.Serialize``1(``0)">
+        <member name="M:Genesys.Extras.Serialization.XmlSerializer.Serialize``1(``0)">
             <summary>
             Serializes the passed object to a string
             </summary>
@@ -550,7 +550,7 @@
             <param name="objectToSerialize">Object to serialize</param>
             <returns>Xml string</returns>
         </member>
-        <member name="M:Genesys.Extras.Serialization.XMLSerializer.Deserialize``1(System.String)">
+        <member name="M:Genesys.Extras.Serialization.XmlSerializer.Deserialize``1(System.String)">
             <summary>
             De-serializes the passed string to an object
             </summary>

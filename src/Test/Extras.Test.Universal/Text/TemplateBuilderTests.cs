@@ -17,7 +17,10 @@
 //       limitations under the License. 
 // </copyright>
 //-----------------------------------------------------------------------
+using Genesys.Extensions;
+using Genesys.Extras.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace Genesys.Extras.Test
 {
@@ -27,13 +30,15 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Text_TemplateBuilder_ToString()
         {
-            // ToDo: Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void Text_TemplateBuilder_IsValid()
-        {
-            // ToDo: Assert.Fail();
-        }
+            string template = "1: {0}, 2: {1}, 3: {3}";
+            string result = TypeExtension.DefaultString;
+            List<string> data = new List<string>() { "FirstItem", "SecondItem", "ThirdItem" };
+            TemplateBuilder builder = new TemplateBuilder(template, data);
+            result = builder.ToString();
+            foreach(string item in data)
+            {
+                Assert.IsTrue(result.Contains(item) == true, "Did not work");
+            }            
+        }        
     }
 }

@@ -30,19 +30,19 @@ namespace Genesys.Extras.Test
         public void Net_UrlInfo()
         {
             UrlInfo TestItem = new UrlInfo("http://test");
-            Assert.IsTrue(TestItem.ToString() == "http://test:80/", "TestItem Failed");
+            Assert.IsTrue(TestItem.ToString() == "http://test:80/", "Did not work");
         }
         
         [TestMethod()]
         public void Net_UrlInfo_ToString()
         {
-            String MyRoot = "http://testURL";
-            String MyController = "MyController";
-            String MyAction = "MyAction";
+            string MyRoot = "http://testURL";
+            string MyController = "MyController";
+            string MyAction = "MyAction";
             UrlInfo TestItem = new UrlInfo(MyRoot, MyController, MyAction);
 
             // Check formatting
-            Assert.IsTrue(TestItem.ToString().ToLower() == String.Format("{0}:80/{1}/{2}", MyRoot, MyController, MyAction).ToLower());
+            Assert.IsTrue(TestItem.ToString().ToLower() == String.Format("{0}:80/{1}/{2}", MyRoot, MyController, MyAction).ToLower(), "Did not work");
         }
     }
 }

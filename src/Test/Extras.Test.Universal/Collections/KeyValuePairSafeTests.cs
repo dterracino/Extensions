@@ -23,9 +23,6 @@ using Genesys.Extras.Text;
 
 namespace Genesys.Extras.Test
 {
-    /// <summary>
-    /// KeyValuePairSafe Tests
-    /// </summary>
     [TestClass()]
     public class KeyValuePairSafeTests
     {
@@ -35,9 +32,9 @@ namespace Genesys.Extras.Test
             KeyValuePairSafe<int, int> kvp = new KeyValuePairSafe<int, int>(1,1);
             kvp.Key = 1;
             kvp.Value = 1;           
-            Assert.AreEqual(1, kvp.Key);
+            Assert.AreEqual(1, kvp.Key, "Did not work");
             KeyValuePairSafe<int, StringMutable> kvp1 = new KeyValuePairSafe<int, StringMutable>(1, "1");
-            Assert.AreEqual(1, kvp1.Key);
+            Assert.AreEqual(1, kvp1.Key, "Did not work");
         }
     }
 }

@@ -19,6 +19,7 @@
 //-----------------------------------------------------------------------
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Genesys.Extras.Collections;
+using Genesys.Extensions;
 
 namespace Genesys.Extras.Test
 {
@@ -43,25 +44,25 @@ namespace Genesys.Extras.Test
             Assert.AreEqual(1, kvString.Count);
             kvString.Add("TestKey", "TestValue2");
             Assert.AreNotEqual(2, kvString.Count);
-
-        }
-        
-        [TestMethod()]
-        public void Collections_KeyValueListString_Remove()
-        {
-            // ToDo: Assert.Fail()
         }
 
         [TestMethod()]
-        public void Collections_KeyValueListString_FindIndex()
+        public void Collections_ListSafe_Remove()
         {
-            // ToDo: Assert.Fail()
+            KeyValueListString kvList = new KeyValueListString();
+            kvList.Add("Key1", "Value1");
+            kvList.Add("Key2", "Value2");
+            kvList.Remove("Key1");
+            Assert.IsTrue(kvList.Count == 1, "Did not work");
         }
 
         [TestMethod()]
-        public void Collections_KeyValueListString_GetValue()
+        public void Collections_ListSafe_GetValue()
         {
-            // ToDo: Assert.Fail()
+            KeyValueListString kvList = new KeyValueListString();
+            kvList.Add("Key1", "Value1");
+            kvList.Add("Key2", "Value2");
+            Assert.IsTrue(kvList.GetValue("Key1") != TypeExtension.DefaultString, "Did not work");
         }
     }
 }   
