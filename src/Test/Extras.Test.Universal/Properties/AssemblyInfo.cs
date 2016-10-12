@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Genesys .Net Extensions Tests")]
-[assembly: AssemblyDescription("Genesys .Net Extensions Tests")]
+[assembly: AssemblyTitle("Genesys Framework .Net Extensions Tests")]
+[assembly: AssemblyDescription("Genesys Framework .Net Extensions Tests")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Genesys Source")]
-[assembly: AssemblyProduct("Genesys .Net Extensions Tests")]
+[assembly: AssemblyProduct("Genesys Framework .Net Extensions Tests")]
 [assembly: AssemblyCopyright("Copyright © Genesys Source 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

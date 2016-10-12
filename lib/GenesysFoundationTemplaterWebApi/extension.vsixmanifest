@@ -1,0 +1,23 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="Genesys.Foundation.WebApi" Version="3.0.9" Language="en-US" Publisher="Genesys Source" />
+    <DisplayName>Genesys Framework Quick-Start for WebApi</DisplayName>
+    <Description xml:space="preserve">Genesys Framework helps you create a reusable framework for your business entity objects and view-model objects...allowing your framework objects to work in MVC, WebAPI and Cross-Platform Universal Apps. Works with your existing SQL tables, and allows you to incrementally build your reusable framework one object, one page at a time.
+</Description>
+    <MoreInfo>http://www.getframework.com</MoreInfo>
+    <License>License.txt</License>
+    <GettingStartedGuide>http://www.getframework.com</GettingStartedGuide>
+    <Icon>GenesysFoundationIcon.png</Icon>
+    <PreviewImage>GenesysExample.PNG</PreviewImage>
+    <Tags>Genesys Framework cross-platform open-source full-stack entity webapi mvc universal core</Tags>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[14.0]" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.5,)" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" Path="ProjectTemplates" />
+  </Assets>
+</PackageManifest>
