@@ -64,9 +64,6 @@
     <Compile Include="Media\RGBByteInfoTests.cs" />
     <Compile Include="Net.HttpRequest\HttpClientBuilderTests.cs" />
     <Compile Include="Net.HttpRequest\HttpRequestGetStringTests.cs" />
-    <Compile Include="Net.HttpRequest\HttpRequestGetTests.cs" />
-    <Compile Include="Net.HttpRequest\HttpRequestPostStringTests.cs" />
-    <Compile Include="Net.HttpRequest\HttpRequestPostTests.cs" />
     <Compile Include="Configuration\ConfigurationManagerSafeTests.cs" />
     <Compile Include="Mathematics\AgeCalculatorTests.cs" />
     <Compile Include="Mathematics\ArithmeticTests.cs" />

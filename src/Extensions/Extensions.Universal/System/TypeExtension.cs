@@ -139,7 +139,7 @@ namespace Genesys.Extensions
         public static bool HasParameterlessConstructor<T>()
         {
             IEnumerable<ConstructorInfo> constructors = typeof(T).GetTypeInfo().DeclaredConstructors;
-            return constructors.Where(x => x.GetParameters().Count() == 0).ToList().Count == 0 ? false : true;
+            return constructors.Where(x => x.GetParameters().Count() == 0).Any();
         }
     }
 }

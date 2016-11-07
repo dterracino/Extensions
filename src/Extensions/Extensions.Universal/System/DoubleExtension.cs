@@ -23,29 +23,29 @@ using System;
 namespace Genesys.Extensions
 {
     /// <summary>
-    /// DoubleExtension
+    /// Double Extension
     /// </summary>    
     [CLSCompliant(true)]
     public static class  DoubleExtension
     {
         /// <summary>
-        /// Parses without exceptions
+        /// Quick converts
         /// </summary>
         /// <param name="item">Double to convert to decimal.</param>
         /// <returns>Converted value, or default 0.</returns>
         public static decimal ToDecimal(this double item)
         {
-            return StringExtension.TryParseDecimal(item.ToStringSafe());
+            return Convert.ToDecimal(item);
         }
 
         /// <summary>
-        /// Parses without exceptions
+        /// Quick converts
         /// </summary>
         /// <param name="item">Double to convert to decimal.</param>
         /// <returns>Converted value, or default 0.</returns>
         public static decimal ToDecimal(this double? item)
         {
-            return StringExtension.TryParseDecimal(item.ToStringSafe());
+            return Convert.ToDecimal(item);
         }
     }    
 }

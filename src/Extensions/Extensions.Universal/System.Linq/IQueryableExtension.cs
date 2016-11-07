@@ -36,7 +36,7 @@ namespace Genesys.Extensions
         /// <returns>First item in IQueryable, else returns new() constructed item</returns>
         public static T FirstOrDefaultSafe<T>(this IQueryable<T> item) where T : new()
         {
-            if ((item == null) == true || item.ToList().Count == 0)
+            if ((item == null) == true || item.Any() == false)
             {
                 return new T();
             }

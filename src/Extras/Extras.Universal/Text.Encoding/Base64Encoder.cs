@@ -67,7 +67,7 @@ namespace Genesys.Extras.Text.Encoding
         public string Decode()
         {
             byte[] bytes = Convert.FromBase64String(this.dataIn);
-            return System.Text.Encoding.UTF8.GetString(bytes, 0, bytes.Length - 1);
+            return System.Text.Encoding.UTF8.GetString(bytes, 0, bytes.Length);
         }
 
         /// <summary>

@@ -30,7 +30,7 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Text_TemplateBuilder_ToString()
         {
-            string template = "1: {0}, 2: {1}, 3: {3}";
+            string template = "1: {0}, 2: {1}, 3: {2}";
             string result = TypeExtension.DefaultString;
             List<string> data = new List<string>() { "FirstItem", "SecondItem", "ThirdItem" };
             TemplateBuilder builder = new TemplateBuilder(template, data);

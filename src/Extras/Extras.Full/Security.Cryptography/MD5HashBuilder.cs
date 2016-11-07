@@ -100,7 +100,6 @@ namespace Genesys.Extras.Security.Cryptography
             bool returnValue = TypeExtension.DefaultBoolean;
             string rawStringHash = TypeExtension.DefaultString;
 
-            rawString += salt;
             rawStringHash = this.HashCreate(rawString);
             if (0 == comparer.Compare(rawStringHash, this.HashedString))
             {

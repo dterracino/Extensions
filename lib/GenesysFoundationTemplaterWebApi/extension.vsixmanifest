@@ -1,9 +1,8 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
   <Metadata>
-    <Identity Id="Genesys.Foundation.WebApi" Version="3.0.9" Language="en-US" Publisher="Genesys Source" />
+    <Identity Id="Genesys.Foundation.WebApi" Version="3.0.10" Language="en-US" Publisher="Genesys Source" />
     <DisplayName>Genesys Framework Quick-Start for WebApi</DisplayName>
-    <Description xml:space="preserve">Genesys Framework helps you create a reusable framework for your business entity objects and view-model objects...allowing your framework objects to work in MVC, WebAPI and Cross-Platform Universal Apps. Works with your existing SQL tables, and allows you to incrementally build your reusable framework one object, one page at a time.
-</Description>
+    <Description xml:space="preserve">Genesys Framework helps you create a reusable framework for your MVC, WebAPI and Cross-Platform Universal Apps. Works with your existing SQL tables, and allows you to incrementally build your reusable framework one object, one page at a time.</Description>
     <MoreInfo>http://www.getframework.com</MoreInfo>
     <License>License.txt</License>
     <GettingStartedGuide>http://www.getframework.com</GettingStartedGuide>

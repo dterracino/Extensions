@@ -50,7 +50,7 @@ namespace Genesys.Extras.Test
                 }
             }
 
-            ConfigurationManagerSafe Configuration = new ConfigurationManagerSafe(configData);
+            ConfigurationManagerSafe Configuration = new ConfigurationManagerSafe(configData, null);
             ItemToTest = Configuration.AppSetting("TestAppSetting");
             Assert.IsTrue(ItemToTest.Value != TypeExtension.DefaultString, "Did not work");
         }
@@ -67,13 +67,10 @@ namespace Genesys.Extras.Test
 
             for (int count = 0; count < itemToConvert.Count; count++)
             {
-                foreach (string itemKey in itemToConvert)
-                {
-                    configData[count, 0] = itemKey;
-                    configData[count, 1] = itemToConvert[count].ConnectionString;
-                }
+                configData[count, 0] = itemToConvert[count].Name;
+                configData[count, 1] = itemToConvert[count].ConnectionString;
             }
-            ConfigurationManagerSafe Configuration = new ConfigurationManagerSafe(configData);
+            ConfigurationManagerSafe Configuration = new ConfigurationManagerSafe(null, configData);
 
             ItemToTest = Configuration.ConnectionString("TestADOConnection");
             Assert.IsTrue(ItemToTest.Value != TypeExtension.DefaultString, "Did not work");

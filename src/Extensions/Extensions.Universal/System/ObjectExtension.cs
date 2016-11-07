@@ -18,6 +18,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -78,7 +79,7 @@ namespace Genesys.Extensions
             TypeInfo itemType = item.GetType().GetTypeInfo();
 
             var returnValue = itemType.DeclaredProperties.Where(
-                p => p.GetCustomAttributes(myAttribute, false).ToList().Count > 0);
+                p => p.GetCustomAttributes(myAttribute, false).Any() == true);
 
             return returnValue;
         }
@@ -148,66 +149,32 @@ namespace Genesys.Extensions
             return returnValue;
         }
 
+
         /// <summary>
         /// Fills this object with another object's data, by matching property names
         /// </summary>
         /// <typeparam name="T">Type of original object.</typeparam>
         /// <param name="item">Destination object to fill</param>
         /// <param name="sourceItem">Source object</param>
-        public static void FillByProperty<T>(this T item, object sourceItem)
+        public static void Fill<T>(this T item, object sourceItem)
         {
+            Type sourceType = sourceItem.GetType();
 
-            Type newObjectType = sourceItem.GetType();
-
-            foreach (PropertyInfo NewObjectProperty in newObjectType.GetRuntimeProperties())
+            foreach (PropertyInfo sourceProperty in sourceType.GetRuntimeProperties())
             {
-                PropertyInfo CurrentProperty = typeof(T).GetRuntimeProperty(NewObjectProperty.Name);
-                if (CurrentProperty != null && CurrentProperty.CanWrite == true)
+                PropertyInfo destinationProperty = typeof(T).GetRuntimeProperty(sourceProperty.Name);
+                if (destinationProperty != null && destinationProperty.CanWrite == true)
                 {
-                    CurrentProperty.SetValue(item, NewObjectProperty.GetValue(sourceItem, null), null);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Fills this object with another object's data, by matching interfaces
-        /// </summary>
-        /// <typeparam name="T">Type of original object.</typeparam>
-        /// <param name="item">Destination object to fill</param>
-        /// <param name="sourceItem">Source object</param>
-        public static void FillByInterface<T>(this T item, object sourceItem)
-        {
-            IEnumerable<Type> myTypes = typeof(T).GetTypeInfo().ImplementedInterfaces;
-            IEnumerable<Type> otherTypes = sourceItem.GetType().GetTypeInfo().ImplementedInterfaces;
-
-            foreach (Type myType in myTypes)
-            {
-                foreach (Type otherType in otherTypes)
-                {
-                    if (object.ReferenceEquals(myType, otherType))
+                    // Copy data only for Primitive-ish types including Value types, Guid, String, etc.
+                    Type destinationPropertyType = destinationProperty.PropertyType;
+                    if (destinationPropertyType.GetTypeInfo().IsPrimitive || destinationPropertyType.GetTypeInfo().IsValueType
+                        || (destinationPropertyType == typeof(string)) || (destinationPropertyType == typeof(Guid)))
                     {
-                        foreach (PropertyInfo newObjectProperty in myType.GetRuntimeProperties())
-                        {
-                            PropertyInfo currentProperty = otherType.GetRuntimeProperty(newObjectProperty.Name);
-                            if (currentProperty.CanWrite == true)
-                            {
-                                currentProperty.SetValue(item, newObjectProperty.GetValue(sourceItem, null), null);
-                            }
-                        }
-                    }
+                        destinationProperty.SetValue(item, sourceProperty.GetValue(sourceItem, null), null); 
+                    }                    
                 }
             }
-            // Handle for ID, as it is not required in business entity interfaces
-            PropertyInfo sourceID = sourceItem.GetType().GetRuntimeProperty("ID");
-            PropertyInfo destinationID = item.GetType().GetRuntimeProperty("ID");
-            if ((sourceID == null == false & destinationID == null == false)
-                && (object.ReferenceEquals(sourceID.PropertyType, destinationID.PropertyType) & destinationID.CanWrite == true))
-            {
-                var ValueToSet = sourceID.GetValue(sourceItem, null);
-                destinationID.SetValue(item, ValueToSet, null);
-            }
         }
-
 
         /// <summary>
         /// Initialize all Root properties of an object to TypeExtension.Default* conventions

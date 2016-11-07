@@ -56,34 +56,18 @@ namespace Genesys.Extensions.Test
         }
 
         /// <summary>
-        /// Extensions_Object_FillByProperty
+        /// Extensions_Object_Fill
         /// </summary>
         [TestMethod()]
-        public void Object_FillByProperty()
+        public void Object_Fill()
         {
             MyClass1 testItem = new MyClass1();
             MyClass2 fillItem1 = new MyClass2();
             MyClass3 fillItem2 = new MyClass3();
-            fillItem1.FillByProperty(testItem);
-            fillItem2.FillByProperty(testItem);
+            fillItem1.Fill(testItem);
+            fillItem2.Fill(testItem);
             Assert.IsTrue(testItem.MyProperty == fillItem1.MyProperty, "Did not work");
             Assert.IsTrue(testItem.MyProperty == fillItem2.MyProperty, "Did not work");
-            Assert.IsTrue(testItem.MyProperty != new MyClass2().MyProperty, "Did not work");
-        }
-
-        /// <summary>
-        /// Extensions_Object_FillByInterface
-        /// </summary>
-        [TestMethod()]
-        public void Object_FillByInterface()
-        {
-            MyClass1 testItem = new MyClass1();
-            MyClass2 fillItem1 = new MyClass2();
-            MyClass3 fillItem2 = new MyClass3();
-            fillItem1.FillByInterface(testItem);
-            fillItem2.FillByInterface(testItem);
-            Assert.IsTrue(testItem.MyProperty == fillItem1.MyProperty, "Did not work");
-            Assert.IsTrue(testItem.MyProperty != fillItem2.MyProperty, "Did not work");
             Assert.IsTrue(testItem.MyProperty != new MyClass2().MyProperty, "Did not work");
         }
     }

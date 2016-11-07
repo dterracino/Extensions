@@ -60,7 +60,7 @@ namespace Genesys.Extras.Test
             ListSafe<string> kvList = new ListSafe<string>();
             kvList.Add("TestKey1");
             kvList.Add("TestKey2");
-            Assert.IsTrue(kvList.FindIndex("TestKey2") == 2, "Did not work");
+            Assert.IsTrue(kvList.FindIndex("TestKey2") == 1, "Did not work");
         }
 
         [TestMethod()]

@@ -94,21 +94,13 @@ namespace Genesys.Extras.Configuration
         /// </summary>
         /// <param name="appSettings">ConfigurationManager.AppSettings.ToArraySafe()</param>
         /// <param name="connectionStrings">ConfigurationManager.ConnectionStrings.ToArraySafe()</param>
-        public ConfigurationManagerSafe(string[,] appSettings, string[,] connectionStrings) : this(appSettings)
+        public ConfigurationManagerSafe(string[,] appSettings, string[,] connectionStrings) : this()
         {
             connectionStrings = connectionStrings ?? new string[0, 2];
             for (int itemCount = 0; itemCount < connectionStrings.GetLength(0); itemCount++)
             {
                 this.connectionStringsField.Add(connectionStrings[itemCount, 0], connectionStrings[itemCount, 1]);
             }
-        }
-
-        /// <summary>
-        /// Constructor that accepts ConfigurationManager.AppSettings and ConfigurationManager.ConnectionStrings
-        /// </summary>
-        /// <param name="appSettings">ConfigurationManager.AppSettings.ToArraySafe()</param>
-        public ConfigurationManagerSafe(string[,] appSettings) : this()
-        {
             appSettings = appSettings ?? new string[0, 2];
             for (int itemCount = 0; itemCount < appSettings.GetLength(0); itemCount++)
             {

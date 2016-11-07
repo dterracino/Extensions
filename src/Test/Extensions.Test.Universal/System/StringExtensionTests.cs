@@ -130,10 +130,12 @@ namespace Genesys.Extensions.Test
         [TestMethod()]
         public void String_TryParseBoolean()
         {
-            string testDataGood = "true";
-            string testDataBad = "NotTrue";
-            Assert.IsTrue(testDataGood.IsEmail() == true, "Did not work");
-            Assert.IsTrue(testDataBad.IsEmail() == false, "Did not work");
+            string testDataTrue1 = "1";
+            string testDataTrue2 = "11";
+            string testDataFalse = "0";
+            Assert.IsTrue(testDataTrue1.TryParseBoolean() == true, "Did not work");
+            Assert.IsTrue(testDataTrue2.TryParseBoolean() == true, "Did not work");
+            Assert.IsTrue(testDataFalse.TryParseBoolean() == false, "Did not work");
         }
 
         [TestMethod()]

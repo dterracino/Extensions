@@ -38,6 +38,12 @@
   <PropertyGroup>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>GenesysFramework.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -83,11 +89,13 @@
     <Compile Include="Serialization\XmlSerializerGeneric.cs" />
     <Compile Include="Serialization\XmlSerializer.cs" />
     <Compile Include="Web.Http\MvcController.cs" />
+    <Compile Include="Web.Http\MvcModelBinder.cs" />
     <Compile Include="Web.Http\NoParametersRouteConstraint.cs" />
     <Compile Include="Web.Http\WebApiController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="GenesysFramework.snk" />
     <None Include="packages.config" />
     <None Include="PostBuild.bat" />
     <None Include="MergeExtensions.bat" />

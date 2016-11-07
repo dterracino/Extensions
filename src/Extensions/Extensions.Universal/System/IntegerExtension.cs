@@ -29,27 +29,27 @@ namespace Genesys.Extensions
     public static class  IntegerExtension
     {
         /// <summary>
-        /// Parses without exceptions
+        /// Quick converts
         /// </summary>
         /// <param name="item">Integer to convert to decimal.</param>
         /// <returns>Converted value, or default 0.</returns>
         public static decimal ToDecimal(this short item)
         {
-            return StringExtension.TryParseDecimal(item.ToStringSafe());
+            return Convert.ToDecimal(item);
         }
 
         /// <summary>
-        /// Parses without exceptions
+        /// Quick converts
         /// </summary>
         /// <param name="item">Integer to convert to decimal.</param>
         /// <returns>Converted value, or default 0.</returns>
         public static decimal ToDecimal(this int item)
         {
-            return StringExtension.TryParseDecimal(item.ToStringSafe());
+            return Convert.ToDecimal(item);
         }
 
         /// <summary>
-        /// Parses without exceptions
+        /// Quick converts
         /// </summary>
         /// <param name="item">Integer to convert to guid.</param>
         /// <returns>Converted value, or default 00000000-0000-0000-0000-000000000000</returns>
@@ -71,13 +71,13 @@ namespace Genesys.Extensions
         }
 
         /// <summary>
-        /// Parses without exceptions
+        /// Quick converts
         /// </summary>
         /// <param name="item">Integer to convert to decimal.</param>
         /// <returns>Converted value, or default 0.</returns>
         public static decimal ToDecimal(this long item)
         {
-            return StringExtension.TryParseDecimal(item.ToStringSafe());
+            return Convert.ToDecimal(item);
         }
         
         /// <summary>

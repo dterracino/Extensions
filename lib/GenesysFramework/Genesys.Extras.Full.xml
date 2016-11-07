@@ -1,0 +1,724 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Genesys.Extras.Full</name>
+    </assembly>
+    <members>
+        <member name="T:Genesys.Extras.Configuration.ConfigurationManagerFull">
+            <summary>
+            Simulates the System.Configuration.ConfigurationManager class for local XML files with <appSettings></appSettings> nodes.
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Configuration.ConfigurationManagerFull.AppSettings">
+            <summary>
+            All application settings in the referenced config file
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Configuration.ConfigurationManagerFull.ConnectionStrings">
+            <summary>
+            All connection strings in the referenced config file
+            </summary>
+        </member>
+        <member name="T:Genesys.Extras.Configuration.ConfigurationManagerFull.ApplicationTypes">
+            <summary>
+            Types of applications that can consume a .config file
+            </summary>
+        </member>
+        <member name="F:Genesys.Extras.Configuration.ConfigurationManagerFull.ApplicationTypes.Web">
+            <summary>
+            Http request/response type application
+            </summary>
+        </member>
+        <member name="F:Genesys.Extras.Configuration.ConfigurationManagerFull.ApplicationTypes.Native">
+            <summary>
+            Native application, mobile, desktop, service, etc.
+            </summary>
+        </member>
+        <member name="F:Genesys.Extras.Configuration.ConfigurationManagerFull.ConfigFileWeb">
+            <summary>
+            ConfigFileWeb
+            </summary>
+        </member>
+        <member name="F:Genesys.Extras.Configuration.ConfigurationManagerFull.ConfigFileNative">
+            <summary>
+            ConfigFileNative
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Configuration.ConfigurationManagerFull.ApplicationType">
+            <summary>
+            ApplicationType
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Configuration.ConfigurationManagerFull.PathAndFile">
+            <summary>
+            PathAndFile
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Configuration.ConfigurationManagerFull.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Configuration.ConfigurationManagerFull.#ctor(System.Collections.Specialized.NameValueCollection,System.Configuration.ConnectionStringSettingsCollection)">
+            <summary>
+            Constructor that accepts ConfigurationManager.AppSettings and ConfigurationManager.ConnectionStrings
+            </summary>
+            <param name="appSettings">ConfigurationManager.AppSettings</param>
+            /// <param name="connectionStrings">ConfigurationManager.ConnectionStrings</param>
+        </member>
+        <member name="M:Genesys.Extras.Configuration.ConfigurationManagerFull.Load">
+            <summary>
+            Loads from XML data
+            </summary>
+        </member>
+        <member name="T:Genesys.Extras.IO.FileReader">
+            <summary>
+            Search a set of paths on a drive for a folder. 
+                Configure with auto search parent and children a certain levels in.
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.IO.FileReader.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.IO.FileReader.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="fileName">Path and file to read</param>
+        </member>
+        <member name="M:Genesys.Extras.IO.FileReader.ReadToEnd">
+            <summary>
+            Reads a file using StreamReader class
+            </summary>
+        </member>
+        <member name="T:Genesys.Extras.IO.FileSearcher">
+            <summary>
+            Search a set of paths on a drive for a folder. 
+                Configure with auto search parent and children a certain levels in.
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.IO.FileSearcher.Paths">
+            <summary>
+            Paths
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.IO.FileSearcher.FoundFiles">
+            <summary>
+            FoundFiles
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.IO.FileSearcher.FileNameOrMask">
+            <summary>
+            FileNameOrMask
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.IO.FileSearcher.ParentLevels">
+            <summary>
+            ParentLevels
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.IO.FileSearcher.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.IO.FileSearcher.#ctor(System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="pathToSearch"></param>
+            <param name="fileOrMaskToSearch"></param>
+        </member>
+        <member name="M:Genesys.Extras.IO.FileSearcher.#ctor(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="pathsToSearch"></param>
+            <param name="fileOrMaskToSearch"></param>
+        </member>
+        <member name="M:Genesys.Extras.IO.FileSearcher.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="pathToSearch"></param>
+            <param name="fileOrMaskToSearch"></param>
+            <param name="levelsUpToSearch"></param>
+        </member>
+        <member name="M:Genesys.Extras.IO.FileSearcher.#ctor(System.Collections.Generic.List{System.String},System.String,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="pathsToSearch"></param>
+            <param name="fileOrMaskToSearch"></param>
+            <param name="levelsUpToSearch"></param>
+        </member>
+        <member name="M:Genesys.Extras.IO.FileSearcher.Search">
+            <summary>
+            Search
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.IO.FileSearcher.DriveSet(System.String)">
+            <summary>
+            Sets a drive for search, with validation that drive exists
+            </summary>
+            <param name="drive">Drive to search</param>
+            <returns>Drive class for searching</returns>
+        </member>
+        <member name="M:Genesys.Extras.IO.FileSearcher.DriveGetByVolume(System.String)">
+            <summary>
+            Safe method for setting drive for search
+            </summary>
+            <param name="volumeLabel">Pulls drive by volume label</param>
+            <returns>Drive that matches volume label</returns>
+        </member>
+        <member name="T:Genesys.Extras.Net.EmailBuilder">
+            <summary>
+            Forms and sends emails. Supports HTML templates.
+            </summary>
+        </member>
+        <member name="T:Genesys.Extras.Net.EmailBuilder.FooterLegal">
+            <summary>
+            Legal footer required on every email
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Net.EmailBuilder.FooterLegal.ApplicationID">
+            <summary>
+            ApplicationID
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Net.EmailBuilder.FooterLegal.PublishFooter">
+            <summary>
+            PublishFooter
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Net.EmailBuilder.FooterLegal.ToEmailAddress">
+            <summary>
+            ToEmailAddress
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Net.EmailBuilder.FooterLegal.CompanyFriendlyName">
+            <summary>
+            CompanyFriendlyName
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Net.EmailBuilder.FooterLegal.UnsubscribeURL">
+            <summary>
+            UnsubscribeURL
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Net.EmailBuilder.FooterLegal.CompanyLegalName">
+            <summary>
+            CompanyLegalName
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Net.EmailBuilder.FooterLegal.Address">
+            <summary>
+            Address
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Net.EmailBuilder.FooterLegal.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Net.EmailBuilder.FooterLegal.#ctor(System.String,System.String,System.String,System.String,System.String,System.Guid)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Net.EmailBuilder.FooterLegal.ToList">
+            <summary>
+            Returns as array that fills data in the footer
+            </summary>
+            <returns>List of strings with fully formed email Html</returns>
+        </member>
+        <member name="M:Genesys.Extras.Net.EmailBuilder.FooterLegal.ToFooter">
+            <summary>
+            Returns HTML footer with all data
+            </summary>
+            <returns>Footer portion of email</returns>
+        </member>
+        <member name="T:Genesys.Extras.Net.EmailBuilder.SendCompletedCallbackDelegate">
+            <summary>
+            SendCompletedCallbackDelegate
+            </summary>
+            <param name="sender">Sender information</param>
+            <param name="e">Event argument data</param>
+        </member>
+        <member name="M:Genesys.Extras.Net.EmailBuilder.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Net.EmailBuilder.Send(System.String,System.String,System.String,Genesys.Extras.Net.EmailBuilder.FooterLegal,System.Char)">
+            <summary>
+            Sends a mail based on off SMTP settings in .config
+            </summary>
+            <param name="mailToAddresses"></param>
+            <param name="title"></param>
+            <param name="contents"></param>
+            <param name="legal"></param>
+            <param name="addressSeperator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Genesys.Extras.Net.EmailBuilder.Send(System.Collections.Generic.List{System.String},System.String,System.String,Genesys.Extras.Net.EmailBuilder.FooterLegal,Genesys.Extras.Net.EmailBuilder.SendCompletedCallbackDelegate,System.String,System.Char)">
+            <summary>
+            Sends a mail based on off SMTP settings in .config
+            </summary>
+            <param name="mailToAddresses"></param>
+            <param name="title"></param>
+            <param name="contents"></param>
+            <param name="legal"></param>
+            <param name="callback"></param>
+            <param name="callbackData"></param>
+            <param name="addressSeperator"></param>
+            <returns>Email addresses and their send status (true or false)</returns>
+        </member>
+        <member name="M:Genesys.Extras.Net.EmailBuilder.SendTemplate(System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{System.String,System.Collections.Generic.List{System.String}}},System.String,System.String,Genesys.Extras.Net.EmailBuilder.FooterLegal,Genesys.Extras.Net.EmailBuilder.SendCompletedCallbackDelegate,System.String,System.Char)">
+            <summary>
+            Sends an email one at a time, with variable data for each message body
+            Uses String.Format to handle a template.
+               Dim Template As string = "Confirmation email for {0}. " + _
+                     "Date: {1}. Weeks: {2}\n" + _
+                     "Name: {3}\n" + _
+                     "{4}"
+               String.Format(Template, "Spot1", Date.UtcNow, "Spot3", "Spot4")
+            </summary>
+            <param name="mailToAddressesAndData">email address and all the data for that email message</param>
+            <param name="title"></param>
+            <param name="contents"></param>
+            <param name="legal"></param>
+            <param name="callback"></param>
+            <param name="callbackData"></param>
+            <param name="addressSeperator"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Genesys.Extras.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Properties.Resources.LegalFooter">
+             <summary>
+               Looks up a localized string similar to &lt;br /&gt;
+            &lt;hr /&gt;
+            &lt;p style=&quot;font-size:11px; color:lightgray;&quot;&gt;This message was sent to {0}. If you don&apos;t want to receive these emails from {1} in the future, please &lt;a href=&quot;{2}&quot;&gt;unsubscribe&lt;/a&gt;.
+            {3}, {4}
+            &lt;/p&gt;.
+             </summary>
+        </member>
+        <member name="T:Genesys.Extras.Security.Cryptography.Md5HashBuilder">
+            <summary>
+            Builds a hashed string from raw text
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Security.Cryptography.Md5HashBuilder.HashedString">
+            <summary>
+            HashedString
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Security.Cryptography.Md5HashBuilder.#ctor">
+            <summary>
+            Force immutability
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Security.Cryptography.Md5HashBuilder.#ctor(System.String)">
+            <summary>
+            Force immutability
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Security.Cryptography.Md5HashBuilder.#ctor(System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="stringToHash">string to hash</param>
+            <param name="salt">Salted value to add to hashed string</param>
+        </member>
+        <member name="M:Genesys.Extras.Security.Cryptography.Md5HashBuilder.HashCreate(System.String)">
+            <summary>
+            Hashes a String
+            </summary>
+            <param name="stringToHash">string to hash</param>
+            <returns>Hashed string data</returns>
+        </member>
+        <member name="M:Genesys.Extras.Security.Cryptography.Md5HashBuilder.Compare(System.String)">
+            <summary>
+            Hashes and compares a string
+            </summary>
+            <param name="rawString">string to hash compare</param>
+            <returns>True if string + salt hashed matches current hash string</returns>
+        </member>
+        <member name="T:Genesys.Extras.Security.Cryptography.DesEncryptor">
+            <summary>
+            Encrypts/Decrypts using 3 DES algorithms
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Security.Cryptography.DesEncryptor.Key">
+            <summary>
+            Key
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Security.Cryptography.DesEncryptor.Salt">
+            <summary>
+            Salt
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Security.Cryptography.DesEncryptor.EncodeForURL">
+            <summary>
+            EncodeForURL
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Security.Cryptography.DesEncryptor.#ctor">
+            <summary>
+            Force immutability
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Security.Cryptography.DesEncryptor.#ctor(System.String,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="encryptionKey"></param>
+            <param name="urlEncode"></param>
+        </member>
+        <member name="M:Genesys.Extras.Security.Cryptography.DesEncryptor.Encrypt(System.String)">
+            <summary>
+            Encrypts a string
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Security.Cryptography.DesEncryptor.Decrypt(System.String)">
+            <summary>
+            Decrypts an salted string
+            </summary>
+            <param name="encryptedString"></param>
+        </member>
+        <member name="M:Genesys.Extras.Security.Cryptography.DesEncryptor.CreateDes">
+            <summary>
+            Takes a string as key value, calculates MD5 hash on input parameter string.  
+            This hash value would be used as real key for the encryption. 
+            </summary>
+        </member>
+        <member name="T:Genesys.Extras.Serialization.PhpSerializer`1">
+             <summary>
+             Serializer Class for PHP
+            types:
+             N = null
+             s = string
+             i = int
+             d = double
+             a = array
+             </summary>
+        </member>
+        <member name="F:Genesys.Extras.Serialization.PhpSerializer`1.XMLSafe">
+            <summary>
+            for deserialize
+            </summary>
+        </member>
+        <member name="F:Genesys.Extras.Serialization.PhpSerializer`1.StringEncoding">
+            <summary>
+            StringEncoding
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Serialization.PhpSerializer`1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Serialization.PhpSerializer`1.Serialize(`0)">
+            <summary>
+            Serializes and returns the object as a string
+            </summary>
+            <param name="objectToSerialize"></param>
+            <returns>Serialized string</returns>
+        </member>
+        <member name="M:Genesys.Extras.Serialization.PhpSerializer`1.Serialize``1(``0)">
+            <summary>
+            Performs serialization based on object type
+            </summary>
+            <param name="objectToSerialize"></param>
+            <returns>Serialized string</returns>
+        </member>
+        <member name="M:Genesys.Extras.Serialization.PhpSerializer`1.SerializeWorker(System.Object,System.Text.StringBuilder)">
+            <summary>
+            Serialize
+            </summary>
+            <param name="obj">Object to serialize</param>
+            <param name="sb">string builder to append</param>
+            <returns></returns>
+        </member>
+        <member name="M:Genesys.Extras.Serialization.PhpSerializer`1.Deserialize(System.String)">
+            <summary>
+            Deserialize from string
+            </summary>
+            <param name="StringToDeserialize"></param>
+            <returns>Deserialized string</returns>
+        </member>
+        <member name="M:Genesys.Extras.Serialization.PhpSerializer`1.Deserialize``1(System.String)">
+            <summary>
+            De-serializes into T
+            </summary>
+            <param name="StringToDeserialize">Serialized string</param>
+            <returns>De-serialized string</returns>
+        </member>
+        <member name="M:Genesys.Extras.Serialization.PhpSerializer`1.DeserializeWorker(System.String)">
+            <summary>
+            Deserialize
+            </summary>
+            <param name="str">string to deserialize</param>
+            <returns>De-serialized string</returns>
+        </member>
+        <member name="T:Genesys.Extras.Serialization.XmlSerializer`1">
+            <summary>
+            XML serialization and deserialization
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Serialization.XmlSerializer`1.KnownTypes">
+            <summary>
+            List of types that allow serializer to use a type not explicitly defined. 
+              Primarily used to define ISerialier Of IMyType, but pass in object of MyType 
+              (serializer blows up on now knowing that MyType exists, only knows about IMyType)
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Serialization.XmlSerializer`1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Serialization.XmlSerializer`1.Serialize(`0)">
+            <summary>
+            Serializes and returns the JSON as a string
+            </summary>
+            <param name="objectToSerialize">Item to serialize</param>
+            <returns>string serialized with passed object</returns>
+        </member>
+        <member name="M:Genesys.Extras.Serialization.XmlSerializer`1.Serialize``1(``0)">
+            <summary>
+            Serializes the passed object to a string
+            </summary>
+            <typeparam name="TSerializeFrom">Type of incoming object</typeparam>
+            <param name="objectToSerialize">Object to serialize</param>
+            <returns>Json string</returns>
+        </member>
+        <member name="M:Genesys.Extras.Serialization.XmlSerializer`1.Deserialize(System.String)">
+            <summary>
+            Deserialize from JSON
+            </summary>
+            <param name="stringToDeserialize"></param>
+            <returns>De-serialized object</returns>
+        </member>
+        <member name="M:Genesys.Extras.Serialization.XmlSerializer`1.Deserialize``1(System.String)">
+            <summary>
+            De-serializes the passed string to an object
+            </summary>
+            <typeparam name="TDeserializeTo">Type of outgoing object</typeparam>
+            <param name="stringToDeserialize">Object to deserialize</param>
+            <returns>Concrete class</returns>
+        </member>
+        <member name="T:Genesys.Extras.Serialization.XmlSerializer">
+            <summary>
+            Xml serialization and deserialization
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Genesys.Extras.Serialization.XmlSerializer.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Serialization.XmlSerializer.#ctor(Genesys.Extras.Collections.IListSafe{System.Type})">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Serialization.XmlSerializer.Serialize``1(``0)">
+            <summary>
+            Serializes the passed object to a string
+            </summary>
+            <typeparam name="T">Type of incoming object</typeparam>
+            <param name="objectToSerialize">Object to serialize</param>
+            <returns>Xml string</returns>
+        </member>
+        <member name="M:Genesys.Extras.Serialization.XmlSerializer.Deserialize``1(System.String)">
+            <summary>
+            De-serializes the passed string to an object
+            </summary>
+            <typeparam name="T">Type of outgoing object</typeparam>
+            <param name="stringToDeserialize">Object to deserialize</param>
+            <returns>Concrete class</returns>
+        </member>
+        <member name="T:Genesys.Extras.Web.Http.MvcController">
+            <summary>
+            WebAPI controller for any app services project for native app back ends
+            </summary>
+        </member>
+        <member name="F:Genesys.Extras.Web.Http.MvcController.MessageUpAndRunning">
+            <summary>
+            Standard return message for default route of services
+            </summary>
+        </member>
+        <member name="E:Genesys.Extras.Web.Http.MvcController.SendBegin">
+            <summary>
+            Send is about to begin
+            </summary>
+        </member>
+        <member name="E:Genesys.Extras.Web.Http.MvcController.SendEnd">
+            <summary>
+            Send is complete
+            </summary>
+        </member>
+        <member name="T:Genesys.Extras.Web.Http.MvcController.SendBeginEventHandler">
+            <summary>
+            About to send data
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Genesys.Extras.Web.Http.MvcController.OnSendBegin">
+            <summary>
+            OnSendBegin()
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Web.Http.MvcController.OnSendEnd">
+            <summary>
+            OnSendEnd()
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Web.Http.MvcController.#ctor">
+            <summary>
+            Parameterless constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Web.Http.MvcController.SendGetAsync``1(System.String)">
+            <summary>
+            Instantiates and transmits all data to the middle tier web service that will execute the workflow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Genesys.Extras.Web.Http.MvcController.SendPostAsync``2(System.String,``0)">
+            <summary>
+            Instantiates and transmits all data to the middle tier web service that will execute the workflow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Genesys.Extras.Web.Http.MvcController.SendPutAsync``2(System.String,``0)">
+            <summary>
+            Instantiates and transmits all data to the middle tier web service that will execute the workflow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Genesys.Extras.Web.Http.MvcController.SendDeleteAsync``1(System.String)">
+            <summary>
+            Instantiates and transmits all data to the middle tier web service that will execute the workflow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Genesys.Extras.Web.Http.NoParameterRouteConstraint">
+             <summary>
+             Restricts parameters with post
+             Usage: public static void RegisterRoutes(RouteCollection routes)
+            {routes.MapHttpRoute("DefaultApi","api/{controller}/{id}",new { id = RouteParameter.Optional},
+                    new { id = new NoParameterRouteConstraint() } );}
+             </summary>
+        </member>
+        <member name="M:Genesys.Extras.Web.Http.NoParameterRouteConstraint.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="httpMethod"></param>
+        </member>
+        <member name="M:Genesys.Extras.Web.Http.NoParameterRouteConstraint.Match(System.Web.HttpContextBase,System.Web.Routing.Route,System.String,System.Web.Routing.RouteValueDictionary,System.Web.Routing.RouteDirection)">
+            <summary>
+            Match
+            </summary>
+            <param name="httpContext"></param>
+            <param name="route"></param>
+            <param name="parameterName"></param>
+            <param name="values"></param>
+            <param name="routeDirection"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Genesys.Extras.Web.Http.WebApiController">
+            <summary>
+            WebAPI controller for any app services project for native app back ends
+            </summary>
+        </member>
+        <member name="F:Genesys.Extras.Web.Http.WebApiController.MessageUpAndRunning">
+            <summary>
+            Standard return message for default route of services
+            </summary>
+        </member>
+        <member name="E:Genesys.Extras.Web.Http.WebApiController.SendBegin">
+            <summary>
+            Send is about to begin
+            </summary>
+        </member>
+        <member name="E:Genesys.Extras.Web.Http.WebApiController.SendEnd">
+            <summary>
+             Send has ended
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Web.Http.WebApiController.OnSendBegin">
+            <summary>
+            Worker for SendBegin event
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Web.Http.WebApiController.OnSendEnd">
+            <summary>
+            Worker for SendEnd event
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Web.Http.WebApiController.MyWebService">
+            <summary>
+            Middle-tier web service supporting this application
+            </summary>  
+        </member>
+        <member name="M:Genesys.Extras.Web.Http.WebApiController.#ctor">
+            <summary>
+            Parameterless constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Web.Http.WebApiController.SendGetAsync``1(System.String)">
+            <summary>
+            Instantiates and transmits all data to the middle tier web service that will execute the workflow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Genesys.Extras.Web.Http.WebApiController.SendPostAsync``2(System.String,``0)">
+            <summary>
+            Instantiates and transmits all data to the middle tier web service that will execute the workflow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Genesys.Extras.Web.Http.WebApiController.SendPutAsync``2(System.String,``0)">
+            <summary>
+            Instantiates and transmits all data to the middle tier web service that will execute the workflow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Genesys.Extras.Web.Http.WebApiController.SendDeleteAsync``1(System.String)">
+            <summary>
+            Instantiates and transmits all data to the middle tier web service that will execute the workflow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Genesys.Extras.Web.Http.WebApiController.SendBeginEventHandler">
+            <summary>
+            Workflow beginning. No custom to return.
+            </summary>
+            <param name="sender">Sender of event</param>
+            <param name="e">Event arguments</param>
+        </member>
+    </members>
+</doc>

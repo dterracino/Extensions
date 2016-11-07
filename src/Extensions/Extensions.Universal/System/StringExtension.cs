@@ -39,8 +39,12 @@ namespace Genesys.Extensions
             bool convertValue = TypeExtension.DefaultBoolean;
 
             if (String.IsNullOrEmpty(item) == false)
-            {
-                if (Boolean.TryParse(item, out convertValue))
+            {                
+                if (item.TryParseInt16() != TypeExtension.DefaultInt16) // Catch integers, as TryParse only evaluates "true" and "false", not "0".
+                {
+                    returnValue = item.TryParseInt16() == 0 ? false : true;
+                }
+                else if (Boolean.TryParse(item, out convertValue))
                 {
                     returnValue = convertValue;
                 }

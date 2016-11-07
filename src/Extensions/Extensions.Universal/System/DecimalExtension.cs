@@ -37,45 +37,45 @@ namespace Genesys.Extensions
         /// FormatPercent With Comma
         /// </summary>
         public const string FormatPercentWithComma = "P";
-        
+
         /// <summary>
-        /// Parses without exceptions
+        /// Quick converts
         /// </summary>
         /// <param name="item">Decimal to convert to double</param>
         /// <returns>Double of the passed decimal, or 0.</returns>
         public static double ToDouble(this decimal item)
         {
-            return StringExtension.TryParseDouble(item.ToStringSafe());
+            return Decimal.ToDouble(item);
         }
 
         /// <summary>
-        /// Parses without exceptions
+        /// Quick converts
         /// </summary>
         /// <param name="item">Decimal to convert to integer.</param>
         /// <returns>Converted value, or default -1.</returns>
         public static short ToShort(this decimal item)
         {
-            return StringExtension.TryParseInt16(item.ToStringSafe());
+            return Decimal.ToInt16(item);
         }
 
         /// <summary>
-        /// Parses without exceptions
+        /// Quick converts
         /// </summary>
         /// <param name="item">Decimal to convert to integer.</param>
         /// <returns>Converted value, or default -1.</returns>
         public static int ToInt(this decimal item)
-        {
-            return StringExtension.TryParseInt32(item.ToStringSafe());
+        {            
+            return Decimal.ToInt32(item);
         }
 
         /// <summary>
-        /// Parses without exceptions
+        /// Quick converts
         /// </summary>
         /// <param name="item">Decimal to convert to integer.</param>
         /// <returns>Converted value, or default -1.</returns>
         public static long ToLong(this decimal item)
         {
-            return StringExtension.TryParseInt64(item.ToStringSafe());
+            return Decimal.ToInt64(item);
         }
     }
 }

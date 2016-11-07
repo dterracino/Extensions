@@ -18,6 +18,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -37,7 +38,7 @@ namespace Genesys.Extensions
         /// <returns>First item, or new() constructed item</returns>
         public static T FirstOrDefaultSafe<T>(this List<T> item) where T : new()
         {
-            if ((item == null) == true || item.ToList().Count == 0)
+            if ((item == null) == true || item.Any() == false)
             {
                 return new T();
             } 
@@ -56,7 +57,7 @@ namespace Genesys.Extensions
         /// <returns>First item, or DefaultValue</returns>
         public static T FirstOrDefaultSafe<T>(this List<T> item, T defaultValue)
         {
-            if ((item == null) == true || item.ToList().Count == 0)
+            if ((item == null) == true || item.Any() == false)
             {
                 return defaultValue;
             } 
@@ -126,39 +127,21 @@ namespace Genesys.Extensions
         {
             return typeof(T);
         }
-        
+
         /// <summary>
-        /// Fills this object with another object's data, by matching interfaces
+        /// Fills this IEnumerable list with another IEnumerable list that has types with matching properties.
         /// </summary>
         /// <typeparam name="T">Type of original object.</typeparam>
         /// <param name="item">Destination object to fill</param>
-        /// <param name="sourceItem">Source object</param>
-        public static void FillByInterface<T>(this List<T> item, IEnumerable<T> sourceItem) where T : new()
+        /// <param name="sourceList">Source object</param>
+        public static void FillRange<T>(this List<T> item, IEnumerable sourceList) where T : new()
         {
             T newItem = new T();
 
-            foreach (T listItem in sourceItem)
+            foreach (var sourceItem in sourceList)
             {
                 newItem = new T();
-                newItem.FillByInterface(listItem);
-                item.Add(newItem);
-            }
-        }
-
-        /// <summary>
-        /// Fills this object with another object's data, by matching property names
-        /// </summary>
-        /// <typeparam name="T">Type of original object.</typeparam>
-        /// <param name="item">Destination object to fill</param>
-        /// <param name="sourceItem">Source object</param>
-        public static void FillByProperty<T>(this List<T> item, IEnumerable<Object> sourceItem) where T : new()
-        {            
-            T newItem = new T();
-
-            foreach (T listItem in sourceItem)
-            {
-                newItem = new T();
-                newItem.FillByProperty(listItem);
+                newItem.Fill(sourceItem);
                 item.Add(newItem);
             }
         }

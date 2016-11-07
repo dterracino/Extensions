@@ -28,9 +28,12 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Text_Encoding_UrlEncoder()
         {
-            UrlEncoder testObject = new UrlEncoder("% and & and <");
+            UrlEncoder testObject = new UrlEncoder("& and < and /");
             string result = testObject.Encode();
-            Assert.IsTrue(result.Contains("%") == false && result.Length > 0, "Item did not work.");
+            Assert.IsTrue(result.Length > 0, "Item did not work.");
+            Assert.IsTrue(result.Contains("&") == false, "Item did not work.");
+            Assert.IsTrue(result.Contains("<") == false, "Item did not work.");
+            Assert.IsTrue(result.Contains("/") == false, "Item did not work.");
         }
     }
 }

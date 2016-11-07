@@ -65,13 +65,16 @@ namespace Genesys.Extras.Text
         private void TemplateFill()
         {            
             string dataFormatted = TypeExtension.DefaultString;
+            string templateFilled = TypeExtension.DefaultString;
 
             this.IsValid(); // throw exception if bad data
+            templateFilled = this.templateEmptyField;
             for (int dataCount = 0; dataCount <= this.templateDataField.Count - 1; dataCount++)
             {
-                dataFormatted = this.templateDataField[dataCount].Replace(Environment.NewLine, "<br />").Replace("\n", "<br />");
-                this.templateFilledField = this.templateFilledField.Replace("{" + dataCount.ToString() + "}", dataFormatted);
+                if (this.isHTML) { dataFormatted = this.templateDataField[dataCount].Replace(Environment.NewLine, "<br />").Replace("\n", "<br />"); }
+                templateFilled = templateFilled.Replace("{" + dataCount.ToString() + "}", dataFormatted);
             }
+            this.templateFilledField = templateFilled;
         }
         
         /// <summary>

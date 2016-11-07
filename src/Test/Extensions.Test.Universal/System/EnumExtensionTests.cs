@@ -48,29 +48,12 @@ namespace Genesys.Extensions.Test
             public MyEnumFlags enumFlag = MyEnumFlags.one;
         }
 
-        [TestMethod()]
-        public void Enum_Add()
-        {
-            EnumConsumer consumer = new EnumConsumer();
-            int sixteen = 0x16;
-            consumer.enumFlag.Add(sixteen);
-            Assert.IsTrue(consumer.enumInt.Contains(0x16) == true, "Did not work");
-        }
-
-        [TestMethod()]
-        public void Enum_Remove()
-        {
-            EnumConsumer consumer = new EnumConsumer();
-            consumer.enumFlag.Remove(0x01);
-            Assert.IsTrue(consumer.enumInt.Contains(0x01) == false, "Did not work");
-        }
 
         [TestMethod()]
         public void Enum_Contains()
         {
             EnumConsumer consumer = new EnumConsumer();
-            consumer.enumFlag.Remove(0x01);
-            Assert.IsTrue(consumer.enumInt.Contains(0x01) == true, "Did not work");
+            Assert.IsTrue(consumer.enumFlag.Contains(0x01) == true, "Did not work");
         }
     }
 }

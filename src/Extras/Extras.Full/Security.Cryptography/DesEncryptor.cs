@@ -102,12 +102,18 @@ namespace Genesys.Extras.Security.Cryptography
         public string Decrypt(string encryptedString)
         {
             string returnValue = TypeExtension.DefaultString;
+            string itemToDecrypt = TypeExtension.DefaultString;
 
             try
             {
+                itemToDecrypt = encryptedString;
+                if (this.EncodeForURL)
+                {
+                    itemToDecrypt = UrlEncoder.Decode(encryptedString);
+                }
                 TripleDES des = CreateDes();
                 ICryptoTransform decryptor = des.CreateDecryptor();
-                byte[] encryptedByte = Convert.FromBase64String(encryptedString);
+                byte[] encryptedByte = Convert.FromBase64String(itemToDecrypt);
                 byte[] decryptedByte = decryptor.TransformFinalBlock(encryptedByte, 0, encryptedByte.Length);
                 string decryptedSaltedString = Encoding.Unicode.GetString(decryptedByte);
                 // Final decryption and return

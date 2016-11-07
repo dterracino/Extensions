@@ -25,10 +25,21 @@ namespace Genesys.Extensions.Test
     [TestClass()]
     public class ListExtensionTests
     {
-        public List<string> names1 = new List<string>(){ "Burke", "Connor", "Frank",
-                       "Everett", "Albert", "George",
-                       "Harris", "David" };
-        public List<string> names2 = new List<string>(){ "Joe", "James", "Jack" };
+        public List<string> names1 = new List<string>() { "Burke", "Connor", "Frank", "Everett", "Albert", "George", "Harris", "David" };
+        public List<string> names2 = new List<string>() { "Joe", "James", "Jack" };
+
+        public class ComplexObject
+        {
+            public string Name { get; set; }
+        }
+        public class ComplexList : List<ComplexObject>
+        {
+            public ComplexList() : base()
+            {
+                this.AddRange(new List<ComplexObject>() {
+                    new ComplexObject() { Name = "Larry" }, new ComplexObject() { Name = "Curly" }, new ComplexObject() { Name = "Mo" }});
+            }
+        }
 
         [TestMethod()]
         public void List_FirstOrDefaultSafe()
@@ -43,6 +54,18 @@ namespace Genesys.Extensions.Test
             allNames.AddRange(names1);
             allNames.AddRange(names2);
             Assert.IsTrue(allNames.Count == (names1.Count + names2.Count), "Did not work");
-        }        
+        }
+
+        [TestMethod()]
+        public void List_Fill()
+        {
+            ComplexList fullList = new ComplexList();
+            ComplexList emptyList = new ComplexList();
+
+            emptyList.Clear();
+            Assert.IsTrue(emptyList.Count == 0, "Did not work");
+            emptyList.FillRange(fullList);
+            Assert.IsTrue(emptyList.Count == fullList.Count, "Did not work");
+        }
     }
 }
