@@ -28,7 +28,7 @@ namespace Genesys.Extensions.Test
         [TestMethod()]
         public void Integer_ToDecimal()
         {
-            int testItem = 10;
+            var testItem = 10;
             Assert.IsTrue(testItem.ToDecimal() == 10.00M, "Did not work");
         }
 
@@ -36,7 +36,7 @@ namespace Genesys.Extensions.Test
         public void Integer_ToGuid()
         {
             Guid itemGuid = new Guid("00003039-0000-0000-0000-000000000000");
-            int itemInt = 12345;
+            var itemInt = 12345;
 
             Assert.IsTrue(itemGuid.ToInteger() == itemInt, "Did not work");
             Assert.IsTrue(itemInt.ToGuid() == itemGuid, "Did not work");
@@ -45,7 +45,7 @@ namespace Genesys.Extensions.Test
         [TestMethod()]
         public void Integer_Negate()
         {
-            int testItem = 10;
+            var testItem = 10;
             Assert.IsTrue(testItem.Negate() == (testItem * -1), "Did not work");
         }
     }

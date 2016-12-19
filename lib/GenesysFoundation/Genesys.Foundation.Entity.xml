@@ -315,44 +315,18 @@
             Deleted: This record is deleted and to be considered non-existent, even in historical re-calculations (will make historical counts shift.)
             </summary>
         </member>
-        <member name="T:Genesys.Foundation.Entity.HtmlImageEntity`1">
-            <summary>
-            Base DAO class for tables containing image column
-            Separates the heavy image column into its own object
-            </summary>    
-        </member>
-        <member name="P:Genesys.Foundation.Entity.HtmlImageEntity`1.Bytes">
-            <summary>
-            Byte array data
-            </summary>
-        </member>
-        <member name="M:Genesys.Foundation.Entity.HtmlImageEntity`1.#ctor">
-            <summary>
-            Constructor
-            </summary>
-        </member>
-        <member name="M:Genesys.Foundation.Entity.HtmlImageEntity`1.#ctor(System.Byte[])">
-            <summary>
-            Constructor
-            </summary>
-        </member>
-        <member name="M:Genesys.Foundation.Entity.HtmlImageEntity`1.ToString">
-            <summary>
-            Writes this HTML to the stream
-            </summary>
-        </member>
         <member name="T:Genesys.Foundation.Entity.ImageEntity`1">
             <summary>
             Base DAO class for tables containing image column
             Separates the heavy image column into its own object
             </summary>
         </member>
-        <member name="P:Genesys.Foundation.Entity.ImageEntity`1.ImageEmpty">
+        <member name="P:Genesys.Foundation.Entity.ImageEntity`1.Empty">
             <summary>
             1x1px transparent image
             </summary>
         </member>
-        <member name="P:Genesys.Foundation.Entity.ImageEntity`1.NoImage">
+        <member name="P:Genesys.Foundation.Entity.ImageEntity`1.Transparent">
             <summary>
             1x1px transparent image
             </summary>
@@ -381,7 +355,7 @@
             <summary>
             Constructor
             </summary>
-            <param name="ImageBytes">Data to save</param>
+            <param name="imageBytes">Data to save</param>
         </member>
         <member name="M:Genesys.Foundation.Entity.ImageEntity`1.ToSize(System.Int32)">
             <summary>
@@ -397,7 +371,7 @@
         </member>
         <member name="M:Genesys.Foundation.Entity.ImageEntity`1.ToThumbnail">
             <summary>
-            Converts to a very lightweight thumbnail
+            Converts to a lightweight thumbnail
             </summary>
         </member>
         <member name="M:Genesys.Foundation.Entity.ImageEntity`1.ToThumbnailInUpperLeftCorner(System.Int32,System.Int32)">
@@ -917,7 +891,7 @@
         </member>
         <member name="M:Genesys.Extras.Exceptions.ExceptionLogger.Create(System.Exception,System.Type,System.String,System.String,System.String)">
             <summary>
-            Hydrates object and saves the log record    
+            Hydrates object and saves the log record
             </summary>
             <param name="exception">System.Exception object to log</param>
             <param name="concreteType">Type that is logging the exception</param>

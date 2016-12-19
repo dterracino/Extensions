@@ -29,9 +29,9 @@ namespace Genesys.Extras.Test
         public void Security_Cryptography_CaesarEncryptor()
         {
             CaesarEncryptor TestItem = new CaesarEncryptor();
-            string encryptedString = TestItem.Encrypt("Test");
+            var encryptedString = TestItem.Encrypt("Test");
             Assert.IsTrue(encryptedString == "bQB%2BAIwAjQA%3D", "Did not work");
-            string decryptedString = TestItem.Decrypt(encryptedString);
+            var decryptedString = TestItem.Decrypt(encryptedString);
             Assert.IsTrue(decryptedString == "Test", "Did not work");
         }                
     }

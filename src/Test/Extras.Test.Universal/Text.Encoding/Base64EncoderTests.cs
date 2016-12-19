@@ -29,8 +29,8 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Text_Encoding_Base64Encoder()
         {
-            string rawValue = "Raw data value";
-            string encodedValue = TypeExtension.DefaultString;
+            var rawValue = "Raw data value";
+            var encodedValue = TypeExtension.DefaultString;
 
             Base64Encoder encoder = new Base64Encoder(rawValue);
             encodedValue = encoder.Encode();

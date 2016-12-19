@@ -37,7 +37,7 @@ namespace Genesys.Extensions.Test
         public void Decimal_ToInt()
         {
             decimal original = 10.00M;
-            int castedValue = TypeExtension.DefaultInteger;
+            var castedValue = TypeExtension.DefaultInteger;
             castedValue = original.ToInt();
             Assert.IsTrue(castedValue == (int)original, "Did not work");
         }

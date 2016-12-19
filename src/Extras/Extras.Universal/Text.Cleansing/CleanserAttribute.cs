@@ -39,7 +39,7 @@ namespace Genesys.Extras.Text.Cleansing
         /// <param name="value">Value to hydrate</param>
         public CleanseFor(CleanserIDs value)
         {
-            this.Value = value;
+            Value = value;
         }
     }
 }

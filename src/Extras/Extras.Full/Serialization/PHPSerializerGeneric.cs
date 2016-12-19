@@ -70,7 +70,7 @@ namespace Genesys.Extras.Serialization
         /// <returns>Serialized string</returns>
         public override string Serialize(ObjectType objectToSerialize)
         {
-            return this.Serialize<ObjectType>(objectToSerialize);
+            return Serialize<ObjectType>(objectToSerialize);
         }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace Genesys.Extras.Serialization
             seenArrayLists = new Dictionary<ArrayList, bool>();
             seenHashtables = new Dictionary<Hashtable, bool>();
 
-            return this.SerializeWorker(objectToSerialize, new StringBuilder()).ToString();
+            return SerializeWorker(objectToSerialize, new StringBuilder()).ToString();
         }
 
         /// <summary>
@@ -132,15 +132,15 @@ namespace Genesys.Extras.Serialization
                 else
                 {
                     //cycle detected
-                    this.seenArrayLists.Add((ArrayList)obj, true);
+                    seenArrayLists.Add((ArrayList)obj, true);
                 }
 
                 ArrayList a = (ArrayList)obj;
                 sb.Append("a:" + a.Count + ":{");
-                for (int i = 0; i <= a.Count - 1; i++)
+                for (var i = 0; i <= a.Count - 1; i++)
                 {
-                    this.SerializeWorker(i, sb);
-                    this.SerializeWorker(a[i], sb);
+                    SerializeWorker(i, sb);
+                    SerializeWorker(a[i], sb);
                 }
                 sb.Append("}");
                 return sb;
@@ -154,15 +154,15 @@ namespace Genesys.Extras.Serialization
                 else
                 {
                     //cycle detected
-                    this.seenHashtables.Add((Hashtable)obj, true);
+                    seenHashtables.Add((Hashtable)obj, true);
                 }
 
                 Hashtable a = (Hashtable)obj;
                 sb.Append("a:" + a.Count + ":{");
                 foreach (DictionaryEntry entry in a)
                 {
-                    this.SerializeWorker(entry.Key, sb);
-                    this.SerializeWorker(entry.Value, sb);
+                    SerializeWorker(entry.Key, sb);
+                    SerializeWorker(entry.Value, sb);
                 }
                 sb.Append("}");
                 return sb;
@@ -180,7 +180,7 @@ namespace Genesys.Extras.Serialization
         /// <returns>Deserialized string</returns>
         public override ObjectType Deserialize(string StringToDeserialize)
         {
-            return this.Deserialize<ObjectType>(StringToDeserialize);
+            return Deserialize<ObjectType>(StringToDeserialize);
         }
 
         /// <summary>
@@ -190,7 +190,7 @@ namespace Genesys.Extras.Serialization
         /// <returns>De-serialized string</returns>
         public override T Deserialize<T>(string StringToDeserialize)
         {
-            this.pos = 0;
+            pos = 0;
             return (T)DeserializeWorker(StringToDeserialize);
         }
 
@@ -203,7 +203,7 @@ namespace Genesys.Extras.Serialization
         {
             if (str == null || str.Length <= this.pos)
             {
-                return new Object();
+                return new object();
             }
 
             int start = 0;
@@ -213,26 +213,26 @@ namespace Genesys.Extras.Serialization
             switch (str.SubstringSafe(this.pos, 1))
             {
                 case "N":
-                    this.pos += 2;
+                    pos += 2;
                     return null;
                 case "b":
                     char chBool = '\0';
                     chBool = str.SubstringSafe(this.pos, 2).ToCharArray(0, 1)[0];
-                    this.pos += 4;
+                    pos += 4;
                     return chBool == '1';
                 case "i":
                     string stInt = null;
                     start = str.IndexOf(":", this.pos) + 1;
                     end = str.IndexOf(";", start);
                     stInt = str.Substring(start, end - start);
-                    this.pos += 3 + stInt.Length;
+                    pos += 3 + stInt.Length;
                     return int.Parse(stInt, this.nfi);
                 case "d":
                     string stDouble = null;
                     start = str.IndexOf(":", this.pos) + 1;
                     end = str.IndexOf(";", start);
                     stDouble = str.Substring(start, end - start);
-                    this.pos += 3 + stDouble.Length;
+                    pos += 3 + stDouble.Length;
                     return Double.Parse(stDouble, this.nfi);
                 case "s":
                     start = str.IndexOf(":", this.pos) + 1;
@@ -252,7 +252,7 @@ namespace Genesys.Extras.Serialization
                         length -= 1;
                         stRet = str.Substring(end + 2, length);
                     }
-                    this.pos += 6 + stLen.Length + length;
+                    pos += 6 + stLen.Length + length;
                     if (this.XMLSafe)
                     {
                         stRet = stRet.Replace("\n", "\r" + "\n");
@@ -266,9 +266,9 @@ namespace Genesys.Extras.Serialization
                     length = int.Parse(stLen);
                     Hashtable htRet = new Hashtable(length);
                     ArrayList alRet = new ArrayList(length);
-                    this.pos += 4 + stLen.Length;
+                    pos += 4 + stLen.Length;
                     //a:Len:{
-                    for (int i = 0; i <= length - 1; i++)
+                    for (var i = 0; i <= length - 1; i++)
                     {
                         //read key
                         object key = DeserializeWorker(str);
@@ -289,12 +289,12 @@ namespace Genesys.Extras.Serialization
                         htRet[key] = val;
                     }
 
-                    this.pos += 1;
+                    pos += 1;
                     //skip the }
                     if (this.pos < str.Length && str.SubstringSafe(this.pos, 1) == ";")
                     {
                         //skipping our old extra array semi-colon bug (er... php's weirdness)
-                        this.pos += 1;
+                        pos += 1;
                     }
                     if (alRet != null)
                     {

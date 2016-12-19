@@ -52,7 +52,7 @@ namespace Genesys.Extras.Security.Cryptography
         private DesEncryptor()
             : base()
         {
-            this.EncodeForURL = true;
+            EncodeForURL = true;
         }
 
         /// <summary>
@@ -63,8 +63,8 @@ namespace Genesys.Extras.Security.Cryptography
         public DesEncryptor(string encryptionKey = "", bool urlEncode = true)
             : this()
         {            
-            this.Key = encryptionKey;
-            this.EncodeForURL = urlEncode;
+            Key = encryptionKey;
+            EncodeForURL = urlEncode;
         }
         
         /// <summary>
@@ -72,14 +72,14 @@ namespace Genesys.Extras.Security.Cryptography
         /// </summary>
         public string Encrypt(string originalString)
         {
-            string returnValue = TypeExtension.DefaultString;
+            var returnValue = TypeExtension.DefaultString;
 
             try
             {
-                string saltedString = originalString + this.Salt;
+                var saltedString = originalString + this.Salt;
                 TripleDES des = CreateDes();
                 ICryptoTransform encryptor = des.CreateEncryptor();
-                byte[] encryptedByte = Encoding.Unicode.GetBytes(saltedString);
+                var encryptedByte = Encoding.Unicode.GetBytes(saltedString);
                 // Final encryption and return
                 returnValue = Convert.ToBase64String(encryptor.TransformFinalBlock(encryptedByte, 0, encryptedByte.Length));
                 if (this.EncodeForURL)
@@ -101,8 +101,8 @@ namespace Genesys.Extras.Security.Cryptography
         /// <param name="encryptedString"></param>
         public string Decrypt(string encryptedString)
         {
-            string returnValue = TypeExtension.DefaultString;
-            string itemToDecrypt = TypeExtension.DefaultString;
+            var returnValue = TypeExtension.DefaultString;
+            var itemToDecrypt = TypeExtension.DefaultString;
 
             try
             {
@@ -113,9 +113,9 @@ namespace Genesys.Extras.Security.Cryptography
                 }
                 TripleDES des = CreateDes();
                 ICryptoTransform decryptor = des.CreateDecryptor();
-                byte[] encryptedByte = Convert.FromBase64String(itemToDecrypt);
-                byte[] decryptedByte = decryptor.TransformFinalBlock(encryptedByte, 0, encryptedByte.Length);
-                string decryptedSaltedString = Encoding.Unicode.GetString(decryptedByte);
+                var encryptedByte = Convert.FromBase64String(itemToDecrypt);
+                var decryptedByte = decryptor.TransformFinalBlock(encryptedByte, 0, encryptedByte.Length);
+                var decryptedSaltedString = Encoding.Unicode.GetString(decryptedByte);
                 // Final decryption and return
                 returnValue = decryptedSaltedString.Remove(decryptedSaltedString.Length - this.Salt.Length);
             }

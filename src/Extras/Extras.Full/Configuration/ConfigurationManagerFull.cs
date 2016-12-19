@@ -95,12 +95,12 @@ namespace Genesys.Extras.Configuration
         public ConfigurationManagerFull() : base()
         {
             #if (DEBUG)
-                        this.ThrowException = true;
+                        ThrowException = true;
             #endif
             // Init ConfigurationManagerSafe, except do not use it to load .config XML. It has too many variations
             //    XML .configs are nearing obsolescence. Json .configs are much easier to work with
-            this.PathAndFile = AppDomain.CurrentDomain.SetupInformation.ConfigurationFile;
-            this.Load();
+            PathAndFile = AppDomain.CurrentDomain.SetupInformation.ConfigurationFile;
+            Load();
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace Genesys.Extras.Configuration
             // ConnectionStringSettingsCollection is difficult to work with and is sealed, so cant extend. Just convert to array manually.
             foreach(ConnectionStringSettings connection in connectionStrings ?? new ConnectionStringSettingsCollection())
             {
-                this.connectionStringsField.Add(connection.Name, connection.ConnectionString);
+                connectionStringsField.Add(connection.Name, connection.ConnectionString);
             }                
         }
         
@@ -123,8 +123,8 @@ namespace Genesys.Extras.Configuration
         /// </summary>
         public void Load()
         {
-            NameValueCollection appSettings = new NameValueCollection();
-            ConnectionStringSettingsCollection connectionStrings = new ConnectionStringSettingsCollection();
+            var appSettings = new NameValueCollection();
+            var connectionStrings = new ConnectionStringSettingsCollection();
             
             try { appSettings = System.Configuration.ConfigurationManager.AppSettings; }
                 catch (NullReferenceException) { if (ThrowException) throw; }
@@ -132,11 +132,11 @@ namespace Genesys.Extras.Configuration
                 catch (NullReferenceException) { if (ThrowException) throw; }                        
             foreach (string Item in appSettings)
             {
-                this.appSettingsField.Add(new AppSettingSafe(Item, appSettings.GetValues(Item).FirstOrDefault()));
+                appSettingsField.Add(new AppSettingSafe(Item, appSettings.GetValues(Item).FirstOrDefault()));
             }
             foreach (System.Configuration.ConnectionStringSettings Item in connectionStrings)
             {
-                this.connectionStringsField.Add(new ConnectionStringSafe(Item.Name, Item.ConnectionString));
+                connectionStringsField.Add(new ConnectionStringSafe(Item.Name, Item.ConnectionString));
             }
         }
     }

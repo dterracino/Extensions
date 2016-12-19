@@ -84,8 +84,8 @@ namespace Genesys.Extensions
         /// <returns>Converted or not found value of the source item</returns>
         public static int TryParseInt32(this string item, int notFoundValue = -1)
         {
-            int returnValue = TypeExtension.DefaultInteger;
-            int convertValue = TypeExtension.DefaultInteger;
+            var returnValue = TypeExtension.DefaultInteger;
+            var convertValue = TypeExtension.DefaultInteger;
 
             if (String.IsNullOrEmpty(item) == false)
             {
@@ -274,7 +274,7 @@ namespace Genesys.Extensions
        /// <returns>Extracted characters, or original string if cant substring.</returns>
         public static string SubstringSafe(this string item, int starting, int length = -1)
         {
-            string returnValue = TypeExtension.DefaultString;
+            var returnValue = TypeExtension.DefaultString;
 
             if (length == -1)
             {
@@ -307,8 +307,8 @@ namespace Genesys.Extensions
         /// <returns>Cased string</returns>
         public static string ToPascalCase(this string uncasedString)
         {
-            string returnValue = TypeExtension.DefaultString;
-            string partiallyCased = TypeExtension.DefaultString;
+            var returnValue = TypeExtension.DefaultString;
+            var partiallyCased = TypeExtension.DefaultString;
 
             // Do nothing if nothing to work with
             if (string.IsNullOrEmpty(uncasedString) == false & ((uncasedString.ToLower() == uncasedString) | (uncasedString.ToUpper() == uncasedString) & uncasedString.Contains(" ")))
@@ -342,11 +342,11 @@ namespace Genesys.Extensions
         /// <returns>Cased string</returns>
         private static string FormatCasePascal(string uncasedString, string parseCharacter, bool useExistingCase = true)
         {
-            string returnValue = TypeExtension.DefaultString;
+            var returnValue = TypeExtension.DefaultString;
             string[] words = null;
-            string word = TypeExtension.DefaultString;
+            var word = TypeExtension.DefaultString;
             char firstLetter = TypeExtension.DefaultChar;
-            int count = TypeExtension.DefaultInteger;
+            var count = TypeExtension.DefaultInteger;
 
             words = uncasedString.Split(parseCharacter.ToCharArray());
             for (count = 0; count <= words.Length - 1; count++)
@@ -387,11 +387,11 @@ namespace Genesys.Extensions
         /// <returns>Cased item based on the exception casing rules</returns>
         private static string FormatCaseException(string uncasedString, string parseCharacter)
         {
-            string returnValue = TypeExtension.DefaultString;
+            var returnValue = TypeExtension.DefaultString;
             string[] words = null;
-            string word = TypeExtension.DefaultString;
+            var word = TypeExtension.DefaultString;
             char firstLetter = TypeExtension.DefaultChar;
-            int count = TypeExtension.DefaultInteger;
+            var count = TypeExtension.DefaultInteger;
 
             words = uncasedString.Split(parseCharacter.ToCharArray());
             for (count = 0; count <= words.Length - 1; count++)
@@ -429,7 +429,7 @@ namespace Genesys.Extensions
         /// <returns>Original item without the removed substring</returns>
         public static string RemoveFirst(this string item, string toRemove)
         {
-            string returnValue = item.Trim();
+            var returnValue = item.Trim();
 
             if (item.IsFirst(toRemove) == true)
             {
@@ -447,7 +447,7 @@ namespace Genesys.Extensions
         /// <returns>Original item without the removed substring</returns>
         public static string RemoveLast(this string item, string toRemove)
         {
-            string returnValue = item.Trim();
+            var returnValue = item.Trim();
 
             if (item.IsLast(toRemove) == true)
             {

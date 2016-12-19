@@ -61,7 +61,7 @@ namespace Genesys.Extras.Text.Cleansing
             IEnumerable<PropertyInfo> props = classToCleanse.GetPropertiesByAttribute(typeof(CleanseFor));
             foreach (PropertyInfo item in props)
             {
-                string ValueToSet = item.GetValue(classToCleanse, null).ToStringSafe();
+                var ValueToSet = item.GetValue(classToCleanse, null).ToStringSafe();
                 Cleanser cleanserWorker = CleanserFactory.Construct(item.GetAttributeValue<CleanseFor, CleanserIDs>(CleanserIDs.Default), ValueToSet);
                 ValueToSet = cleanserWorker.Cleanse();
                 item.SetValue(classToCleanse, ValueToSet);

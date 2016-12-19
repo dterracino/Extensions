@@ -35,6 +35,17 @@ namespace Genesys.Extras.Serialization
     public class JsonSerializer<T> : Serializer<T>
     {
         /// <summary>
+        /// Gets or sets a DateTimeFormat that defines the culturally appropriate format of displaying dates and times.
+        /// Default is ISO 8601 DateTime Format. Does not default to microsoft Date()
+        /// </summary>
+        public DateTimeFormat DateTimeFormat { get; set; } = new DateTimeFormat("yyyy-MM-dd'T'HH:mm:ss");
+
+        /// <summary>
+        /// Gets or sets the data contract JSON serializer settings to emit type information.
+        /// </summary>
+        public EmitTypeInformation EmitTypeInformation { get; set; } = EmitTypeInformation.Never;
+
+        /// <summary>
         /// Constructor
         /// </summary>
         public JsonSerializer() : base() { }
@@ -43,7 +54,7 @@ namespace Genesys.Extras.Serialization
         /// Constructor
         /// </summary>
         public JsonSerializer(IListSafe<Type> knownTypes) : base(knownTypes) { }
-        
+
         /// <summary>
         /// Serializes and returns the JSON as a string
         /// </summary>
@@ -52,7 +63,7 @@ namespace Genesys.Extras.Serialization
         /// <remarks></remarks>
         public override string Serialize(T objectToSerialize)
         {
-            return this.Serialize<T>(objectToSerialize);
+            return Serialize<T>(objectToSerialize);
         }
 
         /// <summary>
@@ -63,13 +74,13 @@ namespace Genesys.Extras.Serialization
         /// <returns>Json string</returns>
         public override string Serialize<TLocal>(TLocal objectToSerialize)
         {
-            string returnValue = TypeExtension.DefaultString;
+            var returnValue = TypeExtension.DefaultString;
             DataContractJsonSerializer serializer;
 
             try
             {
                 if (objectToSerialize == null && this.EmptyStringAndNullSupported == false) { throw new System.ArgumentNullException("Passed parameter is null. Unable to serialize null objects."); }
-                serializer = new DataContractJsonSerializer(objectToSerialize.GetType(), new DataContractJsonSerializerSettings() { EmitTypeInformation = EmitTypeInformation.Never, KnownTypes = this.KnownTypes });
+                serializer = new DataContractJsonSerializer(objectToSerialize.GetType(), new DataContractJsonSerializerSettings() { EmitTypeInformation = this.EmitTypeInformation, DateTimeFormat = this.DateTimeFormat, KnownTypes = this.KnownTypes });
                 using (MemoryStream stream = new MemoryStream())
                 {
                     serializer.WriteObject(stream, objectToSerialize);
@@ -82,7 +93,7 @@ namespace Genesys.Extras.Serialization
             }
             catch
             {
-                if (this.ThrowException) throw;
+                if (ThrowException) throw;
             }
 
             return returnValue;
@@ -96,7 +107,7 @@ namespace Genesys.Extras.Serialization
         /// <remarks></remarks>
         public override T Deserialize(string stringToDeserialize)
         {
-            return this.Deserialize<T>(stringToDeserialize);
+            return Deserialize<T>(stringToDeserialize);
         }
 
         /// <summary>
@@ -107,14 +118,13 @@ namespace Genesys.Extras.Serialization
         /// <returns>Concrete class</returns>
         public override TLocal Deserialize<TLocal>(string stringToDeserialize)
         {
-            TLocal returnValue =  TypeExtension.InvokeConstructorOrDefault<TLocal>();
+            TLocal returnValue = TypeExtension.InvokeConstructorOrDefault<TLocal>();
             Byte[] bytes;
             DataContractJsonSerializer serializer;
-
             try
             {
                 if (stringToDeserialize == TypeExtension.DefaultString && this.EmptyStringAndNullSupported == false) { throw new System.ArgumentNullException("Passed parameter is empty. Unable to deserialize empty strings."); }
-                serializer = new DataContractJsonSerializer(typeof(TLocal), new DataContractJsonSerializerSettings() { EmitTypeInformation = EmitTypeInformation.Never, KnownTypes = this.KnownTypes });
+                serializer = new DataContractJsonSerializer(typeof(TLocal), new DataContractJsonSerializerSettings() { EmitTypeInformation = this.EmitTypeInformation, DateTimeFormat = this.DateTimeFormat, KnownTypes = this.KnownTypes });
                 bytes = Encoding.Unicode.GetBytes(stringToDeserialize);
                 using (MemoryStream stream = new MemoryStream(bytes))
                 {
@@ -123,7 +133,7 @@ namespace Genesys.Extras.Serialization
             }
             catch
             {
-                if (this.ThrowException) throw;
+                if (ThrowException) throw;
             }
 
             return returnValue;

@@ -567,7 +567,7 @@
         </member>
         <member name="T:Genesys.Extras.Net.HttpRequestDelete`1">
             <summary>
-            Communicates via GET, strongly typed
+            Communicates via DELETE, strongly typed
             </summary>
         </member>
         <member name="P:Genesys.Extras.Net.HttpRequestDelete`1.DataReceivedDeserialized">
@@ -661,7 +661,7 @@
         </member>
         <member name="T:Genesys.Extras.Net.HttpRequestDeleteString">
             <summary>
-            Communicates via GET, all transmissions String
+            Communicates via DELETE, all transmissions String
             </summary>
         </member>
         <member name="M:Genesys.Extras.Net.HttpRequestDeleteString.#ctor">
@@ -725,8 +725,10 @@
         </member>
         <member name="T:Genesys.Extras.Net.HttpRequestPut`2">
             <summary>
-            Communicates via GET
+            Communicates via PUT, sending data via HttpContent
             </summary>
+            <typeparam name="TDataIn">The type of data to be sent in request</typeparam>
+            <typeparam name="TDataOut">The type of data which will be received in response</typeparam>
         </member>
         <member name="F:Genesys.Extras.Net.HttpRequestPut`2.dataToSendStrong">
             <summary>
@@ -751,6 +753,11 @@
         <member name="P:Genesys.Extras.Net.HttpRequestPut`2.KnownTypes">
             <summary>
             KnownTypes assist the serializer with types that cannot be mapped by default
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Net.HttpRequestPut`2.#ctor(System.String)">
+            <summary>
+            Construct with data
             </summary>
         </member>
         <member name="M:Genesys.Extras.Net.HttpRequestPut`2.#ctor(System.String,`0)">
@@ -780,10 +787,38 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Genesys.Extras.Net.HttpRequestPut`1">
+            <summary>
+            Communicates via PUT, sending data via HttpContent
+            </summary>
+            <typeparam name="TDataInOut">The type of data to be sent in request and which will be received in response</typeparam>
+        </member>
+        <member name="M:Genesys.Extras.Net.HttpRequestPut`1.#ctor(System.String)">
+            <summary>
+            Construct with data
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Net.HttpRequestPut`1.#ctor(System.String,`0)">
+            <summary>
+            Construct with data
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Net.HttpRequestPut`1.#ctor(System.String,`0,Genesys.Extras.Security.Cryptography.IEncryptor)">
+            <summary>
+            Construct with data
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Net.HttpRequestPut`1.#ctor(System.String,`0,System.Collections.Generic.List{System.Type})">
+            <summary>
+            Construct with data
+            </summary>
+        </member>
         <member name="T:Genesys.Extras.Net.HttpRequestPost`2">
             <summary>
-            Communicates via GET
+            Communicates via POST, sending data via HttpContent
             </summary>
+            <typeparam name="TDataIn">The type of data to be sent in request</typeparam>
+            <typeparam name="TDataOut">The type of data which will be received in response</typeparam>
         </member>
         <member name="F:Genesys.Extras.Net.HttpRequestPost`2.dataToSendStrong">
             <summary>
@@ -808,6 +843,11 @@
         <member name="P:Genesys.Extras.Net.HttpRequestPost`2.KnownTypes">
             <summary>
             KnownTypes assist the serializer with types that cannot be mapped by default
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Net.HttpRequestPost`2.#ctor(System.String)">
+            <summary>
+            Construct with data
             </summary>
         </member>
         <member name="M:Genesys.Extras.Net.HttpRequestPost`2.#ctor(System.String,`0)">
@@ -837,9 +877,36 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Genesys.Extras.Net.HttpRequestPost`1">
+            <summary>
+            Communicates via POST, sending data via HttpContent
+            This class is for cases where type being sent, and type being receieved is the same type
+            </summary>
+            <typeparam name="TDataInOut">The type of data to be sent in request and which will be received in response</typeparam>
+        </member>
+        <member name="M:Genesys.Extras.Net.HttpRequestPost`1.#ctor(System.String)">
+            <summary>
+            Construct with data
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Net.HttpRequestPost`1.#ctor(System.String,`0)">
+            <summary>
+            Construct with data
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Net.HttpRequestPost`1.#ctor(System.String,`0,Genesys.Extras.Security.Cryptography.IEncryptor)">
+            <summary>
+            Construct with data
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Net.HttpRequestPost`1.#ctor(System.String,`0,System.Collections.Generic.List{System.Type})">
+            <summary>
+            Construct with data
+            </summary>
+        </member>
         <member name="T:Genesys.Extras.Net.HttpRequestPutString">
             <summary>
-            Communicates via Put, string in and string out
+            Communicates via PUT, string in and string out
             </summary>
         </member>
         <member name="P:Genesys.Extras.Net.HttpRequestPutString.DataToSend">
@@ -991,6 +1058,136 @@
             </summary>
             <param name="sender">Sender of event</param>
             <param name="e">Arguments passed to the event handler</param>
+        </member>
+        <member name="T:Genesys.Extras.Net.EndpointInfo`1">
+            <summary>
+            Metadata on endpoints that follow the Web API convention
+            Assumes that all data in and out are the same type.
+            </summary>
+            <typeparam name="TDataInOut">Type of data transmitted in the requests/responses</typeparam>
+        </member>
+        <member name="F:Genesys.Extras.Net.EndpointInfo`1.GetEndpoint">
+            <summary>
+            Endpoint for HttpGet requests
+            </summary>
+        </member>
+        <member name="F:Genesys.Extras.Net.EndpointInfo`1.PutEndpoint">
+            <summary>
+            Endpoint for HttpPut requests
+            </summary>
+        </member>
+        <member name="F:Genesys.Extras.Net.EndpointInfo`1.PostEndpoint">
+            <summary>
+            Endpoint for HttpPost requests
+            </summary>
+        </member>
+        <member name="F:Genesys.Extras.Net.EndpointInfo`1.DeleteEndpoint">
+            <summary>
+            Endpoint for HttpDelete requests
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Net.EndpointInfo`1.#ctor(System.String,System.String,System.Int32,`0,`0)">
+            <summary>
+            Constructs the main Http verb endpoints for the passed controller
+            </summary>
+            <param name="urlRoot">Url path to the root of the Web API service</param>
+            <param name="controllerName">Controller accepting requests for all Http verbs</param>
+            <param name="id">ID of the HttpGet and HttpDelete request</param>
+            <param name="putData">Data for the HttpPut request</param>
+            <param name="postData">Data for the HttpPut request</param>
+        </member>
+        <member name="M:Genesys.Extras.Net.EndpointInfo`1.#ctor(System.String)">
+            <summary>
+            Constructs only the HttpGet endpoint, for complex parameters or format
+            </summary>
+            <param name="fullUrlWithParameters">Url path with parameter for the HttpGet endpoint only</param>
+        </member>
+        <member name="T:Genesys.Extras.Net.HttpGetEndpoint`1">
+            <summary>
+            Endpoint accepting HttpGet requests
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Net.HttpGetEndpoint`1.#ctor(System.String,System.String,System.Int32,System.String)">
+            <summary>
+            Constructs a default route style HttpGet endpoint
+            Default convention: urlRoot/controllerName/id
+            </summary>
+            <param name="urlRoot">Url path to the root of the Web API service</param>
+            <param name="controllerName">Controller accepting requests</param>
+            <param name="id">ID of the request</param>
+            <param name="urlMask">Mask to be used to form the endpoint url</param>
+        </member>
+        <member name="M:Genesys.Extras.Net.HttpGetEndpoint`1.#ctor(System.String)">
+            <summary>
+            Constructs a default route style HttpGet endpoint
+            Default convention: urlRoot/controllerName/id
+            </summary>
+            <param name="fullUrlWithParameters">Fully formed url to the endpoint</param>
+        </member>
+        <member name="T:Genesys.Extras.Net.HttpPutEndpoint`1">
+            <summary>
+            Endpoint accepting HttpPut requests
+            Default convention: urlRoot/controllerName
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Net.HttpPutEndpoint`1.#ctor(System.String,System.String,`0)">
+            <summary>
+            Constructs a default route style HttpGet endpoint
+            Default convention: urlRoot/controllerName
+            </summary>
+            <param name="urlRoot">Url path to the root of the Web API service</param>
+            <param name="controllerName">Controller accepting requests</param>
+            <param name="dataIn">Data to be sent in the request</param>
+        </member>
+        <member name="M:Genesys.Extras.Net.HttpPutEndpoint`1.#ctor(System.String)">
+            <summary>
+            Constructs a default route style HttpGet endpoint
+            Default convention: urlRoot/controllerName/id
+            </summary>
+            <param name="fullUrlWithParameters">Fully formed url to the endpoint</param>
+        </member>
+        <member name="T:Genesys.Extras.Net.HttpPostEndpoint`1">
+            <summary>
+            Endpoint accepting HttpPost requests
+            Default convention: urlRoot/controllerName
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Net.HttpPostEndpoint`1.#ctor(System.String,System.String,`0)">
+            <summary>
+            Constructs a default route style HttpGet endpoint
+            Default convention: urlRoot/controllerName
+            </summary>
+            <param name="urlRoot">Url path to the root of the Web API service</param>
+            <param name="controllerName">Controller accepting requests</param>
+            <param name="dataIn">Data to be sent in the request</param>
+        </member>
+        <member name="M:Genesys.Extras.Net.HttpPostEndpoint`1.#ctor(System.String)">
+            <summary>
+            Constructs a default route style HttpGet endpoint
+            Default convention: urlRoot/controllerName/id
+            </summary>
+            <param name="fullUrlWithParameters">Fully formed url to the endpoint</param>
+        </member>
+        <member name="T:Genesys.Extras.Net.HttpDeleteEndpoint`1">
+            <summary>
+            Endpoint accepting HttpDelete requests
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Net.HttpDeleteEndpoint`1.#ctor(System.String,System.String,System.Int32,System.String)">
+            <summary>
+            Constructs a default route style HttpDelete endpoint
+            Default convention: urlRoot/controllerName/id
+            </summary>
+            <param name="urlRoot">Url path to the root of the Web API service</param>
+            <param name="controllerName">Controller accepting requests</param>
+            <param name="id">ID of the request</param>
+            <param name="urlMask">Mask to be used to form the endpoint url</param>
+        </member>
+        <member name="M:Genesys.Extras.Net.HttpDeleteEndpoint`1.#ctor(System.String)">
+            <summary>
+            Constructs a default route style HttpDelete endpoint
+            </summary>
+            <param name="fullUrlWithParameters">Fully formed url to the endpoint</param>
         </member>
         <member name="T:Genesys.Extras.Net.ContentType">
             <summary>
@@ -1254,6 +1451,11 @@
             </summary>
             <returns></returns>
             <remarks></remarks>
+        </member>
+        <member name="P:Genesys.Extras.Net.UrlBuilder.DefaultUrl">
+            <summary>
+            Default Url value when initialized or in lieu of an exception for invalid Uri format scenarios
+            </summary>
         </member>
         <member name="M:Genesys.Extras.Net.UrlBuilder.#ctor">
             <summary>
@@ -1567,6 +1769,12 @@
             Constructor
             </summary>
         </member>
+        <member name="M:Genesys.Extras.Configuration.ConfigurationManagerSafe.#ctor(System.IO.Stream)">
+            <summary>
+            Constructor that accepts ConfigurationManager.AppSettings and ConfigurationManager.ConnectionStrings
+            </summary>
+            <param name="configFile">Raw XML from Web.config, AppSettings.config and ConnectionStrings.config</param>
+        </member>
         <member name="M:Genesys.Extras.Configuration.ConfigurationManagerSafe.#ctor(System.String,System.String)">
             <summary>
             Constructor that accepts ConfigurationManager.AppSettings and ConfigurationManager.ConnectionStrings
@@ -1608,13 +1816,6 @@
             </summary>
             <param name="key">Key of item to retrieve the value</param>
             <returns>Value contents</returns>
-        </member>
-        <member name="M:Genesys.Extras.Configuration.ConfigurationManagerSafe.StreamToXDocument(System.IO.Stream)">
-            <summary>
-            Converts stream to an XDocument object
-            </summary>
-            <param name="fileStream">Stream to convert</param>
-            <returns>XDocument of contents of the passed stream</returns>
         </member>
         <member name="T:Genesys.Extras.Configuration.ConnectionStringList">
             <summary>
@@ -2260,13 +2461,13 @@
         </member>
         <member name="M:Genesys.Extras.Text.StringMutable.op_Implicit(Genesys.Extras.Text.StringMutable)~System.String">
             <summary>
-            Accepts (this) mutable string class instead of forcing consumer to cast to immutable string class
+            Accepts mutable Genesys.Extras.Text.StringMutable instead of forcing consumer to cast to immutable System.String class
             </summary>
             <param name="item">Mutable string to treat as immutable .net String</param>
         </member>
         <member name="M:Genesys.Extras.Text.StringMutable.op_Implicit(System.String)~Genesys.Extras.Text.StringMutable">
             <summary>
-            Accepts immutable string instead of forcing consumer to cast to mutable string (this) class
+            Accepts (normal) immutable string instead of forcing consumer to cast to mutable string (this) class
             </summary>
             <param name="item">Mutable string to treat as immutable .net String</param>
         </member>
@@ -2498,6 +2699,17 @@
             </summary>
             <remarks></remarks>
         </member>
+        <member name="P:Genesys.Extras.Serialization.JsonSerializer`1.DateTimeFormat">
+            <summary>
+            Gets or sets a DateTimeFormat that defines the culturally appropriate format of displaying dates and times.
+            Default is ISO 8601 DateTime Format. Does not default to microsoft Date()
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Serialization.JsonSerializer`1.EmitTypeInformation">
+            <summary>
+            Gets or sets the data contract JSON serializer settings to emit type information.
+            </summary>
+        </member>
         <member name="M:Genesys.Extras.Serialization.JsonSerializer`1.#ctor">
             <summary>
             Constructor
@@ -2546,6 +2758,17 @@
             </summary>
             <remarks></remarks>
         </member>
+        <member name="P:Genesys.Extras.Serialization.JsonSerializer.DateTimeFormat">
+            <summary>
+            Gets or sets a DateTimeFormat that defines the culturally appropriate format of displaying dates and times.
+            Default is ISO 8601 DateTime Format. Does not default to microsoft Date(ticks)
+            </summary>
+        </member>
+        <member name="P:Genesys.Extras.Serialization.JsonSerializer.EmitTypeInformation">
+            <summary>
+            Gets or sets the data contract JSON serializer settings to emit type information.
+            </summary>
+        </member>
         <member name="M:Genesys.Extras.Serialization.JsonSerializer.#ctor">
             <summary>
             Constructor
@@ -2576,7 +2799,7 @@
             <summary>
             Generically typed Serialization and Deserialization
             </summary>
-            <typeparam name="ObjectType"></typeparam>
+            <typeparam name="T"></typeparam>
         </member>
         <member name="M:Genesys.Extras.Serialization.Serializer`1.#ctor">
             <summary>

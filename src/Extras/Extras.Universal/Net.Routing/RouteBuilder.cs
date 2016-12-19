@@ -60,7 +60,7 @@ namespace Genesys.Extras.Net
         /// <returns>Returns Url as string</returns>
         public override string ToString()
         {
-            string returnValue = TypeExtension.DefaultString;
+            var returnValue = TypeExtension.DefaultString;
             // Default to Prefix/Suffix, until expand class to be dynamic based on IFormattable and logic per data condition
             returnValue = RouteBuilder.Format(routePrefix, routeSuffix);
             return returnValue;

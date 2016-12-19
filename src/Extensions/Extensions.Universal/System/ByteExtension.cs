@@ -35,7 +35,7 @@ namespace Genesys.Extensions
         /// <returns>string from the byte array, or empty string</returns>
         public static string ToString(this byte[] item)
         {
-            string returnValue = TypeExtension.DefaultString;
+            var returnValue = TypeExtension.DefaultString;
             if ((item == null == false) && (item.Length > 0))
             {
                 returnValue = System.Text.Encoding.UTF8.GetString(item, 0, item.Length - 1);
@@ -53,12 +53,12 @@ namespace Genesys.Extensions
         /// <returns>Converted byte array</returns>
         public static byte[] ToRGB(this byte[] item, int heightInPixels, int widthInPixels)
         {
-            int byteOffset;
+            var byteOffset = TypeExtension.DefaultInteger;
             byte[] returnValue = item;
 
-            for (int row = 0; row < (uint)heightInPixels; row++)
+            for (var row = 0; row < (uint)heightInPixels; row++)
             {
-                for (int column = 0; column < (uint)widthInPixels; column++)
+                for (var column = 0; column < (uint)widthInPixels; column++)
                 {
                     byteOffset = (row * (int)widthInPixels * 4) + (column * 4);
                     byte b = returnValue[byteOffset];

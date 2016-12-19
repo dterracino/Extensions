@@ -38,10 +38,10 @@ namespace Genesys.Extras.Text.Cleansing
         /// </summary>
         public CleanserFactory() : base()
         {
-            this.Cleansers.Add(CleanserIDs.Default, typeof(DefaultCleanser));
-            this.Cleansers.Add(CleanserIDs.UnsafeHtml, typeof(HtmlUnsafeCleanser));
-            this.Cleansers.Add(CleanserIDs.SqlInjection, typeof(SqlInjectionCleanser));
-            this.Cleansers.Add(CleanserIDs.XmlInvalidChars, typeof(XmlInvalidCharacterCleanser));
+            Cleansers.Add(CleanserIDs.Default, typeof(DefaultCleanser));
+            Cleansers.Add(CleanserIDs.UnsafeHtml, typeof(HtmlUnsafeCleanser));
+            Cleansers.Add(CleanserIDs.SqlInjection, typeof(SqlInjectionCleanser));
+            Cleansers.Add(CleanserIDs.XmlInvalidChars, typeof(XmlInvalidCharacterCleanser));
         }
 
         /// <summary>

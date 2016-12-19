@@ -42,12 +42,12 @@ namespace Genesys.Extras.Net
         /// <summary>
         /// OnSendBegin()
         /// </summary>
-        protected virtual void OnSendBegin() { if (this.SendBegin != null) { this.SendBegin(this, EventArgs.Empty); } }
+        protected virtual void OnSendBegin() { if (SendBegin != null) { SendBegin(this, EventArgs.Empty); } }
 
         /// <summary>
         /// OnSendEnd()
         /// </summary>
-        protected virtual void OnSendEnd() { if (this.SendEnd != null) { this.SendEnd(this, EventArgs.Empty); } }
+        protected virtual void OnSendEnd() { if (SendEnd != null) { SendEnd(this, EventArgs.Empty); } }
 
         /// <summary>
         /// Parameterless constructor
@@ -63,11 +63,11 @@ namespace Genesys.Extras.Net
         /// <returns></returns>
         protected virtual async Task<string> SendGetAsync(string fullUrl)
         {
-            this.OnSendBegin();
-            string returnValue = TypeExtension.DefaultString;
+            OnSendBegin();
+            var returnValue = TypeExtension.DefaultString;
             HttpRequestGetString request = new HttpRequestGetString(fullUrl);
             returnValue = await request.SendAsync();
-            this.OnSendEnd();
+            OnSendEnd();
 
             return returnValue;
         }
@@ -78,11 +78,11 @@ namespace Genesys.Extras.Net
         /// <returns></returns>
         protected virtual async Task<TDataOut> SendGetAsync<TDataOut>(string fullUrl) where TDataOut : new()
         {
-            this.OnSendBegin();
+            OnSendBegin();
             TDataOut returnValue = default(TDataOut);
             HttpRequestGet<TDataOut> request = new HttpRequestGet<TDataOut>(fullUrl);
             returnValue = await request.SendAsync();
-            this.OnSendEnd();
+            OnSendEnd();
 
             return returnValue;
         }
@@ -93,11 +93,11 @@ namespace Genesys.Extras.Net
         /// <returns></returns>
         protected virtual async Task<TDataOut> SendPostAsync<TDataIn, TDataOut>(string fullUrl, TDataIn itemToSend)
         {
-            this.OnSendBegin();
+            OnSendBegin();
             TDataOut returnValue = default(TDataOut);
             HttpRequestPost<TDataIn, TDataOut> request = new HttpRequestPost<TDataIn, TDataOut>(fullUrl, itemToSend);
             returnValue = await request.SendAsync();
-            this.OnSendEnd();
+            OnSendEnd();
 
             return returnValue;
         }
@@ -108,11 +108,11 @@ namespace Genesys.Extras.Net
         /// <returns></returns>
         protected virtual async Task<TDataOut> SendPutAsync<TDataIn, TDataOut>(string fullUrl, TDataIn itemToSend)
         {
-            this.OnSendBegin();
+            OnSendBegin();
             TDataOut returnValue = default(TDataOut);
             HttpRequestPut<TDataIn, TDataOut> request = new HttpRequestPut<TDataIn, TDataOut>(fullUrl, itemToSend);
             returnValue = await request.SendAsync();
-            this.OnSendEnd();
+            OnSendEnd();
             return returnValue;
         }
 
@@ -122,11 +122,11 @@ namespace Genesys.Extras.Net
         /// <returns></returns>
         protected virtual async Task<TDataOut> SendDeleteAsync<TDataOut>(string fullUrl) where TDataOut : new()
         {
-            this.OnSendBegin();
+            OnSendBegin();
             TDataOut returnValue = default(TDataOut);
             HttpRequestDelete<TDataOut> request = new HttpRequestDelete<TDataOut>(fullUrl);
             returnValue = await request.SendAsync();
-            this.OnSendEnd();
+            OnSendEnd();
             return returnValue;
         }
 

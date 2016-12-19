@@ -97,7 +97,7 @@ namespace Genesys.Extras.Configuration
         /// ConnectionString.
         /// Use .Value instead. This is exclusively for System.Configuration.ConfigurationManager backward compatibility.
         /// </summary>
-        public string Connectionstring { get { return this.Value; } }
+        public string Connectionstring { get { return Value; } }
 
         /// <summary>
         /// Constructor
@@ -171,14 +171,14 @@ namespace Genesys.Extras.Configuration
             {
                 case "EF":
                     if (this.IsEF() == true)
-                    { return this.Value; } 
+                    { return Value; } 
                     else { return String.Format(maskEF, EDMXFileName, this.Value); }
                 case "ADO":
                     if (this.IsADO() == true)
-                    { return this.Value; } 
+                    { return Value; } 
                     else {
-                        string cleansed = String.Format("{0}{1}", valueField.Value.Replace("\"", "").Replace("&quot;", "").RemoveLast(";"), ";");
-                        string beginPhrase = "provider connection string=";
+                        var cleansed = String.Format("{0}{1}", valueField.Value.Replace("\"", "").Replace("&quot;", "").RemoveLast(";"), ";");
+                        var beginPhrase = "provider connection string=";
                         return cleansed.SubstringRight(cleansed.Length - (cleansed.IndexOf(beginPhrase) + beginPhrase.Length));
                     }
                 default: return base.ToString();
@@ -198,11 +198,11 @@ namespace Genesys.Extras.Configuration
         /// <returns></returns>
         public string ToEF(Type dataAccessObject)
         {
-            string returnValue = TypeExtension.DefaultString;
+            var returnValue = TypeExtension.DefaultString;
 
             if (this.IsEF() == false)
             {
-                this.EDMXFileName = dataAccessObject.GetTypeInfo().Namespace.Replace(".", TypeExtension.DefaultString);
+                EDMXFileName = dataAccessObject.GetTypeInfo().Namespace.Replace(".", TypeExtension.DefaultString);
                 returnValue = this.ToString("EF");
             } else
             {
@@ -218,7 +218,7 @@ namespace Genesys.Extras.Configuration
         /// <returns></returns>
         public string ToADO()
         {
-            string returnValue = TypeExtension.DefaultString;
+            var returnValue = TypeExtension.DefaultString;
 
             if (this.IsADO() == false)
             {

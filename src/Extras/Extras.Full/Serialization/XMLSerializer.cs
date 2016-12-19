@@ -51,8 +51,8 @@ namespace Genesys.Extras.Serialization
         /// <returns>Xml string</returns>
         public override string Serialize<T>(T objectToSerialize)
         {
-            string returnValue = TypeExtension.DefaultString;
-            MemoryStream Stream = new MemoryStream();
+            var returnValue = TypeExtension.DefaultString;
+            var Stream = new MemoryStream();
 
             try
             {
@@ -66,7 +66,7 @@ namespace Genesys.Extras.Serialization
             }
             catch
             {
-                if (this.ThrowException) throw;
+                if (ThrowException) throw;
             }
 
             return returnValue;
@@ -86,14 +86,14 @@ namespace Genesys.Extras.Serialization
             {
                 if (stringToDeserialize == TypeExtension.DefaultString && this.EmptyStringAndNullSupported == false) { throw new System.ArgumentNullException("Passed parameter is empty. Unable to deserialize empty strings."); }
                 System.Text.UTF8Encoding encoding = new System.Text.UTF8Encoding();
-                byte[] ByteArray = (byte[])encoding.GetBytes(stringToDeserialize);
-                MemoryStream memoryStream = new MemoryStream(ByteArray);
+            var ByteArray = (byte[])encoding.GetBytes(stringToDeserialize);
+                var memoryStream = new MemoryStream(ByteArray);
                 System.Xml.Serialization.XmlSerializer xs = new System.Xml.Serialization.XmlSerializer(typeof(T));
                 returnValue = (T)xs.Deserialize(memoryStream);
             }
             catch
             {
-                if (this.ThrowException) throw;
+                if (ThrowException) throw;
             }
 
             return returnValue;

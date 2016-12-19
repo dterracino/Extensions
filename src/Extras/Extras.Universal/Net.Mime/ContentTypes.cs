@@ -163,7 +163,7 @@ namespace Genesys.Extras.Net
         public ContentTypes()
             : base()
         {
-            this.loadData();
+            loadData();
         }
         
         /// <summary>
@@ -172,42 +172,42 @@ namespace Genesys.Extras.Net
         protected virtual void loadData()
         {
             // Unknown (similar to application/octet-stream, but avoids chrome throwing exception)
-            this.Add(Types.ApplicationUnknown);
+            Add(Types.ApplicationUnknown);
             // Image
-            this.Add(Types.ImageUnknown);
-            this.Add(Types.Bmp, ".bmp");
-            this.Add(Types.Gif, ".gif");
-            this.Add(Types.Jpg, ".jpg");
-            this.Add(Types.Png, ".png");
-            this.Add(Types.Tif, ".tif");
+            Add(Types.ImageUnknown);
+            Add(Types.Bmp, ".bmp");
+            Add(Types.Gif, ".gif");
+            Add(Types.Jpg, ".jpg");
+            Add(Types.Png, ".png");
+            Add(Types.Tif, ".tif");
             //Documents
-            this.Add(Types.Doc, ".doc");
-            this.Add(Types.Docx, ".docx");
-            this.Add(Types.Pdf, ".pdf");
+            Add(Types.Doc, ".doc");
+            Add(Types.Docx, ".docx");
+            Add(Types.Pdf, ".pdf");
             //Slide shows
-            this.Add(Types.Ppt, ".ppt");
-            this.Add(Types.Pptx, ".pptx");
+            Add(Types.Ppt, ".ppt");
+            Add(Types.Pptx, ".pptx");
             //Data
-            this.Add(Types.Xls, ".xls");
-            this.Add(Types.Xlsx, ".xlsx");            
-            this.Add(Types.Csv, ".csv");
-            this.Add(Types.Json, ".json");
-            this.Add(Types.Xml, ".xml");
-            this.Add(Types.Txt, ".txt");
+            Add(Types.Xls, ".xls");
+            Add(Types.Xlsx, ".xlsx");            
+            Add(Types.Csv, ".csv");
+            Add(Types.Json, ".json");
+            Add(Types.Xml, ".xml");
+            Add(Types.Txt, ".txt");
             //Compressed Folders
-            this.Add(Types.Zip, ".zip");
+            Add(Types.Zip, ".zip");
             //Audio
-            this.Add(Types.Ogg, ".ogg");
-            this.Add(Types.Mp3, ".mp3");
-            this.Add(Types.Wma, ".wma");
-            this.Add(Types.Wav, ".wav");
+            Add(Types.Ogg, ".ogg");
+            Add(Types.Mp3, ".mp3");
+            Add(Types.Wma, ".wma");
+            Add(Types.Wav, ".wav");
             //Video;
-            this.Add(Types.Wmv, ".wmv");
-            this.Add(Types.FlashSwf, ".swf");
-            this.Add(Types.Avi, ".avi");
-            this.Add(Types.Mp4, ".mp4");
-            this.Add(Types.Mpeg, ".mpeg");
-            this.Add(Types.Qt, ".qt");
+            Add(Types.Wmv, ".wmv");
+            Add(Types.FlashSwf, ".swf");
+            Add(Types.Avi, ".avi");
+            Add(Types.Mp4, ".mp4");
+            Add(Types.Mpeg, ".mpeg");
+            Add(Types.Qt, ".qt");
         }
         
         /// <summary>
@@ -216,7 +216,7 @@ namespace Genesys.Extras.Net
         /// <param name="name"></param>
         public void Add(string name)
         {
-            this.Add(new ContentType(name));
+            Add(new ContentType(name));
         }
 
         /// <summary>
@@ -226,7 +226,7 @@ namespace Genesys.Extras.Net
         /// <param name="extension"></param>
         public void Add(string name, string extension)
         {
-            this.Add(new ContentType(name, extension));
+            Add(new ContentType(name, extension));
         }
         
     }

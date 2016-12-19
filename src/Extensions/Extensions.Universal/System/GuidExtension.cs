@@ -35,12 +35,12 @@ namespace Genesys.Extensions
         /// <returns>Converted value, or default -1.</returns>
         public static int ToInteger(this Guid item)
         {
-            int returnValue = TypeExtension.DefaultInteger;
+            var returnValue = TypeExtension.DefaultInteger;
 
             try
             {
-                byte[] b = item.ToByteArray();
-                int bint = BitConverter.ToInt32(b, 0);
+            var b = item.ToByteArray();
+                var bint = BitConverter.ToInt32(b, 0);
                 returnValue = bint;
             }
             catch

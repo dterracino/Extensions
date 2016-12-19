@@ -52,7 +52,7 @@ namespace Genesys.Extensions
         /// <returns>Constructed url</returns>
         public static string ConstructUrl(string protocol, string serverName, string port, string applicationPath)
         {
-            string urlComplete = TypeExtension.DefaultString;
+            var urlComplete = TypeExtension.DefaultString;
 
             if (protocol == null || protocol == "0")
             {

@@ -90,7 +90,7 @@ namespace Genesys.Extras.Configuration
         /// <returns></returns>
         public override string ToString()
         {
-            return this.Key;
+            return Key;
         }
     }
 }

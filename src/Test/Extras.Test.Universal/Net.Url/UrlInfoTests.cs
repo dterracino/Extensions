@@ -36,9 +36,9 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Net_UrlInfo_ToString()
         {
-            string MyRoot = "http://testURL";
-            string MyController = "MyController";
-            string MyAction = "MyAction";
+            var MyRoot = "http://testURL";
+            var MyController = "MyController";
+            var MyAction = "MyAction";
             UrlInfo TestItem = new UrlInfo(MyRoot, MyController, MyAction);
 
             // Check formatting

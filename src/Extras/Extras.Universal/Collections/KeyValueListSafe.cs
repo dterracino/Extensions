@@ -57,8 +57,8 @@ namespace Genesys.Extras.Collections
         /// <remarks></remarks>
         public virtual void Add(TKey key, TValue value)
         {
-            this.Remove(key);
-            this.Add(new KeyValuePairSafe<TKey, TValue>(key, value));
+            Remove(key);
+            Add(new KeyValuePairSafe<TKey, TValue>(key, value));
         }
 
         /// <summary>
@@ -68,10 +68,10 @@ namespace Genesys.Extras.Collections
         /// <remarks></remarks>
         public virtual void Remove(TKey key)
         {
-            int index = base.IndexOf(base.Find(x => x.Key.ToStringSafe() == key.ToStringSafe()));
+            var index = base.IndexOf(base.Find(x => x.Key.ToStringSafe() == key.ToStringSafe()));
             if (index > -1)
             { 
-                this.RemoveAt(index);
+                RemoveAt(index);
             }
         }
 
@@ -90,7 +90,7 @@ namespace Genesys.Extras.Collections
             }
             set
             {
-                this.Add(value);
+                Add(value);
             }
         }
 

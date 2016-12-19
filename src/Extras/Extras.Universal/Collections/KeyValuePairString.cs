@@ -43,8 +43,8 @@ namespace Genesys.Extras.Collections
         /// <remarks></remarks>
         public KeyValuePairString(string key, string value)
         {
-            this.Key = key;
-            this.Value = value;
+            Key = key;
+            Value = value;
         }
     }
 }

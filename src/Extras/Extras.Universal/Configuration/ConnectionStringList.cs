@@ -70,9 +70,9 @@ namespace Genesys.Extras.Configuration
         /// </summary>
         public ConnectionStringList() : base()
         {
-            this.StatusMessage = "No data loaded.";
+            StatusMessage = "No data loaded.";
 #if (DEBUG)
-            this.ThrowException = true;
+            ThrowException = true;
 #endif
         }
 
@@ -82,8 +82,8 @@ namespace Genesys.Extras.Configuration
         /// <param name="xmlRaw"></param>
         public ConnectionStringList(string xmlRaw) : this()
         {
-            this.configStringsXmlRawField = xmlRaw;
-            this.Load();
+            configStringsXmlRawField = xmlRaw;
+            Load();
         }
         
         /// <summary>
@@ -96,29 +96,29 @@ namespace Genesys.Extras.Configuration
             try
             {
                 // Only act if there is Xml to parse
-                if (this.configStringsXmlRawField != TypeExtension.DefaultString)
+                if (configStringsXmlRawField != TypeExtension.DefaultString)
                 {
                     // Load the document
-                    this.configStringsXDocField = XDocument.Parse(this.configStringsXmlRawField);
+                    configStringsXDocField = XDocument.Parse(configStringsXmlRawField);
                     // Extract raw data
-                    elements = this.configStringsXDocField.Descendants(ConnectionStringList.ElementName);
+                    elements = configStringsXDocField.Descendants(ConnectionStringList.ElementName);
                     var KVPs = elements.Select(x => new {
                             Key = x.Attribute(ConnectionStringList.ElementKeyName).Value,
                             Value = x.Attribute(ConnectionStringList.ElementValueName).Value
                         }).ToList();
                     // Fill
-                    foreach (var Item in KVPs) { this.Add(new ConnectionStringSafe(Item.Key, Item.Value)); }
+                    foreach (var Item in KVPs) { Add(new ConnectionStringSafe(Item.Key, Item.Value)); }
                 }
             }
             catch (NullReferenceException)
             {
-              if (this.ThrowException == false)
-                { this.StatusMessage = String.Format("Cannot load. Required elements are not present."); } 
+              if (ThrowException == false)
+                { StatusMessage = String.Format("Cannot load. Required elements are not present."); } 
               else { throw; }
             }
             finally
             {
-                this.StatusMessage = String.Format("{0} records loaded.", this.Count);
+                StatusMessage = String.Format("{0} records loaded.", this.Count);
             }
         }
         
@@ -132,7 +132,7 @@ namespace Genesys.Extras.Configuration
             StringMutable returnValue = new StringMutable();
             var x1 = key == "MyDataConnection" ? true : false;
             returnValue = this.FindSafe(x => x.Key == key.ToString()).Value;
-            string key2 = key;
+            var key2 = key;
             returnValue = this.FindSafe(x => x.Key == key2).Value;
             returnValue = this.FindSafe(x => x.Key == key).Value;
             return returnValue;
@@ -146,8 +146,8 @@ namespace Genesys.Extras.Configuration
         /// <remarks></remarks>
         public int FindIndex(StringMutable key)
         {
-            int returnValue = TypeExtension.DefaultInteger;
-            for (int Count = 0; Count < this.Count - 1; Count++)
+            var returnValue = TypeExtension.DefaultInteger;
+            for (var Count = 0; Count < this.Count - 1; Count++)
             {
                 if (this[Count].Key == key)
                 {
@@ -166,7 +166,7 @@ namespace Genesys.Extras.Configuration
         {
             // Check for ID clear-age
             List<ConnectionStringSafe> ConflictingItems = this.FindAll(x => x.Key == itemToAdd.Key);
-            if (this.AllowDuplicates == false && this.ThrowException == true && ConflictingItems.Count > 0)
+            if (AllowDuplicates == false && ThrowException == true && ConflictingItems.Count > 0)
                 throw new System.IndexOutOfRangeException("Unable to add new items, Identity Key conflict.");
             base.Add(itemToAdd);
         }
@@ -179,10 +179,10 @@ namespace Genesys.Extras.Configuration
         /// <remarks></remarks>
         public void Add(StringMutable key, StringMutable value)
         {
-            // Self-normalize based on this.AllowDuplicates and this.ThrowException
-            if (this.AllowDuplicates == false && this.ThrowException == false && this.GetValue(key) != TypeExtension.DefaultString)
+            // Self-normalize based on AllowDuplicates and ThrowException
+            if (AllowDuplicates == false && ThrowException == false && this.GetValue(key) != TypeExtension.DefaultString)
             {
-                this.RemoveAt(this.FindIndex(key));
+                RemoveAt(this.FindIndex(key));
             }
             base.Add(new ConnectionStringSafe() { Key = key, Value = value });
         }
@@ -195,7 +195,7 @@ namespace Genesys.Extras.Configuration
         public void Remove(StringMutable key)
         {
             if (this.GetValue(key).ToStringSafe() != TypeExtension.DefaultString)
-                this.RemoveAt(this.FindIndex(key));
+                RemoveAt(this.FindIndex(key));
         }
     }
 }

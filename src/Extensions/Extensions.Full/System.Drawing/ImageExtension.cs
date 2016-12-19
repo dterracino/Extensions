@@ -96,7 +96,7 @@ namespace Genesys.Extensions
         public static Image Crop(this Image item, int width, int height, int x, int y)
         {
             Image returnValue = item;
-            MemoryStream ms = new MemoryStream();
+            var ms = new MemoryStream();
 
             using (Bitmap bmp = new Bitmap(width, height))
             {
@@ -122,7 +122,7 @@ namespace Genesys.Extensions
         /// <returns>Byte array containing image</returns>
         public static byte[] ToBytes(this Image item)
         {
-            MemoryStream returnValue = new MemoryStream();
+            var returnValue = new MemoryStream();
             if ((item == null == false) && (item.Size.Width > 0 & item.Size.Height > 0))
             {
                 item.Save(returnValue, item.RawFormat);

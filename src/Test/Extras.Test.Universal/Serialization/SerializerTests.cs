@@ -33,27 +33,27 @@ namespace Genesys.Extras.Test
         public void Serialization_Serializer_ValueTypes()
         {
             // Immutable string class
-            string Data1 = TypeExtension.DefaultString;
-            string TestData1 = "TestDataHere";
-            ISerializer<Object> Serialzer1 = new JsonSerializer<Object>();
-            Data1 = Serialzer1.Serialize(TestData1);
-            Assert.IsTrue(Serialzer1.Deserialize(Data1).ToString() == TestData1, "Did not work");
+            var data1 = TypeExtension.DefaultString;
+            var TestData1 = "TestDataHere";
+            ISerializer<object> serialzer1 = new JsonSerializer<object>();
+            data1 = serialzer1.Serialize(TestData1);
+            Assert.IsTrue(serialzer1.Deserialize(data1).ToString() == TestData1, "Did not work");
 
             
-            string Data = Data = TypeExtension.DefaultString;
-            StringMutable TestData = "TestDataHere";
-            ISerializer<StringMutable> Serialzer = new JsonSerializer<StringMutable>();
-            Data = Serialzer.Serialize(TestData);
-            Assert.IsTrue(Serialzer.Deserialize(Data).ToString() == TestData.ToString(), "Did not work");
+            var data = TypeExtension.DefaultString;
+            StringMutable testData = "TestDataHere";
+            var Serialzer = new JsonSerializer<StringMutable>();
+            data = Serialzer.Serialize(testData);
+            Assert.IsTrue(Serialzer.Deserialize(data).ToString() == testData.ToString(), "Did not work");
         }
 
         [TestMethod()]
         public void Serialization_Serializer_ReferenceTypes()
         {
             // Collections, etc
-            List<Int32> ItemL = new List<Int32> { 1, 2, 3 };
-            JsonSerializer<List<Int32>> Serializer = new JsonSerializer<List<Int32>>();
-            string SerializedDataL = Serializer.Serialize(ItemL);
+            var ItemL = new List<int> { 1, 2, 3 };
+            var Serializer = new JsonSerializer<List<int>>();
+            var SerializedDataL = Serializer.Serialize(ItemL);
             Assert.IsTrue(ItemL.Count == Serializer.Deserialize(SerializedDataL).Count, "Did not work");
         }
     }

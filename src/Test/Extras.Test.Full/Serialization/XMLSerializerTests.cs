@@ -36,7 +36,7 @@ namespace Genesys.Extras.Test
         {
             XmlSerializer serializer = new XmlSerializer();
             MyClass testClass = new MyClass();
-            string deserializedData = serializer.Serialize<MyClass>(testClass);
+            var deserializedData = serializer.Serialize<MyClass>(testClass);
             Assert.IsTrue(deserializedData == MyClass.XmlData, "Did not work");
         }
 

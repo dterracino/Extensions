@@ -56,7 +56,7 @@ namespace Genesys.Extras.IO
         /// <summary>
         /// Constructor
         /// </summary>
-        public FileSearcher() : base() { this.FileNameOrMask = "*.*"; this.ParentLevels = 2; }
+        public FileSearcher() : base() { FileNameOrMask = "*.*"; this.ParentLevels = 2; }
 
         /// <summary>
         /// Constructor
@@ -66,8 +66,8 @@ namespace Genesys.Extras.IO
         public FileSearcher(string pathToSearch, string fileOrMaskToSearch)
             : this()
         {
-            this.pathsField.Add(new DirectoryInfo(pathToSearch));
-            this.FileNameOrMask = fileOrMaskToSearch;
+            pathsField.Add(new DirectoryInfo(pathToSearch));
+            FileNameOrMask = fileOrMaskToSearch;
         }
 
         /// <summary>
@@ -78,11 +78,11 @@ namespace Genesys.Extras.IO
         public FileSearcher(List<String> pathsToSearch, string fileOrMaskToSearch)
             : this()
         {
-            foreach (string item in pathsToSearch)
+            foreach (var item in pathsToSearch)
             {
-                this.pathsField.Add(new DirectoryInfo(item));
+                pathsField.Add(new DirectoryInfo(item));
             }
-            this.FileNameOrMask = fileOrMaskToSearch;
+            FileNameOrMask = fileOrMaskToSearch;
         }
 
         /// <summary>
@@ -103,15 +103,15 @@ namespace Genesys.Extras.IO
             : this(pathsToSearch, fileOrMaskToSearch)
         {
             DirectoryInfo currentPath;
-            this.ParentLevels = levelsUpToSearch;
+            ParentLevels = levelsUpToSearch;
             // Add new paths to search
             foreach (DirectoryInfo item in this.pathsField.ToList())
             {
                 currentPath = new DirectoryInfo(item.ToString());
-                for (int Count = 0; Count < this.ParentLevels; Count++)
+                for (var Count = 0; Count < this.ParentLevels; Count++)
                 {
                     currentPath = new DirectoryInfo(currentPath.Parent.FullName); // Break reference chain with new instance
-                    this.pathsField.Add(new DirectoryInfo(currentPath.ToString()));                    
+                    pathsField.Add(new DirectoryInfo(currentPath.ToString()));                    
                 }
             }
         }
@@ -123,13 +123,13 @@ namespace Genesys.Extras.IO
         {
             List<FileInfo> returnValue = new List<FileInfo>();
 
-            this.foundFilesField = new List<FileInfo>();
+            foundFilesField = new List<FileInfo>();
             foreach (DirectoryInfo Item in this.Paths)
             {
-                this.foundFilesField.AddRange(Item.GetFiles(this.FileNameOrMask));
+                foundFilesField.AddRange(Item.GetFiles(this.FileNameOrMask));
             }
 
-            return this.FoundFiles;
+            return FoundFiles;
         }
         
         /// <summary>

@@ -4,82 +4,102 @@
         <name>Genesys.Framework.Models</name>
     </assembly>
     <members>
-        <member name="T:Genesys.Framework.Applications.ModuleModel">
+        <member name="T:Genesys.Framework.Application.ModuleModel">
             <summary>
             ModuleModel
             </summary>
         </member>
-        <member name="T:Genesys.Framework.Applications.ModuleModel.Modules">
+        <member name="T:Genesys.Framework.Application.ModuleModel.Modules">
             <summary>
             Holds IDs of global records
             </summary>
         </member>
-        <member name="P:Genesys.Framework.Applications.ModuleModel.Modules.Framework">
+        <member name="P:Genesys.Framework.Application.ModuleModel.Modules.Framework">
             <summary>
             Sandbox record, for general purpose use and testing. Not for Production Use!
             </summary>
         </member>
-        <member name="T:Genesys.Framework.Applications.ApplicationModel">
+        <member name="T:Genesys.Framework.Application.ApplicationModel">
             <summary>
             Application
             </summary>
         </member>
-        <member name="T:Genesys.Framework.Applications.ApplicationModel.Applications">
+        <member name="P:Genesys.Framework.Application.ApplicationModel.BusinessID">
+            <summary>
+            ID of business owning this application
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Application.ApplicationModel.PrivacyUrl">
+            <summary>
+            Url of the privacy policy
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Application.ApplicationModel.TermsUrl">
+            <summary>
+            Date terms were revised. Must show terms again if user has not accepted current terms.
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Application.ApplicationModel.TermsRevisedDate">
+            <summary>
+            Date terms were revised. Must show terms again if user has not accepted current terms.
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Application.ApplicationModel.Applications">
             <summary>
             Holds IDs of global records
             </summary>
         </member>
-        <member name="P:Genesys.Framework.Applications.ApplicationModel.Applications.Sandbox">
+        <member name="P:Genesys.Framework.Application.ApplicationModel.Applications.Sandbox">
             <summary>
             Sandbox record, for general purpose use and testing. Not for Production Use!
             </summary>
         </member>
-        <member name="T:Genesys.Framework.Applications.ApplicationSettingModel">
+        <member name="T:Genesys.Framework.Application.ApplicationSettingModel">
             <summary>
             ApplicationSetting Screen and Transport Model
             </summary>
         </member>
-        <member name="P:Genesys.Framework.Applications.ApplicationSettingModel.ApplicationID">
+        <member name="P:Genesys.Framework.Application.ApplicationSettingModel.ApplicationID">
             <summary>
             ApplicationID
             </summary>
         </member>
-        <member name="P:Genesys.Framework.Applications.ApplicationSettingModel.SettingID">
+        <member name="P:Genesys.Framework.Application.ApplicationSettingModel.SettingID">
             <summary>
             SettingID
             </summary>
         </member>
-        <member name="P:Genesys.Framework.Applications.ApplicationSettingModel.SettingTypeID">
+        <member name="P:Genesys.Framework.Application.ApplicationSettingModel.SettingTypeID">
             <summary>
             SettingTypeID
             </summary>
         </member>
-        <member name="P:Genesys.Framework.Applications.ApplicationSettingModel.Value">
+        <member name="P:Genesys.Framework.Application.ApplicationSettingModel.Value">
             <summary>
             Value
             </summary>
         </member>
-        <member name="T:Genesys.Framework.Applications.ModuleSettingModel">
+        <member name="T:Genesys.Framework.Application.ModuleSettingModel">
             <summary>
             ModuleSetting Screen and Transport Model
             </summary>
         </member>
-        <member name="P:Genesys.Framework.Applications.ModuleSettingModel.ApplicationID">
+        <member name="P:Genesys.Framework.Application.ModuleSettingModel.ApplicationID">
             <summary>
             ApplicationID
             </summary>
         </member>
-        <member name="P:Genesys.Framework.Applications.ModuleSettingModel.SettingID">
+        <member name="P:Genesys.Framework.Application.ModuleSettingModel.SettingID">
             <summary>
             SettingID
             </summary>
         </member>
-        <member name="P:Genesys.Framework.Applications.ModuleSettingModel.SettingTypeID">
+        <member name="P:Genesys.Framework.Application.ModuleSettingModel.SettingTypeID">
             <summary>
             SettingTypeID
             </summary>
         </member>
-        <member name="P:Genesys.Framework.Applications.ModuleSettingModel.Value">
+        <member name="P:Genesys.Framework.Application.ModuleSettingModel.Value">
             <summary>
             Value
             </summary>
@@ -238,6 +258,16 @@
             </summary>
             <remarks></remarks>
         </member>
+        <member name="T:Genesys.Framework.Person.PersonSearchModel">
+            <summary>
+            Person Search Results
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Person.PersonSearchModel.Results">
+            <summary>
+            Search results
+            </summary>
+        </member>
         <member name="T:Genesys.Framework.Person.GenderList">
             <summary>
             Common object across models and business entity
@@ -289,6 +319,34 @@
             <param name="format"></param>
             <param name="formatProvider"></param>
             <returns></returns>
+        </member>
+        <member name="T:Genesys.Framework.Entity.ImageModel">
+            <summary>
+            Common object across models and business entity
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Genesys.Framework.Entity.ImageModel.Name">
+            <summary>
+            Name of this image
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Entity.ImageModel.Bytes">
+            <summary>
+            Bytes of BLOB image
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Entity.ImageModel.#ctor">
+            <summary>
+            Constructor
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Genesys.Framework.Entity.ImageModel.#ctor(System.Byte[])">
+            <summary>
+            Constructor
+            </summary>
+            <remarks></remarks>
         </member>
         <member name="T:Genesys.Framework.Entity.PropertyModel">
             <summary>

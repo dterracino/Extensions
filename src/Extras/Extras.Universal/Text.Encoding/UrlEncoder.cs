@@ -45,7 +45,7 @@ namespace Genesys.Extras.Text.Encoding
         /// <returns></returns>
         public string Encode()
         {            
-            return Uri.EscapeDataString(this.dataIn).Replace("+", "%20");
+            return Uri.EscapeDataString(dataIn).Replace("+", "%20");
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace Genesys.Extras.Text.Encoding
         /// <returns></returns>
         public string Decode()
         {
-            return Uri.UnescapeDataString(this.dataIn).Replace("%20", "+");
+            return Uri.UnescapeDataString(dataIn).Replace("%20", "+");
         }
 
         /// <summary>

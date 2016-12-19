@@ -33,6 +33,11 @@ namespace Genesys.Extras.Net
     public class UrlBuilder : UriBuilder
     {
         /// <summary>
+        /// Default Url value when initialized or in lieu of an exception for invalid Uri format scenarios
+        /// </summary>
+        public virtual string DefaultUrl { get; set; } = "http://localhost";
+
+        /// <summary>
         /// Constructor
         /// </summary>
         public UrlBuilder() : base() { }
@@ -45,7 +50,7 @@ namespace Genesys.Extras.Net
         /// <summary>
         /// Constructor
         /// </summary>
-        public UrlBuilder(string rootUrl, string path) : this(rootUrl.RemoveLast("/") + "/" +  path.RemoveLast("/")) { }
+        public UrlBuilder(string rootUrl, string path) : this(rootUrl.RemoveLast("/") + "/" + path.RemoveLast("/")) { }
 
         /// <summary>
         /// Constructor
@@ -57,27 +62,27 @@ namespace Genesys.Extras.Net
         /// </summary>
         public UrlBuilder(string rootUrl, string controller, string action, string parametersWithNoLeadingQuestionMark) : this(rootUrl.RemoveLast("/"), controller, action)
         {
-            this.Query = parametersWithNoLeadingQuestionMark;
+            Query = parametersWithNoLeadingQuestionMark;
         }
-        
+
         /// <summary>
         /// handles URL formation issues
         /// </summary>
         /// <returns></returns>
         public override string ToString()
         {
-            string returnValue = TypeExtension.DefaultString;
+            var returnValue = TypeExtension.DefaultString;
             try
             {
                 returnValue = base.ToString();
             }
             catch
             {
-                returnValue = "http://UnableToformURL";
+                returnValue = this.DefaultUrl;
             }
             return returnValue;
         }
-        
+
         /// <summary>
         /// Formats full URL based on Mvc pattern segments
         /// </summary>
@@ -89,7 +94,7 @@ namespace Genesys.Extras.Net
         {
             return String.Format("{0}/{1}/{2}", rootUrl.RemoveLast("/"), controller, action);
         }
-        
+
         /// <summary>
         /// Encodes to URL friendly
         /// </summary>

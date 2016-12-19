@@ -87,9 +87,9 @@ namespace Genesys.Extras.Collections
         /// <returns>Index of item matches passed item</returns>
         public int FindIndex(ListType key)
         {
-            int returnValue = TypeExtension.DefaultInteger;
+            var returnValue = TypeExtension.DefaultInteger;
 
-            for (int count = 0; count < this.Count; count++)
+            for (var count = 0; count < this.Count; count++)
             {
                 if (this[count] == key)
                 {

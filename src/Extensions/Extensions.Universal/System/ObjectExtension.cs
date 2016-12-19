@@ -58,7 +58,7 @@ namespace Genesys.Extensions
 
             foreach (object attribute in itemType.GetCustomAttributes(false))
             {
-                if ((attribute is TAttribute) == true)
+                if (attribute is TAttribute)
                 {
                     returnValue = ((TAttribute)attribute).Value;
                     break;
@@ -87,23 +87,23 @@ namespace Genesys.Extensions
         /// <summary>
         /// Safe Type Casting based on .Net default() method
         /// </summary>
-        /// <typeparam name="T">default(DestinationType)</typeparam>
+        /// <typeparam name="TDestination">default(DestinationType)</typeparam>
         /// <param name="item">Item to default.</param>
         /// <returns>default(DestinationType)</returns>
-        public static T DefaultSafe<T>(this object item)
+        public static TDestination DefaultSafe<TDestination>(this object item)
         {
-            T returnValue = TypeExtension.InvokeConstructorOrDefault<T>();
+            TDestination returnValue = TypeExtension.InvokeConstructorOrDefault<TDestination>();
 
             try
             {
-                if ((item == null) == false)
+                if (item != null && item is TDestination)
                 {
-                    return (T)new Object();
+                    returnValue = (TDestination)item;
                 }
             }
             catch
             {
-                returnValue = TypeExtension.InvokeConstructorOrDefault<T>();
+                returnValue = TypeExtension.InvokeConstructorOrDefault<TDestination>();
             }
             return returnValue;
         }
@@ -111,23 +111,23 @@ namespace Genesys.Extensions
         /// <summary>
         /// Safe Type Casting based on TypeExtension.Default{Type} conventions
         /// </summary>
-        /// <typeparam name="T">Type to default, or create new()</typeparam>
+        /// <typeparam name="TDestination">Type to default, or create new()</typeparam>
         /// <param name="item">Item to cast</param>
         /// <returns>Defaulted type, or created new()</returns>
-        public static T DirectCastSafe<T>(this object item) where T : new()
+        public static TDestination DirectCastSafe<TDestination>(this object item) where TDestination : new()
         {
-            T returnValue = new T();
+            TDestination returnValue = new TDestination();
 
             try
             {
-                if ((item == null) == false)
+                if (item != null && item is TDestination)
                 {
-                    returnValue = (T)item;
+                    returnValue = (TDestination)item;
                 }
             }
             catch
             {
-                returnValue = new T();
+                returnValue = new TDestination();
             }
             return returnValue;
         }
@@ -139,7 +139,7 @@ namespace Genesys.Extensions
         /// <returns>Converted string, or ""</returns>
         public static string ToStringSafe(this object item)
         {
-            string returnValue = TypeExtension.DefaultString;
+            var returnValue = TypeExtension.DefaultString;
 
             if (item == null == false)
             {

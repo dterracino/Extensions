@@ -50,8 +50,8 @@ namespace Genesys.Extensions.Test
         [TestMethod()]
         public void Object_DirectCastSafe()
         {
-            MyClass1 testItem = new MyClass1();
-            MyClass3 compareItem = new MyClass3();
+            var testItem = new MyClass1();
+            var compareItem = new MyClass3();
             Assert.IsTrue(testItem.DirectCastSafe<MyClass3>().GetType() == compareItem.GetType(), "Did not work");
         }
 
@@ -61,9 +61,9 @@ namespace Genesys.Extensions.Test
         [TestMethod()]
         public void Object_Fill()
         {
-            MyClass1 testItem = new MyClass1();
-            MyClass2 fillItem1 = new MyClass2();
-            MyClass3 fillItem2 = new MyClass3();
+            var testItem = new MyClass1();
+            var fillItem1 = new MyClass2();
+            var fillItem2 = new MyClass3();
             fillItem1.Fill(testItem);
             fillItem2.Fill(testItem);
             Assert.IsTrue(testItem.MyProperty == fillItem1.MyProperty, "Did not work");

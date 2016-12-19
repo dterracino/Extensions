@@ -53,7 +53,7 @@ namespace Genesys.Extras.Net
         /// <summary>
         /// Route
         /// </summary>
-        public string Route { get { return this.Path.RemoveFirst("/").RemoveLast("/"); } }
+        public string Route { get { return Path.RemoveFirst("/").RemoveLast("/"); } }
 
         /// <summary>
         /// Constructor
@@ -68,9 +68,9 @@ namespace Genesys.Extras.Net
         /// </summary>
         public UrlInfo(string rootUrl, string controller, string action) : base(String.Format("{0}/{1}/{2}", rootUrl.RemoveLast("/"), controller, action))
         {
-            this.Root = rootUrl;
-            this.Controller = controller;
-            this.Action = action;
+            Root = rootUrl;
+            Controller = controller;
+            Action = action;
         }
         /// <summary>
         /// Constructor tuned for MVC pattern

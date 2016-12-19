@@ -25,8 +25,8 @@ namespace Genesys.Extras.Serialization
     /// <summary>
     /// Generically typed Serialization and Deserialization
     /// </summary>
-    /// <typeparam name="ObjectType"></typeparam>
-    public abstract class Serializer<ObjectType> : Serializer, ISerializer<ObjectType>
+    /// <typeparam name="T"></typeparam>
+    public abstract class Serializer<T> : Serializer, ISerializer<T>
     {
         /// <summary>
         /// Constructor
@@ -46,7 +46,7 @@ namespace Genesys.Extras.Serialization
         /// <param name="objectToSerialize"></param>
         /// <returns></returns>
         /// <remarks></remarks>
-        public abstract string Serialize(ObjectType objectToSerialize);
+        public abstract string Serialize(T objectToSerialize);
 
         /// <summary>
         /// Deserialize
@@ -54,6 +54,6 @@ namespace Genesys.Extras.Serialization
         /// <param name="stringToDeserialize"></param>
         /// <returns></returns>
         /// <remarks></remarks>
-        public abstract ObjectType Deserialize(string stringToDeserialize);        
+        public abstract T Deserialize(string stringToDeserialize);        
     }
 }

@@ -1,0 +1,1429 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Genesys.Framework.Interfaces</name>
+    </assembly>
+    <members>
+        <member name="T:Genesys.Framework.Application.IApplication">
+            <summary>
+            Application critical process information such as common pages, web services and Application table data
+            Often a singleton/static object, one per application project
+            </summary>    
+        </member>
+        <member name="P:Genesys.Framework.Application.IApplication.EntryPoint">
+            <summary>
+            Entry point Screen (Typically login screen)
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Application.IApplication.HomeScreen">
+            <summary>
+            Home dashboard screen
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Application.IApplication.ErrorScreen">
+            <summary>
+            Error screen
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Application.IApplicationData">
+            <summary>
+            Global class containing application metadata, storage, device and application record
+            Often a singleton/static object, one per application project
+            </summary>    
+        </member>
+        <member name="P:Genesys.Framework.Application.IApplicationData.ApplicationUUID">
+            <summary>
+            Displays Application table Key column
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Application.IApplicationData.Configuration">
+            <summary>
+            Config file data from app.config, web.config, appsettings.config, connectionstrings.config
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Application.IApplicationData.Data">
+            <summary>
+            Local dictionary storage
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Application.IApplicationData.Context">
+            <summary>
+            Context
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Application.IApplicationData.MyWebService">
+            <summary>
+            MyWebService
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Application.IApplicationKey">
+            <summary>
+            App ID
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Application.IApplicationKey.ApplicationKey">
+            <summary>
+            ApplicationID
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Application.IApplicationInfo">
+            <summary>
+            Global class containing global information for an application
+            Often a singleton/static object, one per application project
+            </summary>    
+        </member>
+        <member name="P:Genesys.Framework.Application.IApplicationInfo.BusinessID">
+            <summary>
+            ID of the business owning the application
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Application.IApplicationInfo.PrivacyUrl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Application.IApplicationInfo.TermsUrl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Application.IApplicationInfo.TermsRevisedDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Application.IModuleID">
+            <summary>
+            Module ID
+            </summary>    
+        </member>
+        <member name="P:Genesys.Framework.Application.IModuleID.ModuleID">
+            <summary>
+            ModuleID
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Device.IApplicationDataContainerFull">
+            <summary>
+            Local/Device data storage for application. Dictionary of String, String items.
+            Mimics: Windows.Storage.IApplicationDataContainer
+            </summary> 
+        </member>
+        <member name="P:Genesys.Framework.Device.IApplicationDataContainerFull.Containers">
+            <summary>
+            Gets the child application settings containers of this application settings container.
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Device.IApplicationDataContainerFull.Locality">
+            <summary>
+            Gets the type (local or roaming) of the app data store that is associated with
+            the current settings container. 0 = local, 1 = roaming.
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Device.IApplicationDataContainerFull.Name">
+            <summary>
+            Gets the name of the current settings container.
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Device.IApplicationDataContainerFull.Values">
+            <summary>
+            Gets an object that represents the settings in this settings container.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Device.IApplicationDataContainerFull.CreateContainer(System.String)">
+            <summary>
+            Creates or opens the specified settings container in the current settings container.
+            </summary>
+            <param name="name">Always returns the specified container. Creates the container if it does not exist</param>
+            <returns></returns>
+        </member>
+        <member name="M:Genesys.Framework.Device.IApplicationDataContainerFull.DeleteContainer(System.String)">
+            <summary>
+            Deletes the specified settings container, its subcontainers, and all application settings in the hierarchy.
+            </summary>
+            <param name="name">The name of the settings container.</param>
+        </member>
+        <member name="M:Genesys.Framework.Device.IApplicationDataContainerFull.GetValue(System.String,System.String)">
+            <summary>
+            Retrieves a value from the data store
+            </summary>
+            <param name="key">The unique ID of the item</param>
+            <param name="notFoundValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Genesys.Framework.Device.IApplicationDataContainerFull.SetValue(System.String,System.String)">
+            <summary>
+            Writes a value to the data store
+            </summary>
+            <param name="key">The unique ID of the item</param>
+            <param name="value">Value of the item</param>
+        </member>
+        <member name="M:Genesys.Framework.Device.IApplicationDataContainerFull.SetValues(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Writes a collection of values to the data store
+            </summary>
+            <param name="values"></param>
+        </member>
+        <member name="T:Genesys.Framework.Device.IDevice">
+            <summary>
+            Device
+            </summary>    
+        </member>
+        <member name="P:Genesys.Framework.Device.IDevice.Model">
+            <summary>
+            Model
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Device.IDevice.Manufacturer">
+            <summary>
+            Manufacturer
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Device.IDevice.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Device.IDevice.OSName">
+            <summary>
+            OSName
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Flow.IFlowInteropManager`1">
+            <summary>
+            Interop for routes, data in and result of a Flow
+            </summary> 
+        </member>
+        <member name="P:Genesys.Framework.Flow.IFlowInteropManager`1.RootUrl">
+            <summary>
+            Root Url to services that accept these requests
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.IFlowInteropManager`1.ApiServicesRoute">
+            <summary>
+            Route to out-of-domain DMZ (external) app services
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.IFlowInteropManager`1.MidServicesRoute">
+            <summary>
+            Route to in-domain mid services
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.IFlowInteropManager`1.Parameter">
+            <summary>
+            Parameter in, encapsulates Context and DataIn
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Flow.FlowInteropManager`1">
+            <summary>
+            Handles workflow interop of data and types across tiers
+            </summary>
+            <typeparam name="TDataInInterface">Type of the data to be sent to the workflow</typeparam>
+        </member>
+        <member name="F:Genesys.Framework.Flow.FlowInteropManager`1.throwException">
+            <summary>
+            Setting to throw exception
+            </summary>
+        </member>
+        <member name="F:Genesys.Framework.Flow.FlowInteropManager`1.parameterField">
+            <summary>
+            Context and Data
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.FlowInteropManager`1.ActivitySessionflowID">
+            <summary>
+            Sessionflow activity is the ID of activity of all user experience elements (screen flows, queue messages, etc.)
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.FlowInteropManager`1.RootUrl">
+            <summary>
+            Root Url without trailing slash
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.FlowInteropManager`1.ApiServicesRoute">
+            <summary>
+            Route to the App Services, residing in DMZ as a Mvc web app would
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.FlowInteropManager`1.MidServicesRoute">
+            <summary>
+            Route to Mid Services, hosting the middle tier layer in the inner domain (not in DMZ)
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.FlowInteropManager`1.Parameter">
+            <summary>
+            Context and data
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.FlowInteropManager`1.Genesys#Framework#Flow#IFlowInteropManager{TDataInInterface}#Parameter">
+            <summary>
+            Parameter
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Flow.FlowInteropManager`1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Flow.FlowInteropManager`1.#ctor(Genesys.Foundation.Session.ISessionContext,`0)">
+            <summary>
+            Constructor for route-less usage with just data
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Flow.FlowInteropManager`1.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,`0)">
+            <summary>
+            Constructor for usage with routes and data
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Flow.FlowInteropManager`1.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,`0,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Flow.FlowInteropManager`1.UrlSet(System.String)">
+            <summary>
+            Sets the url and propagates changes through object
+            </summary>
+            <param name="urlRoot">Root Url of the destination service</param>
+        </member>
+        <member name="T:Genesys.Framework.Flow.SessionflowCreateManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.SessionflowCreateManager.ApiServicesRoute">
+            <summary>
+            External Route to this workflow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.SessionflowCreateManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this workflow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Flow.SessionflowCreateManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Flow.SessionflowCreateManager.#ctor(Genesys.Foundation.Session.ISessionContext,Genesys.Foundation.Session.ISessionContext)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Flow.SessionflowCreateManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,Genesys.Foundation.Session.ISessionContext)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Flow.WorkfloRoute">
+            <summary>
+            Contains all data required to chain workflow service routing from the app, to app services to mid services (and the workflow)
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.WorkfloRoute.RootUrl">
+            <summary>
+            Root url of route, without trailing slash
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.WorkfloRoute.Name">
+            <summary>
+            Unique name of route, for route table
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.WorkfloRoute.ControllerName">
+            <summary>
+            Actual name of the controller name
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.WorkfloRoute.Path">
+            <summary>
+            Route path containing all fragments except root url
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Flow.WorkfloRoute.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Flow.WorkfloRoute.#ctor(System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Flow.WorkfloRoute.ToString">
+            <summary>
+            Formats string in full Uri path format
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Flow.IFlowExecuter`1">
+            <summary>
+            Methods to create and execute a Flow
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Flow.IFlowExecuter`1.Create(Genesys.Foundation.Session.ISessionContext,`0)">
+            <summary>
+            Constructs and performs the initial save of data, before processing
+            </summary>
+            <param name="context">Device, application, module and user info</param>
+            <param name="inputData">Data to process</param>
+        </member>
+        <member name="M:Genesys.Framework.Flow.IFlowExecuter`1.Execute">
+            <summary>
+            Executes the Flow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Genesys.Framework.Flow.IFlowClass">
+            <summary>
+            Flow class
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.IFlowClass.Context">
+            <summary>
+            Context
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.IFlowClass.Activity">
+            <summary>
+            Activity
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Flow.IFlowKey">
+            <summary>
+            Flow ID
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.IFlowKey.FlowKey">
+            <summary>
+            FlowID
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Flow.IFlowInfo">
+            <summary>
+            FlowInfo data access class
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Flow.IFlowRoute">
+            <summary>
+            Flow route info
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.IFlowRoute.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.IFlowRoute.ControllerName">
+            <summary>
+            ControllerName
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.IFlowRoute.Path">
+            <summary>
+            Path
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Flow.IFlowRoute.RootUrl">
+            <summary>
+            RootUrl
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Setting.ISettingInfo">
+            <summary>
+            Setting ID, name and value
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Setting.ISettingInfo.SettingID">
+            <summary>
+            SettingID
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Setting.ISettingInfo.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Setting.ISettingApplication">
+            <summary>
+            Settings per application
+            </summary>	
+        </member>
+        <member name="P:Genesys.Framework.Setting.ISettingApplication.UrlFull">
+            <summary>
+            UrlFull
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Setting.ISettingApplication.UrlFriendly">
+            <summary>
+            UrlFriendly
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Setting.ISettingModule">
+            <summary>
+            A modules settings
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Activity.IActivityFlow">
+            <summary>
+            Flow activity that tracks Flow executions
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Activity.IActivityFlow.FlowStepKey">
+            <summary>
+            FlowStepID
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Activity.IActivityFlow.CanExecute">
+            <summary>
+            Is this flow blocked by a previous flow or action?
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Genesys.Framework.Activity.IActivitySessionflowID">
+            <summary>
+            ActivitySessionflowID
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Activity.IActivitySessionflowID.ActivitySessionflowID">
+            <summary>
+            ActivitySessionflowID
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Activity.IActivitySessionflow">
+            <summary>
+            Session flow activity data access object
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Activity.IActivitySessionflow.SessionflowData">
+            <summary>
+            List of KeyValuePair string items. Properties are Key and Value.
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Business.BusinessCreateManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Business.BusinessCreateManager.#ctor(Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Business.IBusiness)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Business.BusinessCreateManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Business.IBusiness)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="P:Genesys.Framework.Business.BusinessCreateManager.ApiServicesRoute">
+            <summary>
+            External Route to this Flow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Business.BusinessCreateManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this Flow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Business.BusinessCreateManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Business.BusinessInfoChangeManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Business.BusinessInfoChangeManager.ApiServicesRoute">
+            <summary>
+            External Route to this Flow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Business.BusinessInfoChangeManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this Flow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Business.BusinessInfoChangeManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Business.BusinessInfoChangeManager.#ctor(Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Business.IBusiness)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Business.BusinessInfoChangeManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Business.IBusiness)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Business.BusinessViewManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Business.BusinessViewManager.ApiServicesRoute">
+            <summary>
+            External Route to this Flow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Business.BusinessViewManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this Flow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Business.BusinessViewManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Business.BusinessViewManager.#ctor(Genesys.Foundation.Session.ISessionContext,Genesys.Foundation.Entity.IKey)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Business.BusinessViewManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,Genesys.Foundation.Entity.IKey)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Business.IBusiness">
+            <summary>
+            Business record
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Business.IBusiness.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Business.IBusiness.TaxNumber">
+            <summary>
+            TaxNumber
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Event.AppointmentChangeManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.AppointmentChangeManager.ApiServicesRoute">
+            <summary>
+            External Route to this Flow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.AppointmentChangeManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this Flow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.AppointmentChangeManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.AppointmentChangeManager.#ctor(Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Event.IAppointmentInfo)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.AppointmentChangeManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Event.IAppointmentInfo)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Event.AppointmentCreateManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.AppointmentCreateManager.ApiServicesRoute">
+            <summary>
+            External Route to this workflow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.AppointmentCreateManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this workflow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.AppointmentCreateManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.AppointmentCreateManager.#ctor(Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Event.IAppointmentInfo)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.AppointmentCreateManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Event.IAppointmentInfo)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Event.EventCreateManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.EventCreateManager.ApiServicesRoute">
+            <summary>
+            External Route to this workflow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.EventCreateManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this workflow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.EventCreateManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.EventCreateManager.#ctor(Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Event.IEvent)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.EventCreateManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Event.IEvent)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Event.EventDetailChangeManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.EventDetailChangeManager.ApiServicesRoute">
+            <summary>
+            External Route to this workflow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.EventDetailChangeManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this workflow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.EventDetailChangeManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.EventDetailChangeManager.#ctor(Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Event.IEventDetail)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.EventDetailChangeManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Event.IEventDetail)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Event.EventInfoChangeManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.EventInfoChangeManager.ApiServicesRoute">
+            <summary>
+            External Route to this workflow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.EventInfoChangeManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this workflow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.EventInfoChangeManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.EventInfoChangeManager.#ctor(Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Event.IEvent)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.EventInfoChangeManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Event.IEvent)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Event.EventViewAnonymousManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.EventViewAnonymousManager.ApiServicesRoute">
+            <summary>
+            External Route to this workflow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.EventViewAnonymousManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this workflow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.EventViewAnonymousManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.EventViewAnonymousManager.#ctor(Genesys.Foundation.Session.ISessionContext,Genesys.Foundation.Name.INameKey)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.EventViewAnonymousManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,Genesys.Foundation.Name.INameKey)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Event.EventViewManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.EventViewManager.ApiServicesRoute">
+            <summary>
+            External Route to this workflow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.EventViewManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this workflow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.EventViewManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.EventViewManager.#ctor(Genesys.Foundation.Session.ISessionContext,Genesys.Foundation.Entity.IKey)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.EventViewManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,Genesys.Foundation.Entity.IKey)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Event.MyEventsViewManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.MyEventsViewManager.ApiServicesRoute">
+            <summary>
+            External Route to this workflow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.MyEventsViewManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this workflow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.MyEventsViewManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.MyEventsViewManager.#ctor(Genesys.Foundation.Session.ISessionContext,System.String)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Event.MyEventsViewManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,System.String)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Event.IEventID">
+            <summary>
+            Event and a location at a time
+            </summary>	
+        </member>
+        <member name="P:Genesys.Framework.Event.IEventID.EventID">
+            <summary>
+            EventID
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Event.IAppointmentInfo">
+            <summary>
+            Event and a location at a time
+            </summary>	
+        </member>
+        <member name="T:Genesys.Framework.Event.IMyEvents">
+            <summary>
+            All events associated with a context
+            </summary>	
+        </member>
+        <member name="T:Genesys.Framework.Event.IEventCreate">
+            <summary>
+            Data needed to create an event
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Event.IEventDetail">
+            <summary>
+            Detail of an event, like parking, tickets, etc.
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.IEventDetail.EventID">
+            <summary>
+            EventID
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.IEventDetail.DetailTypeID">
+            <summary>
+            DetailTypeID
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.IEventDetail.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Event.IEvent">
+            <summary>
+            Event created by a user
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.IEvent.CreatorID">
+            <summary>
+            CreatorID
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.IEvent.EventGroupID">
+            <summary>
+            EventGroupID
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.IEvent.EventTypeID">
+            <summary>
+            EventTypeID
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.IEvent.PrivacyViewID">
+            <summary>
+            PrivacyViewID
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Event.IEvent.Slogan">
+            <summary>
+            Slogan
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Event.IEventType">
+            <summary>
+            Event Type
+            </summary>	
+        </member>
+        <member name="P:Genesys.Framework.Event.IEventType.EventGroupID">
+            <summary>
+            EventGroupID
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Government.GovernmentCreateManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Government.GovernmentCreateManager.ApiServicesRoute">
+            <summary>
+            External Route to this workflow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Government.GovernmentCreateManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this workflow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Government.GovernmentCreateManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Government.GovernmentCreateManager.#ctor(Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Government.IGovernment)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Government.GovernmentCreateManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Government.IGovernment)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Government.GovernmentInfoChangeManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Government.GovernmentInfoChangeManager.ApiServicesRoute">
+            <summary>
+            External Route to this workflow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Government.GovernmentInfoChangeManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this workflow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Government.GovernmentInfoChangeManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Government.GovernmentInfoChangeManager.#ctor(Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Government.IGovernment)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Government.GovernmentInfoChangeManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Government.IGovernment)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Government.GovernmentViewManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Government.GovernmentViewManager.ApiServicesRoute">
+            <summary>
+            External Route to this workflow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Government.GovernmentViewManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this workflow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Government.GovernmentViewManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Government.GovernmentViewManager.#ctor(Genesys.Foundation.Session.ISessionContext,Genesys.Foundation.Entity.IKey)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Government.GovernmentViewManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,Genesys.Foundation.Entity.IKey)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Government.IGovernment">
+            <summary>
+            Government record
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Government.IGovernment.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Government.IGovernment.LocationID">
+            <summary>
+            LocationID
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Location.LocationCreateManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Location.LocationCreateManager.ApiServicesRoute">
+            <summary>
+            External Route to this workflow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Location.LocationCreateManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this workflow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Location.LocationCreateManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Location.LocationCreateManager.#ctor(Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Location.ILocality)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Location.LocationCreateManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Location.ILocality)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Location.LocationInfoChangeManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Location.LocationInfoChangeManager.ApiServicesRoute">
+            <summary>
+            External Route to this workflow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Location.LocationInfoChangeManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this workflow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Location.LocationInfoChangeManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Location.LocationInfoChangeManager.#ctor(Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Location.ILocality)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Location.LocationInfoChangeManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Location.ILocality)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Location.LocationViewManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Location.LocationViewManager.ApiServicesRoute">
+            <summary>
+            External Route to this workflow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Location.LocationViewManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this workflow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Location.LocationViewManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Location.LocationViewManager.#ctor(Genesys.Foundation.Session.ISessionContext,System.Guid)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Location.LocationViewManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,System.Guid)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Location.ILocality">
+            <summary>
+            Locality is a generic location by name and description
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Location.ILocationID">
+            <summary>
+            PK for transporting data
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Location.ILocationID.LocationID">
+            <summary>
+            LocationID
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Person.PersonManager">
+            <summary>
+            Interop instructions
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Person.PersonManager.ApiServicesRoute">
+            <summary>
+            External Route to this workflow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Person.PersonManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this workflow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Person.PersonManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Person.PersonManager.#ctor(Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Person.IPerson)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Person.PersonManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Person.IPerson)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Person.IPerson">
+            <summary>
+            Person
+            </summary>    
+        </member>
+        <member name="P:Genesys.Framework.Person.IPerson.FirstName">
+            <summary>
+            FirstName
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Person.IPerson.MiddleName">
+            <summary>
+            MiddleName
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Person.IPerson.LastName">
+            <summary>
+            LastName
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Person.IPerson.BirthDate">
+            <summary>
+            BirthDate
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Schedule.ScheduleCreateManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Schedule.ScheduleCreateManager.ApiServicesRoute">
+            <summary>
+            External Route to this workflow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Schedule.ScheduleCreateManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this workflow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Schedule.ScheduleCreateManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Schedule.ScheduleCreateManager.#ctor(Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Schedule.ISchedule)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Schedule.ScheduleCreateManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Schedule.ISchedule)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Schedule.ScheduleInfoManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Schedule.ScheduleInfoManager.ApiServicesRoute">
+            <summary>
+            External Route to this workflow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Schedule.ScheduleInfoManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this workflow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Schedule.ScheduleInfoManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Schedule.ScheduleInfoManager.#ctor(Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Schedule.ISchedule)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Schedule.ScheduleInfoManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,Genesys.Framework.Schedule.ISchedule)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Schedule.ScheduleViewManager">
+            <summary>
+            Contains the cross-tier items that must be consistent, regardless of the tier or app type
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Schedule.ScheduleViewManager.ApiServicesRoute">
+            <summary>
+            External Route to this workflow's endpoint for native apps and distributed systems
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Schedule.ScheduleViewManager.MidServicesRoute">
+            <summary>
+            In-domain Route to this workflow's endpoint for ApiServices, MVC apps and any other presentation tier functionality.
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Schedule.ScheduleViewManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Schedule.ScheduleViewManager.#ctor(Genesys.Foundation.Session.ISessionContext,System.Guid)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Schedule.ScheduleViewManager.#ctor(System.String,Genesys.Foundation.Session.ISessionContext,System.Guid)">
+            <summary>
+            Constructor with hydration
+            </summary>
+            <param name="rootUrl">Root Url of the service without trailing slash</param>
+            <param name="context">User, device and app context</param>
+            <param name="dataIn">Data to be sent</param>
+        </member>
+        <member name="T:Genesys.Framework.Schedule.ISchedule">
+            <summary>
+            A schedule. Schedule = Resource + TimeRange + Location
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Schedule.IResource">
+            <summary>
+            Resource for a schedule. Schedule = Resource + TimeRange + Location
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Schedule.ITimeRange">
+            <summary>
+            TimeRange for a schedule. Schedule = Resource + TimeRange + Location
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Schedule.ITimeRange.BeginDate">
+            <summary>
+            BeginDate
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Schedule.ITimeRange.EndDate">
+            <summary>
+            EndDate
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Module.IModule">
+            <summary>
+            Module of the framework
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Module.IModule.ModuleGroupID">
+            <summary>
+            ModuleGroupID
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Module.IModule.ModuleTypeID">
+            <summary>
+            ModuleTypeID
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Property.IProperty">
+            <summary>
+            Property that is selectable for any entity
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Property.IProperty.PropertyGroupID">
+            <summary>
+            PropertyGroupID
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Property.IProperty.FullName">
+            <summary>
+            FullName
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Property.IProperty.Code">
+            <summary>
+            Code
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Property.IProperty.FullCode">
+            <summary>
+            FullCode
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Property.IPropertyEntity">
+            <summary>
+            A entity's properties, like gender, social preferences, etc.
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Property.IPropertyEntity.PropertyKey">
+            <summary>
+            PropertyID
+            </summary>
+        </member>
+    </members>
+</doc>

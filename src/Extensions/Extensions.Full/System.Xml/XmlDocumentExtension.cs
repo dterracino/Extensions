@@ -34,7 +34,7 @@ namespace Genesys.Extensions
         /// <returns></returns>
         public static string Serialize(this XmlDocument item)
         {
-            string returnValue = TypeExtension.DefaultString;
+            var returnValue = TypeExtension.DefaultString;
 
             using (var stringWrite = new StringWriter())
             using (var xmlWrite = XmlWriter.Create(stringWrite))

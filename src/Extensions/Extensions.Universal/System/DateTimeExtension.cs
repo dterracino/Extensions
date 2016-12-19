@@ -76,9 +76,9 @@ namespace Genesys.Extensions
         /// <returns>Date after adding number of weekdays (skipping Saturday and Sunday)</returns>
         public static DateTime AddWeekdays(this DateTime item, int weekdays)
         {
-            int sign = weekdays < 0 ? -1 : 1;
-            int unsignedDays = Math.Abs(weekdays);
-            int weekdaysAdded = 0;
+            var sign = weekdays < 0 ? -1 : 1;
+            var unsignedDays = Math.Abs(weekdays);
+            var weekdaysAdded = 0;
             DateTime returnValue = TypeExtension.DefaultDate;
 
             while (weekdaysAdded < unsignedDays)
@@ -101,7 +101,7 @@ namespace Genesys.Extensions
         /// <returns>Age in years of the DateTime.</returns>
         public static int Age(this DateTime item)
         {
-            int returnValue = 0;
+            var returnValue = 0;
 
             if (item != TypeExtension.DefaultDate)
             {
@@ -125,8 +125,8 @@ namespace Genesys.Extensions
             DateTime sqlMinimumDate = new DateTime(1753, 01, 01); // Minimum Date SQL Accepts
             DateTime sqlMaximumDate = new DateTime(9999, 01, 01); // Maximum Date SQL Accepts
             bool returnValue = TypeExtension.DefaultBoolean;
-            int minResult = DateTime.Compare(item, sqlMinimumDate);
-            int maxResult = DateTime.Compare(item, sqlMaximumDate);
+            var minResult = DateTime.Compare(item, sqlMinimumDate);
+            var maxResult = DateTime.Compare(item, sqlMaximumDate);
 
             if ((minResult >= 0) & (maxResult <= 0))
             {

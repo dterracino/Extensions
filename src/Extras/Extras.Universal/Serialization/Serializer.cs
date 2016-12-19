@@ -56,7 +56,7 @@ namespace Genesys.Extras.Serialization
         public Serializer(IListSafe<Type> knownTypes) : this()
         {
             {
-                this.KnownTypes.AddRange(knownTypes);
+                KnownTypes.AddRange(knownTypes);
             }
         }     
           
@@ -66,7 +66,7 @@ namespace Genesys.Extras.Serialization
         /// <param name="objectToSerialize"></param>
         /// <returns></returns>
         /// <remarks></remarks>
-        public abstract string Serialize<ObjectType>(ObjectType objectToSerialize);
+        public abstract string Serialize<T>(T objectToSerialize);
 
         /// <summary>
         /// Deserialize
@@ -74,6 +74,6 @@ namespace Genesys.Extras.Serialization
         /// <param name="stringToDeserialize"></param>
         /// <returns></returns>
         /// <remarks></remarks>
-        public abstract ObjectType Deserialize<ObjectType>(string stringToDeserialize);
+        public abstract T Deserialize<T>(string stringToDeserialize);
     }    
 }

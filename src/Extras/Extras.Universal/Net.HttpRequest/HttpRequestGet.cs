@@ -52,7 +52,7 @@ namespace Genesys.Extras.Net
         /// <summary>
         /// Construct with data
         /// </summary>
-        public HttpRequestGet(string url, ISerializer<TypeToReceive> deserializer) : this(url) { this.Deserializer = deserializer; }
+        public HttpRequestGet(string url, ISerializer<TypeToReceive> deserializer) : this(url) { Deserializer = deserializer; }
 
         /// <summary>
         /// Construct with data
@@ -66,8 +66,8 @@ namespace Genesys.Extras.Net
         public virtual new TypeToReceive Send()
         {
             base.Send();
-            this.DataReceivedDeserialized = this.Deserializer.Deserialize(base.DataReceivedDecrypted);
-            return this.DataReceivedDeserialized; 
+            DataReceivedDeserialized = this.Deserializer.Deserialize(base.DataReceivedDecrypted);
+            return DataReceivedDeserialized; 
         }
 
         /// <summary>
@@ -77,8 +77,8 @@ namespace Genesys.Extras.Net
         public virtual new async Task<TypeToReceive> SendAsync()
         {
             await base.SendAsync();
-            this.DataReceivedDeserialized = this.Deserializer.Deserialize(base.DataReceivedDecrypted);
-            return this.DataReceivedDeserialized;
+            DataReceivedDeserialized = this.Deserializer.Deserialize(base.DataReceivedDecrypted);
+            return DataReceivedDeserialized;
         }
     }
 }

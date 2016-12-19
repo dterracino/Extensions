@@ -87,6 +87,18 @@
             <param name="item">Destination object to fill</param>
             <param name="sourceList">Source object</param>
         </member>
+        <member name="T:Genesys.Extensions.StreamExtension">
+            <summary>
+            Stream Extender
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.StreamExtension.ToXDocument(System.IO.Stream)">
+            <summary>
+            Converts a Stream to XDocument. I.e. Reading an XML file
+            </summary>
+            <param name="item">Stream array containing the XDocument data.</param>
+            <returns>XDocument from a valid Stream, or empty XDocument</returns>
+        </member>
         <member name="T:Genesys.Extensions.IQueryableExtension">
             <summary>
             IQueryableExtension
@@ -429,7 +441,7 @@
             <summary>
             Safe Type Casting based on .Net default() method
             </summary>
-            <typeparam name="T">default(DestinationType)</typeparam>
+            <typeparam name="TDestination">default(DestinationType)</typeparam>
             <param name="item">Item to default.</param>
             <returns>default(DestinationType)</returns>
         </member>
@@ -437,7 +449,7 @@
             <summary>
             Safe Type Casting based on TypeExtension.Default{Type} conventions
             </summary>
-            <typeparam name="T">Type to default, or create new()</typeparam>
+            <typeparam name="TDestination">Type to default, or create new()</typeparam>
             <param name="item">Item to cast</param>
             <returns>Defaulted type, or created new()</returns>
         </member>

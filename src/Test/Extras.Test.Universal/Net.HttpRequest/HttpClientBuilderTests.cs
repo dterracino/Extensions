@@ -28,7 +28,7 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Net_HttpRequest_HttpClientBuilder()
         {
-            HttpClientBuilder builder = new HttpClientBuilder();
+            var builder = new HttpClientBuilder();
             Assert.IsTrue((builder.MaxResponseContentBufferSize > -1), "Did not work");
         }
     }

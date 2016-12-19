@@ -53,7 +53,7 @@ namespace Genesys.Extras.IO
         /// </summary>
         public string ReadToEnd()
         {
-            string returnValue = TypeExtension.DefaultString;
+            var returnValue = TypeExtension.DefaultString;
             using (StreamReader streamReader = new StreamReader(file, Encoding.UTF8))
             {
                 returnValue = streamReader.ReadToEnd();

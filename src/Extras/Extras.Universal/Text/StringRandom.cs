@@ -19,6 +19,7 @@
 //-----------------------------------------------------------------------
 using System;
 using System.Text;
+using Genesys.Extensions;
 
 namespace Genesys.Extras.Text
 {
@@ -35,13 +36,13 @@ namespace Genesys.Extras.Text
         /// <returns>Random string</returns>
         public static string Next(int length = 10)
         {
-            string returnValue = null;
-            StringBuilder builder = new StringBuilder();
-            Random randomClass = new Random();
+            var returnValue = TypeExtension.DefaultString;
+            var builder = new StringBuilder();
+            var randomClass = new Random();
             char character = '\0';
 
             // Build the string
-            for (int Count = 0; Count <= length - 1; Count++)
+            for (var Count = 0; Count <= length - 1; Count++)
             {
                 character = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * randomClass.NextDouble() + 65)));
                 builder.Append(character);

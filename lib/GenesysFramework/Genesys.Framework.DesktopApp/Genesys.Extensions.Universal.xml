@@ -1,0 +1,791 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Genesys.Extensions.Universal</name>
+    </assembly>
+    <members>
+        <member name="T:Genesys.Extensions.IAttributeValue`1">
+            <summary>
+            An attribute that has a string Value {get; set;} property
+            </summary>
+        </member>
+        <member name="P:Genesys.Extensions.IAttributeValue`1.Value">
+            <summary>
+            string value of the attribute
+            </summary>
+        </member>
+        <member name="T:Genesys.Extensions.ListExtension">
+            <summary>
+            List Extension
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.ListExtension.FirstOrDefaultSafe``1(System.Collections.Generic.List{``0})">
+            <summary>
+            Returns first item in a list, or empty constructed class
+            </summary>
+            <typeparam name="T">Type of the generic list</typeparam>
+            <param name="item">List to get first item</param>
+            <returns>First item, or new() constructed item</returns>
+        </member>
+        <member name="M:Genesys.Extensions.ListExtension.FirstOrDefaultSafe``1(System.Collections.Generic.List{``0},``0)">
+            <summary>
+            Returns first item in a list, or empty constructed class
+            </summary>
+            <typeparam name="T">Type of the generic list</typeparam>
+            <param name="item">List to get first item</param>
+            <param name="defaultValue">DefaultValue if first item is not found</param>
+            <returns>First item, or DefaultValue</returns>
+        </member>
+        <member name="M:Genesys.Extensions.ListExtension.Item``1(System.Collections.Generic.List{``0},System.Int32)">
+            <summary>
+            Returns first found item in a list, or empty constructed class.
+            Exception-safe.
+            </summary>
+            <typeparam name="T">Type of generic list.</typeparam>
+            <param name="item">Item to search.</param>
+            <param name="index">Index position to search</param>
+            <returns>Found item or constructed equivalent.</returns>
+        </member>
+        <member name="M:Genesys.Extensions.ListExtension.FindSafe``1(System.Collections.Generic.List{``0},System.Predicate{``0})">
+            <summary>
+            Exception safe Find()
+            </summary>
+            <typeparam name="T">Generic type of list</typeparam>
+            <param name="item">Item to search.</param>
+            <param name="query">Predicate query to search for data</param>
+            <returns>Found item in list based on predicate</returns>
+        </member>
+        <member name="M:Genesys.Extensions.ListExtension.AddRange``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})">
+            <summary>
+            Adds list to current list
+            </summary>
+            <typeparam name="T">Type of lists</typeparam>
+            <param name="item">Destination list</param>
+            <param name="itemsToAdd">Source list</param>
+        </member>
+        <member name="M:Genesys.Extensions.ListExtension.GetListType``1(System.Collections.Generic.List{``0})">
+            <summary>
+            Returns type of Generic.List
+            </summary>
+            <typeparam name="T">Type of list</typeparam>
+            <param name="_">Item to determine type</param>
+            <returns>Type of generic list</returns>
+        </member>
+        <member name="M:Genesys.Extensions.ListExtension.GetEnumerableType``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns type of IEnumerable
+            </summary>
+            <typeparam name="T">Type of list</typeparam>
+            <param name="_">Item to determine type</param>
+            <returns>Type of generic list</returns>>
+        </member>
+        <member name="M:Genesys.Extensions.ListExtension.FillRange``1(System.Collections.Generic.List{``0},System.Collections.IEnumerable)">
+            <summary>
+            Fills this IEnumerable list with another IEnumerable list that has types with matching properties.
+            </summary>
+            <typeparam name="T">Type of original object.</typeparam>
+            <param name="item">Destination object to fill</param>
+            <param name="sourceList">Source object</param>
+        </member>
+        <member name="T:Genesys.Extensions.StreamExtension">
+            <summary>
+            Stream Extender
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.StreamExtension.ToXDocument(System.IO.Stream)">
+            <summary>
+            Converts a Stream to XDocument. I.e. Reading an XML file
+            </summary>
+            <param name="item">Stream array containing the XDocument data.</param>
+            <returns>XDocument from a valid Stream, or empty XDocument</returns>
+        </member>
+        <member name="T:Genesys.Extensions.IQueryableExtension">
+            <summary>
+            IQueryableExtension
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.IQueryableExtension.FirstOrDefaultSafe``1(System.Linq.IQueryable{``0})">
+            <summary>
+            Finds first item in IQueryable, else returns new() constructed item
+            </summary>
+            <typeparam name="T">Type to return</typeparam>
+            <param name="item">Item to search</param>
+            <returns>First item in IQueryable, else returns new() constructed item</returns>
+        </member>
+        <member name="T:Genesys.Extensions.HttpWebRequestExtension">
+            <summary>
+            HttpRequestBaseExtension
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.HttpWebRequestExtension.TryParseUrl(System.Net.HttpWebRequest)">
+            <summary>
+            Finds the root of the URL in format: HTTP://SERVER_NAME:SERVER_PORT
+            </summary>
+            <param name="item">Item to parse</param>
+            <returns>Url from item</returns>
+        </member>
+        <member name="M:Genesys.Extensions.HttpWebRequestExtension.IsSecured(System.Net.HttpWebRequest)">
+            <summary>
+            Checks for HTTPS, or returns true if ://localhost
+            </summary>
+            <param name="item">Item to parse</param>
+            <returns>True if secured</returns>
+        </member>
+        <member name="T:Genesys.Extensions.PropertyInfoExtension">
+            <summary>
+            HttpRequestBaseExtension
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.PropertyInfoExtension.GetAttributeValue``2(System.Reflection.PropertyInfo,``1)">
+            <summary>
+            Gets the value of an attribute that implements IAttributeValue
+            </summary>
+            <param name="item">Object containing the attribute</param>
+            <param name="notFoundValue">Will use this string if no attribute is found</param>
+            <returns></returns>
+        </member>
+        <member name="T:Genesys.Extensions.ByteExtension">
+            <summary>
+            Byte Extender
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.ByteExtension.ToString(System.Byte[])">
+            <summary>
+            Converts a byte array to a String
+            </summary>
+            <param name="item">Byte array containing the string.</param>
+            <returns>string from the byte array, or empty string</returns>
+        </member>
+        <member name="M:Genesys.Extensions.ByteExtension.ToRGB(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Convert an image byte[] to RGBA
+            </summary>
+            <param name="item">Item to convert</param>
+            <param name="heightInPixels">Height of image</param>
+            <param name="widthInPixels">Width of image</param>
+            <returns>Converted byte array</returns>
+        </member>
+        <member name="T:Genesys.Extensions.DateTimeExtension">
+            <summary>
+            Extends DateTIme class
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.DateTimeExtension.Tomorrow(System.DateTime)">
+            <summary>
+            Tomorrow from date
+            </summary>
+            <param name="item">Date to add a day</param>
+            <returns>DateTime exactly one day from the original date.</returns>
+        </member>
+        <member name="M:Genesys.Extensions.DateTimeExtension.Yesterday(System.DateTime)">
+            <summary>
+            Yesterday from date
+            </summary>
+            <param name="item">Date to subtract a day</param>
+            <returns>DateTime exactly one day in the past from the original date.</returns>
+        </member>
+        <member name="M:Genesys.Extensions.DateTimeExtension.FirstDayOfMonth(System.DateTime)">
+            <summary>
+            First day of a month
+            </summary>
+            <param name="item">DateTime to get the month and year</param>
+            <returns>1st day of the passed DateTime.</returns>
+        </member>
+        <member name="M:Genesys.Extensions.DateTimeExtension.LastDayOfMonth(System.DateTime)">
+            <summary>
+            Last day of a month and year
+            </summary>
+            <param name="item">DateTime to get the month and year</param>
+            <returns>Last day of the passed DateTime.</returns>
+        </member>
+        <member name="M:Genesys.Extensions.DateTimeExtension.AddWeekdays(System.DateTime,System.Int32)">
+            <summary>
+            Adds number of weekdays to date (skipping Saturday and Sunday)
+            </summary>
+            <param name="item">Item in which to add number of weekdays to.</param>
+            <param name="weekdays">Number of M-F days to add to this date.</param>
+            <returns>Date after adding number of weekdays (skipping Saturday and Sunday)</returns>
+        </member>
+        <member name="M:Genesys.Extensions.DateTimeExtension.Age(System.DateTime)">
+            <summary>
+            Age in years based on date to today
+            </summary>
+            <param name="item">DateTime to determine age.</param>
+            <returns>Age in years of the DateTime.</returns>
+        </member>
+        <member name="M:Genesys.Extensions.DateTimeExtension.IsSavable(System.DateTime)">
+            <summary>
+            Ensures date is savable in SQL Server
+            </summary>
+            <param name="item">DateTime to validate.</param>
+            <returns>True for if the date can be saved to SQL Server.</returns>
+        </member>
+        <member name="T:Genesys.Extensions.DecimalExtension">
+            <summary>
+            Extension to decimal class
+            </summary>
+        </member>
+        <member name="F:Genesys.Extensions.DecimalExtension.FormatCurrencyWithComma">
+            <summary>
+            FormatCurrency With Comma
+            </summary>
+        </member>
+        <member name="F:Genesys.Extensions.DecimalExtension.FormatPercentWithComma">
+            <summary>
+            FormatPercent With Comma
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.DecimalExtension.ToDouble(System.Decimal)">
+            <summary>
+            Quick converts
+            </summary>
+            <param name="item">Decimal to convert to double</param>
+            <returns>Double of the passed decimal, or 0.</returns>
+        </member>
+        <member name="M:Genesys.Extensions.DecimalExtension.ToShort(System.Decimal)">
+            <summary>
+            Quick converts
+            </summary>
+            <param name="item">Decimal to convert to integer.</param>
+            <returns>Converted value, or default -1.</returns>
+        </member>
+        <member name="M:Genesys.Extensions.DecimalExtension.ToInt(System.Decimal)">
+            <summary>
+            Quick converts
+            </summary>
+            <param name="item">Decimal to convert to integer.</param>
+            <returns>Converted value, or default -1.</returns>
+        </member>
+        <member name="M:Genesys.Extensions.DecimalExtension.ToLong(System.Decimal)">
+            <summary>
+            Quick converts
+            </summary>
+            <param name="item">Decimal to convert to integer.</param>
+            <returns>Converted value, or default -1.</returns>
+        </member>
+        <member name="T:Genesys.Extensions.DoubleExtension">
+            <summary>
+            Double Extension
+            </summary>    
+        </member>
+        <member name="M:Genesys.Extensions.DoubleExtension.ToDecimal(System.Double)">
+            <summary>
+            Quick converts
+            </summary>
+            <param name="item">Double to convert to decimal.</param>
+            <returns>Converted value, or default 0.</returns>
+        </member>
+        <member name="M:Genesys.Extensions.DoubleExtension.ToDecimal(System.Nullable{System.Double})">
+            <summary>
+            Quick converts
+            </summary>
+            <param name="item">Double to convert to decimal.</param>
+            <returns>Converted value, or default 0.</returns>
+        </member>
+        <member name="T:Genesys.Extensions.EnumExtensions">
+            <summary>
+            Enumeration extensions for [Flags] decorated enumeration
+              Note: [Flags] enumeration values must be bitwise friendly (1, 2, 4, 8, 16, 32, etc.) 
+                None must be 0, and excluded from bitwise operations 
+                (None = 0, FirstOption = 1, SecondOption = 2, ThirdOption = 4, etc.)
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.EnumExtensions.Add``1(System.Enum,``0)">
+            <summary>
+            Adds to the list
+            </summary>
+            <typeparam name="T">Enumeration type</typeparam>
+            <param name="item">Enumeration item</param>
+            <param name="newItem">Item to add</param>
+            <returns></returns>
+        </member>
+        <member name="M:Genesys.Extensions.EnumExtensions.Remove``1(System.Enum,``0)">
+            <summary>
+            Removes an item from the enumeration
+            </summary>
+            <typeparam name="T">Enumeration type</typeparam>
+            <param name="item">enumeration item</param>
+            <param name="itemToRemove">item to remove from enumeration</param>
+            <returns>Removed result</returns>
+        </member>
+        <member name="M:Genesys.Extensions.EnumExtensions.Contains``1(System.Enum,``0)">
+            <summary>
+            Checks if contains a value
+            </summary>
+            <typeparam name="T">Enumeration type</typeparam>
+            <param name="item">enumeration item</param>
+            <param name="itemToCheck">item to find</param>
+            <returns>True if enumeration contains the item and is of generic type</returns>
+        </member>
+        <member name="T:Genesys.Extensions.EnumExtensions.ValueParser">
+            <summary>
+            Handles unsigned and signed long
+            </summary>
+        </member>
+        <member name="P:Genesys.Extensions.EnumExtensions.ValueParser.Signed">
+            <summary>
+            Signed value
+            </summary>
+        </member>
+        <member name="P:Genesys.Extensions.EnumExtensions.ValueParser.Unsigned">
+            <summary>
+            Unsigned value
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.EnumExtensions.ValueParser.#ctor(System.Object,System.Type)">
+            <summary>
+            Parses signed vs. unsigned
+            </summary>
+            <param name="value">value to parse</param>
+            <param name="myType">type of item to parse</param>
+        </member>
+        <member name="T:Genesys.Extensions.GuidExtension">
+            <summary>
+            DoubleExtension
+            </summary>    
+        </member>
+        <member name="M:Genesys.Extensions.GuidExtension.ToInteger(System.Guid)">
+            <summary>
+            Parses without exceptions
+            </summary>
+            <param name="item">Integer to convert to guid.</param>
+            <returns>Converted value, or default -1.</returns>
+        </member>
+        <member name="T:Genesys.Extensions.IntegerExtension">
+            <summary>
+            DoubleExtension
+            </summary>    
+        </member>
+        <member name="M:Genesys.Extensions.IntegerExtension.ToDecimal(System.Int16)">
+            <summary>
+            Quick converts
+            </summary>
+            <param name="item">Integer to convert to decimal.</param>
+            <returns>Converted value, or default 0.</returns>
+        </member>
+        <member name="M:Genesys.Extensions.IntegerExtension.ToDecimal(System.Int32)">
+            <summary>
+            Quick converts
+            </summary>
+            <param name="item">Integer to convert to decimal.</param>
+            <returns>Converted value, or default 0.</returns>
+        </member>
+        <member name="M:Genesys.Extensions.IntegerExtension.ToGuid(System.Int32)">
+            <summary>
+            Quick converts
+            </summary>
+            <param name="item">Integer to convert to guid.</param>
+            <returns>Converted value, or default 00000000-0000-0000-0000-000000000000</returns>
+        </member>
+        <member name="M:Genesys.Extensions.IntegerExtension.ToDecimal(System.Int64)">
+            <summary>
+            Quick converts
+            </summary>
+            <param name="item">Integer to convert to decimal.</param>
+            <returns>Converted value, or default 0.</returns>
+        </member>
+        <member name="M:Genesys.Extensions.IntegerExtension.Negate(System.Int16)">
+            <summary>
+            Forces Negative value, regardless of starting value
+            </summary>
+            <returns>Negative value converted, or original value if it is negative.</returns>
+            <remarks>Important to secure values that should never be positive, i.e. A withdrawal should always subtract from a bank account, never add to.</remarks>
+        </member>
+        <member name="M:Genesys.Extensions.IntegerExtension.Negate(System.Int32)">
+            <summary>
+            Forces Negative value, regardless of starting value
+            </summary>
+            <returns>Negative value converted, or original value if it is negative.</returns>
+            <remarks>Important to secure values that should never be positive, i.e. A withdrawal should always subtract from a bank account, never add to.</remarks>
+        </member>
+        <member name="M:Genesys.Extensions.IntegerExtension.Negate(System.Int64)">
+            <summary>
+            Forces Negative value, regardless of starting value
+            </summary>
+            <returns>Negative value converted, or original value if it is negative.</returns>
+            <remarks>Important to secure values that should never be positive, i.e. A withdrawal should always subtract from a bank account, never add to.</remarks>
+        </member>
+        <member name="T:Genesys.Extensions.ObjectExtension">
+            <summary>
+            object Extensions
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.ObjectExtension.GetAttributeValue``1(System.Object,System.String)">
+            <summary>
+            Gets the string value of an attribute that implements IAttributeValue
+            </summary>
+            <typeparam name="TAttribute">Attribute to get the value</typeparam>
+            <param name="item">Object containing the attribute</param>
+            <param name="notFoundValue">Will use this string if no attribute is found</param>
+            <returns>Value, or passed notFoundValue if not found</returns>
+        </member>
+        <member name="M:Genesys.Extensions.ObjectExtension.GetAttributeValue``2(System.Object,``1)">
+            <summary>
+            Gets the value of an attribute that implements IAttributeValue
+            </summary>
+            <typeparam name="TAttribute">Attribute to get the value</typeparam>
+            <typeparam name="TValue">Type of the value to be returned</typeparam>
+            <param name="item">Object containing the attribute</param>
+            <param name="notFoundValue">Will use this string if no attribute is found</param>
+            <returns>Value, or passed notFoundValue if not found</returns>
+        </member>
+        <member name="M:Genesys.Extensions.ObjectExtension.GetPropertiesByAttribute(System.Object,System.Type)">
+            <summary>
+            Get list of properties decorated with the passed attribute
+            </summary>
+            <param name="item"></param>
+            <param name="myAttribute"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Genesys.Extensions.ObjectExtension.DefaultSafe``1(System.Object)">
+            <summary>
+            Safe Type Casting based on .Net default() method
+            </summary>
+            <typeparam name="T">default(DestinationType)</typeparam>
+            <param name="item">Item to default.</param>
+            <returns>default(DestinationType)</returns>
+        </member>
+        <member name="M:Genesys.Extensions.ObjectExtension.DirectCastSafe``1(System.Object)">
+            <summary>
+            Safe Type Casting based on TypeExtension.Default{Type} conventions
+            </summary>
+            <typeparam name="T">Type to default, or create new()</typeparam>
+            <param name="item">Item to cast</param>
+            <returns>Defaulted type, or created new()</returns>
+        </member>
+        <member name="M:Genesys.Extensions.ObjectExtension.ToStringSafe(System.Object)">
+            <summary>
+            Item to exception-safe cast to string
+            </summary>
+            <param name="item">Item to cast</param>
+            <returns>Converted string, or ""</returns>
+        </member>
+        <member name="M:Genesys.Extensions.ObjectExtension.Fill``1(``0,System.Object)">
+            <summary>
+            Fills this object with another object's data, by matching property names
+            </summary>
+            <typeparam name="T">Type of original object.</typeparam>
+            <param name="item">Destination object to fill</param>
+            <param name="sourceItem">Source object</param>
+        </member>
+        <member name="M:Genesys.Extensions.ObjectExtension.Initialize``1(System.Object)">
+            <summary>
+            Initialize all Root properties of an object to TypeExtension.Default* conventions
+            </summary>
+            <typeparam name="ObjectType">Type of object to initialize</typeparam>
+            <param name="Item">Item to initialize</param>
+            <returns>Initialized object to TypeExtension.Default* conventions</returns>
+        </member>
+        <member name="T:Genesys.Extensions.StringExtension">
+            <summary>
+            StringExtension
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.TryParseBoolean(System.String,System.Boolean)">
+            <summary>
+            Converts a string to Boolean
+            </summary>
+            <param name="item">Source item to convert</param>
+            <param name="notFoundValue">Value if not found</param>
+            <returns>Converted or not found value of the source item</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.TryParseInt16(System.String,System.Int16)">
+            <summary>
+            Converts a string to Int16
+            </summary>
+            <param name="item">Source item to convert</param>
+            <param name="notFoundValue">Value if not found</param>
+            <returns>Converted or not found value of the source item</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.TryParseInt32(System.String,System.Int32)">
+            <summary>
+            Converts a string to int
+            </summary>
+            <param name="item">Source item to convert</param>
+            <param name="notFoundValue">Value if not found</param>
+            <returns>Converted or not found value of the source item</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.TryParseInt64(System.String,System.Int64)">
+            <summary>
+            Converts a string to Int64
+            </summary>
+            <param name="item">Source item to convert</param>
+            <param name="notFoundValue">Value if not found</param>
+            <returns>Converted or not found value of the source item</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.TryParseGuid(System.String,System.Guid)">
+            <summary>
+            Converts string to Guid
+            </summary>
+            <param name="item">Source item to convert</param>
+            <param name="notFoundValue">Value if not found</param>
+            <returns>Converted or not found value of the source item</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.TryParseDecimal(System.String,System.Decimal)">
+            <summary>
+            Converts string to decimal
+            </summary>
+            <param name="item">Source item to convert</param>
+            <param name="notFoundValue">Value if not found</param>
+            <returns>Converted or not found value of the source item</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.TryParseDouble(System.String,System.Double)">
+            <summary>
+            Converts string to double
+            </summary>
+            <param name="item">Source item to convert</param>
+            <param name="notFoundValue">Value if not found</param>
+            <returns>Converted or not found value of the source item</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.TryParseDateTime(System.String)">
+            <summary>
+            Converts string to DateTime
+            </summary>
+            <param name="item">Source item to convert</param>
+            <returns>Converted or not found value (01/01/1900) of the source item</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.TryParseTime(System.String)">
+            <summary>
+            Converts a string to time (of date 01/01/1900)
+            </summary>
+            <param name="item">Source item to convert</param>
+            <returns>Converted or not found value of the source item</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.SubstringRight(System.String,System.Int32)">
+            <summary>
+            Pulls right characters from a String
+            </summary>
+            <param name="item">Item to extract right characters</param>
+            <param name="rightCharacters">Number of characters, starting from the right</param>
+            <returns>Characters or original string, starting from the right</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.SubstringLeft(System.String,System.Int32)">
+            <summary>
+            Pulls left characters from a String
+            </summary>
+            <param name="item">Item to extract left characters</param>
+            <param name="leftCharacters">Number of characters, starting from the left</param>
+            <returns>Characters or original string, starting from the left</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.SubstringSafe(System.String,System.Int32,System.Int32)">
+            <summary>
+            Extracts substring exception-safe
+            </summary>
+            <param name="item">Item to extract the substring</param>
+            <param name="starting">Starting position</param>
+            <param name="length">Number of characters to try to extract</param>
+            <returns>Extracted characters, or original string if cant substring.</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.ToPascalCase(System.String)">
+            <summary>
+            Applies pascal casing to a string
+            </summary>
+            <param name="uncasedString">string to case</param>
+            <returns>Cased string</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.FormatCasePascal(System.String,System.String,System.Boolean)">
+            <summary>
+            Applies pascal casing to a string
+            </summary>
+            <param name="uncasedString">string to case</param>
+            <param name="parseCharacter">Character that decides when to start a new capital letter</param>
+            <param name="useExistingCase">Protects all upper characters, or previously cased characters from getting re-cased.</param>
+            <returns>Cased string</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.FormatCaseException(System.String,System.String)">
+            <summary>
+            Formats exceptions for Pascal Case 
+             (i.e. Mr. Smith II should not be pascal cased to Ii)
+            </summary>
+            <param name="uncasedString">string to search for exceptions to special-case</param>
+            <param name="parseCharacter">Character that decides when to start a new capital letter</param>
+            <returns>Cased item based on the exception casing rules</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.RemoveFirst(System.String,System.String)">
+            <summary>
+            Removes string/char if string begins with that string/char
+            </summary>
+            <param name="item">Item to remove part</param>
+            <param name="toRemove">string to remove if match</param>
+            <returns>Original item without the removed substring</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.RemoveLast(System.String,System.String)">
+            <summary>
+            Removes string/char if string ends with that string/char
+            </summary>
+            <param name="item">Item to remove part</param>
+            <param name="toRemove">string to remove if match</param>
+            <returns>Original item without the removed substring</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.IsFirst(System.String,System.String)">
+            <summary>
+            Is the first character(s) equal to the passed characters?
+            </summary>
+            <param name="item">Item to validate</param>
+            <param name="firstCharacters">Character to look for</param>
+            <returns>True/False if found characters in position</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.IsLast(System.String,System.String)">
+            <summary>
+            Is the last character(s) equal to the passed characters?
+            </summary>
+            <param name="item">Item to validate</param>
+            <param name="lastCharacters">Character to look for</param>
+            <returns>True/False if found characters in position</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.IsEmail(System.String,System.Boolean)">
+            <summary>
+            Is this item an email address?
+            </summary>
+            <param name="item">Item to validate</param>
+            <param name="emptyStringOK">Flags an empty string as valid, even though it is not an email address</param>
+            <returns>True if this is an email address (or if empty.)</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.IsInteger(System.String)">
+            <summary>
+            Is this item an integer?
+            </summary>
+            <param name="item">Item to validate</param>
+            <returns>True if this is an integer.</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.IsCaseUpper(System.String)">
+            <summary>
+            Is this item all upper case?
+            </summary>
+            <param name="item">Item to validate</param>
+            <returns>True if this is all upper case.</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.IsCaseLower(System.String)">
+            <summary>
+            Is this item all lower case?
+            </summary>
+            <param name="item">Item to validate</param>
+            <returns>True if this is all lower case.</returns>
+        </member>
+        <member name="M:Genesys.Extensions.StringExtension.IsCaseMixed(System.String)">
+            <summary>
+            Is this item mixed case?
+            </summary>
+            <param name="item">Item to validate</param>
+            <returns>True if this has mixed case.</returns>
+        </member>
+        <member name="T:Genesys.Extensions.TypeExtension">
+            <summary>
+            Extends System.Type
+            </summary>
+        </member>
+        <member name="F:Genesys.Extensions.TypeExtension.DefaultInteger">
+            <summary>
+            default() for int
+            </summary>
+        </member>
+        <member name="F:Genesys.Extensions.TypeExtension.DefaultInt16">
+            <summary>
+            default() for Int16
+            </summary>
+        </member>
+        <member name="F:Genesys.Extensions.TypeExtension.DefaultInt32">
+            <summary>
+            default() for int
+            </summary>
+        </member>
+        <member name="F:Genesys.Extensions.TypeExtension.DefaultInt64">
+            <summary>
+            default() for Int64
+            </summary>
+        </member>
+        <member name="F:Genesys.Extensions.TypeExtension.DefaultShort">
+            <summary>
+            default() for Int16
+            </summary>
+        </member>
+        <member name="F:Genesys.Extensions.TypeExtension.DefaultUInteger">
+            <summary>
+            default() for unsigned int
+            </summary>
+        </member>
+        <member name="F:Genesys.Extensions.TypeExtension.DefaultLong">
+            <summary>
+            default() for Int64
+            </summary>
+        </member>
+        <member name="F:Genesys.Extensions.TypeExtension.DefaultGuid">
+            <summary>
+            default() for Guid
+            </summary>
+        </member>
+        <member name="F:Genesys.Extensions.TypeExtension.DefaultDecimal">
+            <summary>
+            default() for Decimal
+            </summary>
+        </member>
+        <member name="F:Genesys.Extensions.TypeExtension.DefaultDouble">
+            <summary>
+            default() for Double
+            </summary>
+        </member>
+        <member name="F:Genesys.Extensions.TypeExtension.DefaultSingle">
+            <summary>
+            default() for Single
+            </summary>
+        </member>
+        <member name="F:Genesys.Extensions.TypeExtension.DefaultString">
+            <summary>
+            default() for String
+            </summary>
+        </member>
+        <member name="F:Genesys.Extensions.TypeExtension.DefaultBoolean">
+            <summary>
+            default() for Boolean
+            </summary>
+        </member>
+        <member name="F:Genesys.Extensions.TypeExtension.DefaultChar">
+            <summary>
+            default() for Char
+            </summary>
+        </member>
+        <member name="F:Genesys.Extensions.TypeExtension.DefaultDate">
+            <summary>
+            default() for DateTime
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.TypeExtension.DefaultDateNew">
+            <summary>
+            Generate new date equal to DateTime.UtcNow 
+            </summary>
+        </member>
+        <member name="F:Genesys.Extensions.TypeExtension.DefaultUri">
+            <summary>
+            default() for string Uri
+            </summary>        
+        </member>
+        <member name="F:Genesys.Extensions.TypeExtension.DefaultByte">
+            <summary>
+            Default byte array - 0x0
+            </summary>
+        </member>
+        <member name="F:Genesys.Extensions.TypeExtension.DefaultBytes">
+            <summary>
+            Default byte array - 0x0
+            </summary>
+        </member>
+        <member name="F:Genesys.Extensions.TypeExtension.DefaultHex">
+            <summary>
+            Default hex - 0x0
+            </summary>
+        </member>
+        <member name="M:Genesys.Extensions.TypeExtension.InvokeConstructorOrDefault``1">
+            <summary>
+            Invokes the parameterless constructor. If no parameterless constructor, returns default()
+            </summary>
+            <typeparam name="T">Type to invoke</typeparam>
+        </member>
+        <member name="M:Genesys.Extensions.TypeExtension.HasParameterlessConstructor``1">
+            <summary>
+            Determines if type has a parameterless constructor
+            </summary>
+            <typeparam name="T">Type to interrogate for parameterless constructor</typeparam>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

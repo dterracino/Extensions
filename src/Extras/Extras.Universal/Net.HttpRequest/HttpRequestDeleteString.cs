@@ -25,7 +25,7 @@ using Genesys.Extras.Security.Cryptography;
 namespace Genesys.Extras.Net
 {
     /// <summary>
-    /// Communicates via GET, all transmissions String
+    /// Communicates via DELETE, all transmissions String
     /// </summary>
     [CLSCompliant(true)]
     public class HttpRequestDeleteString : HttpRequestClient
@@ -51,15 +51,15 @@ namespace Genesys.Extras.Net
         /// <returns>Result</returns>
         public override string Send()
         {
-            this.Response = this.Client.DeleteAsync(this.Url).Result;
+            Response = this.Client.DeleteAsync(this.Url).Result;
             if (this.Response.IsSuccessStatusCode)
             {
-                this.DataReceivedRaw = this.Response.Content.ReadAsStringAsync().Result;
-                if (this.ThrowExceptionWithEmptyReponse == true && this.DataReceivedRaw == TypeExtension.DefaultString)
-                { throw new System.DataMisalignedException("Response is empty. Expected data to be returned."); } else if (this.SendPlainText == false)
-                { this.DataReceivedDecrypted = this.Encryptor.Decrypt(this.DataReceivedRaw); } else { this.DataReceivedDecrypted = this.DataReceivedRaw; }
+                DataReceivedRaw = this.Response.Content.ReadAsStringAsync().Result;
+                if (ThrowExceptionWithEmptyReponse == true && DataReceivedRaw == TypeExtension.DefaultString)
+                { throw new System.DataMisalignedException("Response is empty. Expected data to be returned."); } else if (SendPlainText == false)
+                { DataReceivedDecrypted = this.Encryptor.Decrypt(DataReceivedRaw); } else { DataReceivedDecrypted = DataReceivedRaw; }
             }
-            return this.DataReceivedDecrypted;
+            return DataReceivedDecrypted;
         }
 
         /// <summary>
@@ -68,15 +68,15 @@ namespace Genesys.Extras.Net
         /// <returns>Response data</returns>
         public override async Task<string> SendAsync()
         {
-            this.Response = await this.Client.DeleteAsync(this.Url);
+            Response = await this.Client.DeleteAsync(this.Url);
             if (this.Response.IsSuccessStatusCode)
             {
-                this.DataReceivedRaw = await this.Response.Content.ReadAsStringAsync();
-                if (this.ThrowExceptionWithEmptyReponse == true && this.DataReceivedRaw == TypeExtension.DefaultString)
-                { throw new System.DataMisalignedException("Response is empty. Expected data to be returned."); } else if (this.SendPlainText == false)
-                { this.DataReceivedDecrypted = this.Encryptor.Decrypt(this.DataReceivedRaw); } else { this.DataReceivedDecrypted = this.DataReceivedRaw; }
+                DataReceivedRaw = await this.Response.Content.ReadAsStringAsync();
+                if (ThrowExceptionWithEmptyReponse == true && DataReceivedRaw == TypeExtension.DefaultString)
+                { throw new System.DataMisalignedException("Response is empty. Expected data to be returned."); } else if (SendPlainText == false)
+                { DataReceivedDecrypted = this.Encryptor.Decrypt(DataReceivedRaw); } else { DataReceivedDecrypted = DataReceivedRaw; }
             }
-            return this.DataReceivedDecrypted;
+            return DataReceivedDecrypted;
         }
     }
 }

@@ -76,7 +76,19 @@ namespace Genesys.Extras.Configuration
         /// <summary>
         /// Constructor
         /// </summary>
-        public ConfigurationManagerSafe() : base() { this.ThrowException = true; }
+        public ConfigurationManagerSafe() : base() { ThrowException = true; }
+
+        /// <summary>
+        /// Constructor that accepts ConfigurationManager.AppSettings and ConfigurationManager.ConnectionStrings
+        /// </summary>
+        /// <param name="configFile">Raw XML from Web.config, AppSettings.config and ConnectionStrings.config</param>
+        public ConfigurationManagerSafe(Stream configFile) : this()
+        {
+            XDocument xdoc = configFile.ToXDocument();
+
+            appSettingsField = new AppSettingList(xdoc.ToString());
+            connectionStringsField = new ConnectionStringList(xdoc.ToString());
+        }
 
         /// <summary>
         /// Constructor that accepts ConfigurationManager.AppSettings and ConfigurationManager.ConnectionStrings
@@ -85,8 +97,8 @@ namespace Genesys.Extras.Configuration
         /// <param name="connectionStringsXml">Raw XML from ConnectionStrings.config</param>
         public ConfigurationManagerSafe(string appSettingsXml, string connectionStringsXml) : this()
         {
-            this.appSettingsField = new AppSettingList(appSettingsXml);
-            this.connectionStringsField = new ConnectionStringList(connectionStringsXml);
+            appSettingsField = new AppSettingList(appSettingsXml);
+            connectionStringsField = new ConnectionStringList(connectionStringsXml);
         }
 
         /// <summary>
@@ -97,14 +109,14 @@ namespace Genesys.Extras.Configuration
         public ConfigurationManagerSafe(string[,] appSettings, string[,] connectionStrings) : this()
         {
             connectionStrings = connectionStrings ?? new string[0, 2];
-            for (int itemCount = 0; itemCount < connectionStrings.GetLength(0); itemCount++)
+            for (var itemCount = 0; itemCount < connectionStrings.GetLength(0); itemCount++)
             {
-                this.connectionStringsField.Add(connectionStrings[itemCount, 0], connectionStrings[itemCount, 1]);
+                connectionStringsField.Add(connectionStrings[itemCount, 0], connectionStrings[itemCount, 1]);
             }
             appSettings = appSettings ?? new string[0, 2];
-            for (int itemCount = 0; itemCount < appSettings.GetLength(0); itemCount++)
+            for (var itemCount = 0; itemCount < appSettings.GetLength(0); itemCount++)
             {
-                this.appSettingsField.Add(appSettings[itemCount, 0], appSettings[itemCount, 1]);
+                appSettingsField.Add(appSettings[itemCount, 0], appSettings[itemCount, 1]);
             }
         }
 
@@ -115,9 +127,9 @@ namespace Genesys.Extras.Configuration
         /// <returns>App setting that matches the key</returns>
         public AppSettingSafe AppSetting(string key)
         {
-            AppSettingSafe ReturnData = this.appSettingsField.Find(x => x.Key == key).DirectCastSafe<AppSettingSafe>();
+            AppSettingSafe ReturnData = appSettingsField.Find(x => x.Key == key).DirectCastSafe<AppSettingSafe>();
 
-            if (this.ThrowException && ReturnData.Value == TypeExtension.DefaultString)
+            if (ThrowException && ReturnData.Value == TypeExtension.DefaultString)
             {
                 throw new System.DataMisalignedException(String.Format("App Setting is missing or has an empty value. {0}", key));
             }
@@ -132,7 +144,7 @@ namespace Genesys.Extras.Configuration
         /// <returns>Value contents</returns>
         public string AppSettingValue(string key)
         {
-            return this.AppSetting(key).Value;
+            return AppSetting(key).Value;
         }
 
         /// <summary>
@@ -142,9 +154,9 @@ namespace Genesys.Extras.Configuration
         /// <returns>Value contents</returns>
         public ConnectionStringSafe ConnectionString(string key)
         {
-            ConnectionStringSafe ReturnData = this.connectionStringsField.Find(x => x.Key == key).DirectCastSafe<ConnectionStringSafe>();
+            ConnectionStringSafe ReturnData = connectionStringsField.Find(x => x.Key == key).DirectCastSafe<ConnectionStringSafe>();
 
-            if (this.ThrowException && ReturnData.Value == TypeExtension.DefaultString)
+            if (ThrowException && ReturnData.Value == TypeExtension.DefaultString)
             {
                 throw new System.DataMisalignedException(String.Format("Connection string is missing or has an empty value. {0}", key));
             }
@@ -159,39 +171,8 @@ namespace Genesys.Extras.Configuration
         /// <returns>Value contents</returns>
         public string ConnectionStringValue(string key)
         {
-            return this.ConnectionString(key).Value;
+            return ConnectionString(key).Value;
         }
 
-        /// <summary>
-        /// Converts stream to an XDocument object
-        /// </summary>
-        /// <param name="fileStream">Stream to convert</param>
-        /// <returns>XDocument of contents of the passed stream</returns>
-        private XDocument StreamToXDocument(Stream fileStream)
-        {
-            XDocument returnValue = new XDocument();
-
-            if (fileStream.Length > 0)
-            {
-                try
-                {
-                    returnValue = XDocument.Load(fileStream);
-                }
-                catch (NullReferenceException)
-                {
-                    if (this.ThrowException == false)
-                    { this.StatusMessage = "Cannot load Stream. Required elements are not in the passed file"; } else { throw; }
-                }
-                finally
-                {
-                    returnValue = new XDocument();
-                }
-            } else
-            {
-                throw new System.Exception("Stream empty and cannot load.");
-            }
-
-            return returnValue;
-        }
     }
 }

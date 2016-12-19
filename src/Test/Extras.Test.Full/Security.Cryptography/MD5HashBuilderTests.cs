@@ -28,9 +28,9 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Security_Cryptography_MD5HashBuilder_Compare()
         {
-            string rawData = "Hello, I am raw";
+            var rawData = "Hello, I am raw";
             Md5HashBuilder hasher = new Md5HashBuilder(rawData);
-            string hashed = hasher.HashedString;
+            var hashed = hasher.HashedString;
             Assert.IsTrue(rawData != hashed, "Did not work");
             Assert.IsTrue(hasher.Compare(rawData) == true, "Did not work");
         }

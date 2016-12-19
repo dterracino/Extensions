@@ -85,6 +85,7 @@
     <Compile Include="Mathematics\AgeCalculator.cs" />
     <Compile Include="Mathematics\Arithmetic.cs" />
     <Compile Include="Net.HttpRequest\HttpVerbSender.cs" />
+    <Compile Include="Net.Http\EndpointInfo.cs" />
     <Compile Include="Net.Mime\ContentType.cs" />
     <Compile Include="Net.Mime\ContentTypes.cs" />
     <Compile Include="Net.Routing\RouteBuilder.cs" />
@@ -123,7 +124,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>Call $(ProjectDir)PostBuild.Bat $(TargetDir) $(TargetName)</PostBuildEvent>
+    <PostBuildEvent>Call "$(ProjectDir)PostBuild.Bat" "$(TargetDir)" "$(TargetName)"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -73,20 +73,20 @@ namespace Genesys.Extras.Test
         public void Mathematics_Arithmetic_Random()
         {
             // Should be semi unique
-            List<int> randoms = new List<int>();
+            var randoms = new List<int>();
             for(int count = 0; count < 30;  count++)
             {
-                int random = Arithmetic.Random();
+                var random = Arithmetic.Random();
                 randoms.Add(random);
             }
-            int doubleCheck = Arithmetic.Random();
+            var doubleCheck = Arithmetic.Random();
             Assert.IsTrue(randoms.Contains(doubleCheck) == false, "Did not work");
 
             // Should be able to be defined by length, for pin codes, etc.
-            for (int count = 1; count < 11; count++)
+            for (var count = 1; count < 11; count++)
             {
                 long randomResult = (long)Arithmetic.Random(count);
-                int length = randomResult.ToString().Length;
+                var length = randomResult.ToString().Length;
                 Assert.IsTrue(length == count, "Did not work.");
             }            
         }        

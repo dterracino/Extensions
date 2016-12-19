@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Genesys Framework .Net Extensions for .Net Full")]
-[assembly: AssemblyDescription("Genesys Framework .Net Extensions for your .Net Full libraries, WebApi services, Desktop apps, Asp.Net and Asp.Net Mvc sites.")]
+[assembly: AssemblyTitle("Genesys Framework Extras for .Net Full")]
+[assembly: AssemblyDescription("Genesys Framework Extensions for .Net Full powers your ASP.NET MVC web apps, ASP.NET Web Forms web apps, ASP.NET Web API web services, Win Forms apps, Console apps, Windows Service apps and WPF desktop apps.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Genesys Source")]
-[assembly: AssemblyProduct("Genesys Framework .Net Extensions for .Net Full")]
+[assembly: AssemblyProduct("Genesys Framework Extensions for .Net Full")]
 [assembly: AssemblyCopyright("Copyright © 2016 Genesys Source. All rights reserved")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -34,5 +34,5 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("3.0.11")]
 [assembly: AssemblyFileVersion("3.0.11")]
 
-// MUST add this to every AssemblyInfo.cs that wants to be compliant
+// Must add this to every AssemblyInfo.cs that wants to be compliant
 [assembly: System.CLSCompliant(true)]

@@ -77,13 +77,13 @@ namespace Genesys.Extras.Net
             /// </summary>
             public FooterLegal(string toEmailAddress, string companyFriendlyName, string unsubscribeURL, string companyLegalName, string address, Guid applicationID)
             {
-                this.PublishFooter = true;
-                this.ToEmailAddress = toEmailAddress;
-                this.CompanyFriendlyName = companyFriendlyName;
-                this.UnsubscribeURL = unsubscribeURL;
-                this.CompanyLegalName = companyLegalName;
-                this.Address = address;
-                this.ApplicationID = applicationID;
+                PublishFooter = true;
+                ToEmailAddress = toEmailAddress;
+                CompanyFriendlyName = companyFriendlyName;
+                UnsubscribeURL = unsubscribeURL;
+                CompanyLegalName = companyLegalName;
+                Address = address;
+                ApplicationID = applicationID;
             }
             
             /// <summary>
@@ -93,7 +93,7 @@ namespace Genesys.Extras.Net
             public List<String> ToList()
             {
                 List<String> returnValue = new List<String>();
-                this.PublishFooter = true;
+                PublishFooter = true;
                 returnValue.Add(this.ToEmailAddress);
                 returnValue.Add(this.CompanyFriendlyName);
                 returnValue.Add(this.UnsubscribeURL);
@@ -108,9 +108,9 @@ namespace Genesys.Extras.Net
             /// <returns>Footer portion of email</returns>
             public string ToFooter()
             {
-                string returnValue = TypeExtension.DefaultString;
+                var returnValue = TypeExtension.DefaultString;
                 TemplateBuilder builder = new TemplateBuilder(Genesys.Extras.Properties.Resources.LegalFooter, this.ToList());
-                this.PublishFooter = true;
+                PublishFooter = true;
                 returnValue = builder.ToString();
                 return returnValue;
             }
@@ -126,7 +126,7 @@ namespace Genesys.Extras.Net
         private static void SendCompletedCallback(object sender, AsyncCompletedEventArgs e)
         {
             // Get the unique identifier for this asynchronous operation. 
-            string token = Convert.ToString(e.UserState);
+            var token = Convert.ToString(e.UserState);
 
             if (e.Cancelled)
             {
@@ -166,7 +166,7 @@ namespace Genesys.Extras.Net
 
             // The Mail To Addresses will be separated by ;
             mailTo = new List<string>(mailToAddresses.Trim().Split(new char[] { addressSeperator }));
-            returnValue = this.Send(mailTo, title, contents, legal, SendCompletedCallback, TypeExtension.DefaultString);
+            returnValue = Send(mailTo, title, contents, legal, SendCompletedCallback, TypeExtension.DefaultString);
 
             // Return success/failure
             return returnValue;
@@ -188,13 +188,13 @@ namespace Genesys.Extras.Net
         {
             KeyValuePair<String, bool> returnValue = new KeyValuePair<String, bool>();
             SmtpClient client = new SmtpClient();
-            string footer = TypeExtension.DefaultString;
+            var footer = TypeExtension.DefaultString;
             List<String> toAddresses = new List<String>();
 
             try
             {
                 // Never batch send for legal reasons. Have to put email in the footer of every email
-                foreach (string emailAddress in mailToAddresses)
+                foreach (var emailAddress in mailToAddresses)
                 {
                     if (emailAddress.IsEmail(false) == true)
                     {
@@ -246,14 +246,14 @@ namespace Genesys.Extras.Net
             Dictionary<String, Boolean> returnValue = new Dictionary<String, Boolean>();
             KeyValuePair<String, Boolean> mailResult = new KeyValuePair<String, Boolean>();
             System.Collections.Generic.List<String> mailTo = new System.Collections.Generic.List<String>();
-            string titleFilled = TypeExtension.DefaultString;
+            var titleFilled = TypeExtension.DefaultString;
 
             foreach (KeyValuePair<string, List<String>> Item_loopVariable in mailToAddressesAndData)
             {
                 mailTo.Clear();
                 mailTo.Add(Item_loopVariable.Key);
                 contents = new TemplateBuilder(contents, Item_loopVariable.Value).ToString();
-                mailResult = this.Send(mailTo, title, contents, legal, callback, callbackData);
+                mailResult = Send(mailTo, title, contents, legal, callback, callbackData);
                 returnValue.Add(mailResult.Key, mailResult.Value);
             }
 

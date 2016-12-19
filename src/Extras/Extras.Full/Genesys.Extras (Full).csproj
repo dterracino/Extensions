@@ -90,7 +90,7 @@
     <Compile Include="Serialization\XmlSerializer.cs" />
     <Compile Include="Web.Http\MvcController.cs" />
     <Compile Include="Web.Http\MvcModelBinder.cs" />
-    <Compile Include="Web.Http\NoParametersRouteConstraint.cs" />
+    <Compile Include="Web.Http\RouteConstraints.cs" />
     <Compile Include="Web.Http\WebApiController.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -122,7 +122,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>Call $(ProjectDir)PostBuild.Bat $(TargetDir) $(TargetName)</PostBuildEvent>
+    <PostBuildEvent>Call "$(ProjectDir)PostBuild.Bat" "$(TargetDir)" "$(TargetName)"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -753,8 +753,8 @@
             <summary>
             Constructor
             </summary>
-            <param name="PropertyKey">PropertyID</param>
-            <param name="EntityKey">EntityID</param>
+            <param name="propertyKey">PropertyID</param>
+            <param name="entityKey">EntityID</param>
         </member>
         <member name="M:Genesys.Framework.Entity.PropertyEntity.Create(System.Guid,Genesys.Framework.Flow.IFlowClass)">
             <summary>
@@ -893,14 +893,14 @@
             <summary>
             Sets groups and selections for a entity
             </summary>
-            <param name="EntityKey">EntityID</param>
-            <param name="PropertyGroupKey">PropertyGroupID</param>
+            <param name="entityKey">EntityID</param>
+            <param name="propertyGroupKey">PropertyGroupID</param>
         </member>
         <member name="M:Genesys.Framework.Entity.PropertyEntitySingle.Save(System.Guid,Genesys.Framework.Flow.IFlowClass)">
             <summary>
             Saves the selected property for the entity
             </summary>
-            <param name="EntityKey">EntityID</param>
+            <param name="entityKey">EntityID</param>
             <param name="workflow">Workflow</param>
         </member>
         <member name="T:Genesys.Framework.Entity.Properties.Resources">

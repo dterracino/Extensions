@@ -41,10 +41,10 @@ namespace Genesys.Extras.Mathematics
         public Age(DateTime dateToAge)
             : base()
         {
-            this.yearsField = 0;
-            this.daysField = 0;
-            this.birthDayField = dateToAge;
-            this.todayField = DateTime.UtcNow;
+            yearsField = 0;
+            daysField = 0;
+            birthDayField = dateToAge;
+            todayField = DateTime.UtcNow;
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace Genesys.Extras.Mathematics
         {
             get
             {
-                if (this.birthDayField != TypeExtension.DefaultDate)
+                if (birthDayField != TypeExtension.DefaultDate)
                 {
                     yearsField = DateTime.Today.Year - birthDayField.Year;
                     if (birthDayField.AddYears(yearsField) > DateTime.Today)
@@ -73,7 +73,7 @@ namespace Genesys.Extras.Mathematics
         {
             get
             {
-                if (this.birthDayField != TypeExtension.DefaultDate)
+                if (birthDayField != TypeExtension.DefaultDate)
                 {
                     daysField = todayField.Subtract(birthDayField).Days;
                 }

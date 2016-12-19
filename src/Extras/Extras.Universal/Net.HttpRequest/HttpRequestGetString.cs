@@ -51,16 +51,16 @@ namespace Genesys.Extras.Net
         /// <returns>Result</returns>
         public override string Send()
         {
-            this.Response = this.Client.GetAsync(this.Url).Result;
+            Response = this.Client.GetAsync(this.Url).Result;
             if (this.Response.IsSuccessStatusCode)
             {
-                this.DataReceivedRaw = this.Response.Content.ReadAsStringAsync().Result;
-                this.DataReceivedRaw = this.DataReceivedRaw;
-                if (this.ThrowExceptionWithEmptyReponse == true && this.DataReceivedRaw == TypeExtension.DefaultString)
-                { throw new System.DataMisalignedException("Response is empty. Expected data to be returned."); } else if (this.SendPlainText == false)
-                { this.DataReceivedDecrypted = this.Encryptor.Decrypt(this.DataReceivedRaw); } else { this.DataReceivedDecrypted = this.DataReceivedRaw; }
+                DataReceivedRaw = this.Response.Content.ReadAsStringAsync().Result;
+                DataReceivedRaw = DataReceivedRaw;
+                if (ThrowExceptionWithEmptyReponse == true && DataReceivedRaw == TypeExtension.DefaultString)
+                { throw new System.DataMisalignedException("Response is empty. Expected data to be returned."); } else if (SendPlainText == false)
+                { DataReceivedDecrypted = this.Encryptor.Decrypt(DataReceivedRaw); } else { DataReceivedDecrypted = DataReceivedRaw; }
             }
-            return this.DataReceivedDecrypted;
+            return DataReceivedDecrypted;
         }
 
         /// <summary>
@@ -69,17 +69,17 @@ namespace Genesys.Extras.Net
         /// <returns>Response data</returns>
         public override async Task<string> SendAsync()
         {
-            this.Response = await this.Client.GetAsync(this.Url);
+            Response = await this.Client.GetAsync(this.Url);
             if (this.Response.IsSuccessStatusCode)
             {
-                this.DataReceivedRaw = await this.Response.Content.ReadAsStringAsync();
-                if (this.ThrowExceptionWithEmptyReponse == true && this.DataReceivedRaw == TypeExtension.DefaultString)
+                DataReceivedRaw = await this.Response.Content.ReadAsStringAsync();
+                if (ThrowExceptionWithEmptyReponse == true && DataReceivedRaw == TypeExtension.DefaultString)
                 { throw new System.DataMisalignedException("Response is empty. Expected data to be returned."); } 
-                else if (this.SendPlainText == false)
-                    { this.DataReceivedDecrypted = this.Encryptor.Decrypt(this.DataReceivedRaw); } 
-                else { this.DataReceivedDecrypted = this.DataReceivedRaw; }
+                else if (SendPlainText == false)
+                    { DataReceivedDecrypted = this.Encryptor.Decrypt(DataReceivedRaw); } 
+                else { DataReceivedDecrypted = DataReceivedRaw; }
             }
-            return this.DataReceivedDecrypted;
+            return DataReceivedDecrypted;
         }
     }
 }

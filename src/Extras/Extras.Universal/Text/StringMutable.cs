@@ -30,7 +30,7 @@ namespace Genesys.Extras.Text
     public class StringMutable
     {
         private string valueField = TypeExtension.DefaultString;
-
+        
         /// <summary>
         /// Value. Ignored for serialization, to spoof string behavior
         /// </summary>      
@@ -55,7 +55,7 @@ namespace Genesys.Extras.Text
         /// <param name="value"></param>
         private StringMutable(string value)
         {
-            this.Value = value;
+            Value = value;
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Genesys.Extras.Text
         /// <returns></returns>
         public override string ToString()
         {
-            return this.Value;
+            return Value;
         }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace Genesys.Extras.Text
         }
 
         /// <summary>
-        /// Accepts (this) mutable string class instead of forcing consumer to cast to immutable string class
+        /// Accepts mutable Genesys.Extras.Text.StringMutable instead of forcing consumer to cast to immutable System.String class
         /// </summary>
         /// <param name="item">Mutable string to treat as immutable .net String</param>
         public static implicit operator String(StringMutable item)
@@ -88,7 +88,7 @@ namespace Genesys.Extras.Text
         }
 
         /// <summary>
-        /// Accepts immutable string instead of forcing consumer to cast to mutable string (this) class
+        /// Accepts (normal) immutable string instead of forcing consumer to cast to mutable string (this) class
         /// </summary>
         /// <param name="item">Mutable string to treat as immutable .net String</param>
         public static implicit operator StringMutable(string item)
@@ -125,7 +125,7 @@ namespace Genesys.Extras.Text
         {
             unchecked // ignore int overflow
             {
-                int hash = (int)2166136261;
+                var hash = (int)2166136261;
                 hash = (hash * 16777619) ^ this.Value.GetHashCode(); // hash based on string value used in ==, != and equals().
                 return hash;
             }
@@ -173,7 +173,7 @@ namespace Genesys.Extras.Text
         /// <returns></returns>
         public new Type GetType()
         {
-            string returnData = TypeExtension.DefaultString;
+            var returnData = TypeExtension.DefaultString;
             return returnData.GetType();
         }
 

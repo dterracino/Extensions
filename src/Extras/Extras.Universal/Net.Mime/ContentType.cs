@@ -47,7 +47,7 @@ namespace Genesys.Extras.Net
         public ContentType(string name)
             : this()
         {
-            this.Name = name;
+            Name = name;
         }
 
         /// <summary>
@@ -58,8 +58,8 @@ namespace Genesys.Extras.Net
         public ContentType(string name, string extension)
             : this()
         {
-            this.Name = name;
-            this.Extension = extension;
+            Name = name;
+            Extension = extension;
         }
     }
 }

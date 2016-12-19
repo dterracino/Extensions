@@ -56,7 +56,7 @@ namespace Genesys.Extras.Serialization
         /// <returns>string serialized with passed object</returns>
         public override string Serialize(T objectToSerialize)
         {
-            return this.Serialize<T>(objectToSerialize);
+            return Serialize<T>(objectToSerialize);
         }
 
         /// <summary>
@@ -67,8 +67,8 @@ namespace Genesys.Extras.Serialization
         /// <returns>Json string</returns>
         public override string Serialize<TSerializeFrom>(TSerializeFrom objectToSerialize)
         {
-            string returnValue = TypeExtension.DefaultString;
-            MemoryStream stream = new MemoryStream();
+            var returnValue = TypeExtension.DefaultString;
+            var stream = new MemoryStream();
 
             try
             {
@@ -82,7 +82,7 @@ namespace Genesys.Extras.Serialization
             }
             catch
             {
-                if (this.ThrowException) throw;
+                if (ThrowException) throw;
             }
 
             return returnValue;
@@ -95,7 +95,7 @@ namespace Genesys.Extras.Serialization
         /// <returns>De-serialized object</returns>
         public override T Deserialize(string stringToDeserialize)
         {
-            return this.Deserialize<T>(stringToDeserialize);
+            return Deserialize<T>(stringToDeserialize);
         }
 
         /// <summary>
@@ -112,8 +112,8 @@ namespace Genesys.Extras.Serialization
             {
                 if (stringToDeserialize == TypeExtension.DefaultString && this.EmptyStringAndNullSupported == false) { throw new System.ArgumentNullException("Passed parameter is empty. Unable to deserialize empty strings."); }
                 System.Text.UTF8Encoding encoding = new System.Text.UTF8Encoding();
-                byte[] byteArray = (byte[])encoding.GetBytes(stringToDeserialize);
-                MemoryStream memoryStream = new MemoryStream(byteArray);
+                var byteArray = (byte[])encoding.GetBytes(stringToDeserialize);
+                var memoryStream = new MemoryStream(byteArray);
                 System.Xml.Serialization.XmlSerializer xs = new System.Xml.Serialization.XmlSerializer(typeof(TDeserializeTo));
                 returnValue = (TDeserializeTo)xs.Deserialize(memoryStream);
             }
@@ -123,7 +123,7 @@ namespace Genesys.Extras.Serialization
             }
             catch
             {
-                if (this.ThrowException) throw;
+                if (ThrowException) throw;
             }
 
             return returnValue;

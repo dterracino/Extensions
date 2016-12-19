@@ -69,9 +69,9 @@ namespace Genesys.Extras.Configuration
         /// </summary>
         public AppSettingList() : base()
         {
-            this.StatusMessage = "No data loaded.";
+            StatusMessage = "No data loaded.";
 #if (DEBUG)
-            this.ThrowException = true;
+            ThrowException = true;
 #endif
         }
 
@@ -81,8 +81,8 @@ namespace Genesys.Extras.Configuration
         /// <param name="xmlRaw">Raw Xml string containing all data</param>
         public AppSettingList(string xmlRaw) : this()
         {
-            this.appSettingsXmlRawField = xmlRaw;
-            this.Load();
+            appSettingsXmlRawField = xmlRaw;
+            Load();
         }
         
         /// <summary>
@@ -95,28 +95,28 @@ namespace Genesys.Extras.Configuration
             try
             {
                 // Only act if there is Xml to parse
-                if (this.appSettingsXmlRawField != TypeExtension.DefaultString)
+                if (appSettingsXmlRawField != TypeExtension.DefaultString)
                 {
                     // Load the document
-                    this.appSettingsXDocField = XDocument.Parse(this.appSettingsXmlRawField);
+                    appSettingsXDocField = XDocument.Parse(appSettingsXmlRawField);
                     // Extract raw data
-                    elements = this.appSettingsXDocField.Descendants(AppSettingList.ElementName);
+                    elements = appSettingsXDocField.Descendants(AppSettingList.ElementName);
                     var KVPs = elements.Select(x => new {
                         Key = x.Attribute(AppSettingList.ElementKeyName).Value,
                         Value = x.Attribute(AppSettingList.ElementValueName).Value
                     }).ToList();
                     // Fill data structure
-                    foreach (var Item in KVPs) { this.Add(new AppSettingSafe(Item.Key, Item.Value)); }
+                    foreach (var Item in KVPs) { Add(new AppSettingSafe(Item.Key, Item.Value)); }
                 }
             }
             catch (NullReferenceException)
             {
-                if (this.ThrowException == false)
-                { this.StatusMessage = "Cannot load. Required elements are not in the file"; } else { throw; }
+                if (ThrowException == false)
+                { StatusMessage = "Cannot load. Required elements are not in the file"; } else { throw; }
             }
             finally
             {
-                this.StatusMessage = String.Format("{0} records loaded.", this.Count);
+                StatusMessage = String.Format("{0} records loaded.", this.Count);
             }
         }
         
@@ -127,7 +127,7 @@ namespace Genesys.Extras.Configuration
         /// <remarks></remarks>
         public string GetValue(string key)
         {
-            string returnValue = TypeExtension.DefaultString;
+            var returnValue = TypeExtension.DefaultString;
             returnValue = this.FindSafe(x => x.Key == key).Value;
             return returnValue;
         }
@@ -140,8 +140,8 @@ namespace Genesys.Extras.Configuration
         /// <remarks></remarks>
         public int FindIndex(string key)
         {
-            int returnValue = TypeExtension.DefaultInteger;
-            for (int count = 0; count < this.Count - 1; count++)
+            var returnValue = TypeExtension.DefaultInteger;
+            for (var count = 0; count < this.Count - 1; count++)
             {
                 if (this[count].Key == key)
                 {
@@ -160,7 +160,7 @@ namespace Genesys.Extras.Configuration
         {
             // Check for ID
             List<AppSettingSafe> conflictingItems = this.FindAll(x => x.Key == itemToAdd.Key);
-            if (this.AllowDuplicates == false && this.ThrowException == true && conflictingItems.Count > 0)
+            if (AllowDuplicates == false && ThrowException == true && conflictingItems.Count > 0)
                 throw new System.IndexOutOfRangeException("Unable to add new items, Identity Key conflict.");
             base.Add(itemToAdd);
         }
@@ -173,10 +173,10 @@ namespace Genesys.Extras.Configuration
         /// <remarks></remarks>
         public void Add(string key, string value)
         {
-            // Self-normalize based on this.AllowDuplicates and this.ThrowException
-            if (this.AllowDuplicates == false && this.ThrowException == false && this.GetValue(key) != TypeExtension.DefaultString)
+            // Self-normalize based on AllowDuplicates and ThrowException
+            if (AllowDuplicates == false && ThrowException == false && this.GetValue(key) != TypeExtension.DefaultString)
             {
-                this.RemoveAt(this.FindIndex(key));
+                RemoveAt(this.FindIndex(key));
             }
             base.Add(new AppSettingSafe(key, value));
         }
@@ -189,7 +189,7 @@ namespace Genesys.Extras.Configuration
         public void Remove(string key)
         {
             if (this.GetValue(key).ToStringSafe() != TypeExtension.DefaultString)
-                this.RemoveAt(this.FindIndex(key));
+                RemoveAt(this.FindIndex(key));
         }
     }
 }

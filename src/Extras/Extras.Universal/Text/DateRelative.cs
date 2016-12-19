@@ -41,14 +41,14 @@ namespace Genesys.Extras.Text
         /// <summary>
         /// RelativeToDate
         /// </summary>
-        public string RelativeToDate { get { return this.RelativeDifferenceGet(this.DateToCompare); } private set { } }        
+        public string RelativeToDate { get { return RelativeDifferenceGet(this.DateToCompare); } private set { } }        
         
         /// <summary>
         /// Constructor
         /// </summary>
         private DateRelative() : base()
         {
-            this.nowDate = DateTime.UtcNow;
+            nowDate = DateTime.UtcNow;
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace Genesys.Extras.Text
         /// <param name="dateToCompare"></param>
         public DateRelative(DateTime dateToCompare) : this()
         {
-            this.DateToCompare = dateToCompare; 
+            DateToCompare = dateToCompare; 
         }
         
         /// <summary>
@@ -66,7 +66,7 @@ namespace Genesys.Extras.Text
         /// <returns>English language representation of difference</returns>
         public override string ToString()
         {
-            return this.RelativeToDate;
+            return RelativeToDate;
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace Genesys.Extras.Text
         /// <returns></returns>
         private string RelativeDifferenceGet(DateTime compareDate)
         {
-            string returnValue = TypeExtension.DefaultString;
+            var returnValue = TypeExtension.DefaultString;
             TimeSpan diffTime = compareDate.Subtract(this.nowDate);
 
             // Determine difference

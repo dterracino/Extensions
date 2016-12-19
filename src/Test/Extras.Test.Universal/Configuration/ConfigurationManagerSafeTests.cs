@@ -37,22 +37,11 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Configuration_ConfigurationManagerSafe_AppSettings()
         {
-            AppSettingSafe ItemToTest = new AppSettingSafe();
-            NameValueCollection itemToConvert = ConfigurationManager.AppSettings;
-            string[,] configData = new string[itemToConvert.Count, 2];
+            AppSettingSafe itemToTest = new AppSettingSafe();
+            ConfigurationManagerSafe configuration = ConfigurationManagerSafeTests.Create();
 
-            for (int count = 0; count < itemToConvert.Count; count++)
-            {
-                foreach (string itemKey in itemToConvert)
-                {
-                    configData[count, 0] = itemKey;
-                    configData[count, 1] = itemToConvert[count];
-                }
-            }
-
-            ConfigurationManagerSafe Configuration = new ConfigurationManagerSafe(configData, null);
-            ItemToTest = Configuration.AppSetting("TestAppSetting");
-            Assert.IsTrue(ItemToTest.Value != TypeExtension.DefaultString, "Did not work");
+            itemToTest = configuration.AppSetting("TestAppSetting");
+            Assert.IsTrue(itemToTest.Value != TypeExtension.DefaultString, "Did not work");
         }
 
         /// <summary>
@@ -61,27 +50,68 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Configuration_ConfigurationManagerSafe_ConnectionStrings()
         {
-            ConnectionStringSafe ItemToTest = new ConnectionStringSafe();
-            ConnectionStringSettingsCollection itemToConvert = ConfigurationManager.ConnectionStrings;
-            string[,] configData = new string[itemToConvert.Count, 2];
+            ConnectionStringSafe itemToTest = new ConnectionStringSafe();
+            ConfigurationManagerSafe configuration = ConfigurationManagerSafeTests.Create();
 
-            for (int count = 0; count < itemToConvert.Count; count++)
-            {
-                configData[count, 0] = itemToConvert[count].Name;
-                configData[count, 1] = itemToConvert[count].ConnectionString;
-            }
-            ConfigurationManagerSafe Configuration = new ConfigurationManagerSafe(null, configData);
+            itemToTest = configuration.ConnectionString("TestADOConnection");
+            Assert.IsTrue(itemToTest.Value != TypeExtension.DefaultString, "Did not work");
+            itemToTest.EDMXFileName = "TestEDMXFile";
+            Assert.IsTrue(itemToTest.ToString("EF") != TypeExtension.DefaultString);
+            Assert.IsTrue(itemToTest.ToEF(this.GetType()) != TypeExtension.DefaultString);
 
-            ItemToTest = Configuration.ConnectionString("TestADOConnection");
-            Assert.IsTrue(ItemToTest.Value != TypeExtension.DefaultString, "Did not work");
-            ItemToTest.EDMXFileName = "TestEDMXFile";
-            Assert.IsTrue(ItemToTest.ToString("EF") != TypeExtension.DefaultString);
-            Assert.IsTrue(ItemToTest.ToEF(this.GetType()) != TypeExtension.DefaultString);
-
-            ItemToTest = Configuration.ConnectionString("TestEFConnection");
-            Assert.IsTrue(ItemToTest.Value != TypeExtension.DefaultString, "Did not work");
-            Assert.IsTrue(ItemToTest.ToString("ADO") != TypeExtension.DefaultString);
-            Assert.IsTrue(ItemToTest.ToADO() != TypeExtension.DefaultString);
+            itemToTest = configuration.ConnectionString("TestEFConnection");
+            Assert.IsTrue(itemToTest.Value != TypeExtension.DefaultString, "Did not work");
+            Assert.IsTrue(itemToTest.ToString("ADO") != TypeExtension.DefaultString);
+            Assert.IsTrue(itemToTest.ToADO() != TypeExtension.DefaultString);
         }
+
+        /// <summary>
+        /// Universal cant access ConfigurationManager directly. 
+        ///  This method uses the ConfigurationManager to get data, then returns as a cross-platform friendly array
+        /// </summary>
+        /// <returns></returns>
+        public static string[,] AppSettingsGet()
+        {
+            var itemToConvert = ConfigurationManager.AppSettings ?? new NameValueCollection();
+            string[,] returnValue = new string[itemToConvert.Count, 2];
+
+            for (var count = 0; count < itemToConvert.Count; count++)
+            {
+                returnValue[count, 0] = itemToConvert.Keys[count];
+                returnValue[count, 1] = itemToConvert[count];
+            }
+
+            return returnValue;
+        }
+
+        /// <summary>
+        /// Universal cant access ConfigurationManager directly. 
+        ///  This method uses the ConfigurationManager to get data, then returns as a cross-platform friendly array
+        /// </summary>
+        /// <returns></returns>
+        public static string[,] ConnectionStringsGet()
+        {
+            var itemToConvert = ConfigurationManager.ConnectionStrings ?? new ConnectionStringSettingsCollection();
+            string[,] returnValue = new string[itemToConvert.Count, 2];
+
+            for (var count = 0; count < itemToConvert.Count; count++)
+            {
+                returnValue[count, 0] = itemToConvert[count].Name;
+                returnValue[count, 1] = itemToConvert[count].ConnectionString;
+            }
+
+            return returnValue;
+        }
+
+        /// <summary>
+        /// Constructs a current instance of .config AppSettings and ConnectionStrings nodes
+        /// Universal/Core does not support ConfigurationManager, so have to construct using Universal friendly means
+        /// </summary>
+        /// <returns></returns>
+        public static ConfigurationManagerSafe Create()
+        {
+            return new ConfigurationManagerSafe(ConfigurationManagerSafeTests.AppSettingsGet(), ConfigurationManagerSafeTests.ConnectionStringsGet());
+        }
+
     }
 }

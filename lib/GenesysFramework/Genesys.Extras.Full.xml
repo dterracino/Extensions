@@ -624,29 +624,48 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Genesys.Extras.Web.Http.NoParameterRouteConstraint">
-             <summary>
-             Restricts parameters with post
-             Usage: public static void RegisterRoutes(RouteCollection routes)
-            {routes.MapHttpRoute("DefaultApi","api/{controller}/{id}",new { id = RouteParameter.Optional},
-                    new { id = new NoParameterRouteConstraint() } );}
-             </summary>
+        <member name="T:Genesys.Extras.Web.Http.MvcModelBinder">
+            <summary>
+            Overrides the MVC DefaultModelBinder
+               You’ll need to add the following to the Global.asax Application_Start method to use your custom model binder.
+                C#: ModelBinders.Binders.Add(typeof(string), new MvcModelBinder());
+            </summary>
+            <remarks></remarks>
         </member>
-        <member name="M:Genesys.Extras.Web.Http.NoParameterRouteConstraint.#ctor(System.String)">
+        <member name="M:Genesys.Extras.Web.Http.MvcModelBinder.BindModel(System.Web.Mvc.ControllerContext,System.Web.Mvc.ModelBindingContext)">
+            <summary>
+            Binds model to view. 
+            typeof(string): Null-safe binding for strings, posted models will contain empty string instead of null
+            </summary>
+            <param name="controllerContext">Context of controller</param>
+            <param name="bindingContext">Context of view model binding</param>
+            <returns>typeof(string): Returns empty string instead of null</returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:Genesys.Extras.Web.Http.ParameterNotAllowed">
+            <summary>
+            Restricts http verbs to route that has the specified parameter (like id) in the route
+            Usage: public static void RegisterRoutes(RouteCollection routes)
+                    {routes.MapHttpRoute("DefaultApi","api/{controller}/{id}",
+                        new { id = RouteParameter.Optional},
+                        new { id = new NoParameterRouteConstraint() } );}
+            </summary>
+        </member>
+        <member name="M:Genesys.Extras.Web.Http.ParameterNotAllowed.#ctor(System.String)">
             <summary>
             Constructor
             </summary>
-            <param name="httpMethod"></param>
+            <param name="method"></param>
         </member>
-        <member name="M:Genesys.Extras.Web.Http.NoParameterRouteConstraint.Match(System.Web.HttpContextBase,System.Web.Routing.Route,System.String,System.Web.Routing.RouteValueDictionary,System.Web.Routing.RouteDirection)">
+        <member name="M:Genesys.Extras.Web.Http.ParameterNotAllowed.Match(System.Web.HttpContextBase,System.Web.Routing.Route,System.String,System.Web.Routing.RouteValueDictionary,System.Web.Routing.RouteDirection)">
             <summary>
-            Match
+            Match criteria
             </summary>
-            <param name="httpContext"></param>
-            <param name="route"></param>
-            <param name="parameterName"></param>
-            <param name="values"></param>
-            <param name="routeDirection"></param>
+            <param name="httpContext">Http Context</param>
+            <param name="routeName">Route name</param>
+            <param name="parameterName">ParameterName, typically ID</param>
+            <param name="valueList">List of dictionary values</param>
+            <param name="routeDirection">Direction of the route</param>
             <returns></returns>
         </member>
         <member name="T:Genesys.Extras.Web.Http.WebApiController">

@@ -52,7 +52,7 @@ namespace Genesys.Extras.Security.Cryptography
         private CaesarEncryptor()
             : base()
         {
-            this.EncodeForURL = true;
+            EncodeForURL = true;
         }
 
         /// <summary>
@@ -63,8 +63,8 @@ namespace Genesys.Extras.Security.Cryptography
         public CaesarEncryptor(string encryptionKey = "", bool urlEncode = true)
             : this()
         {
-            this.Key = Arithmetic.Addition(encryptionKey.TryParseDecimal(), this.Key.TryParseInt16()).ToShort().ToString();
-            this.EncodeForURL = urlEncode;
+            Key = Arithmetic.Addition(encryptionKey.TryParseDecimal(), this.Key.TryParseInt16()).ToShort().ToString();
+            EncodeForURL = urlEncode;
         }
         
         /// <summary>
@@ -72,8 +72,8 @@ namespace Genesys.Extras.Security.Cryptography
         /// </summary>
         public string Encrypt(string originalString)
         {
-            string returnValue = TypeExtension.DefaultString;
-            string shiftedString = TypeExtension.DefaultString;
+            var returnValue = TypeExtension.DefaultString;
+            var shiftedString = TypeExtension.DefaultString;
             byte[] encryptedByte;
 
             try
@@ -101,7 +101,7 @@ namespace Genesys.Extras.Security.Cryptography
         /// <param name="originalString"></param>
         public string Decrypt(string originalString)
         {
-            string returnValue = TypeExtension.DefaultString;
+            var returnValue = TypeExtension.DefaultString;
             byte[] encryptedByte;
 
             try
@@ -128,10 +128,10 @@ namespace Genesys.Extras.Security.Cryptography
         /// <returns></returns>
         private string ShiftString(string source, short shift)
         {
-            string returnValue = TypeExtension.DefaultString;
-            int shiftedValue = TypeExtension.DefaultInteger;
-            int charMax = Convert.ToInt32(char.MaxValue);
-            int charMin = Convert.ToInt32(char.MinValue);
+            var returnValue = TypeExtension.DefaultString;
+            var shiftedValue = TypeExtension.DefaultInteger;
+            var charMax = Convert.ToInt32(char.MaxValue);
+            var charMin = Convert.ToInt32(char.MinValue);
             char[] chars = source.ToCharArray();
 
             for (var Count = 0; Count < chars.Length; Count++)

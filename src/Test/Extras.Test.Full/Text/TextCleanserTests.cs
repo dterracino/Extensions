@@ -34,7 +34,7 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Text_Cleanser_HtmlUnsafe()
         {
-            string safeHtml = TypeExtension.DefaultString;
+            var safeHtml = TypeExtension.DefaultString;
             HtmlUnsafeCleanser cleanser = new HtmlUnsafeCleanser(unsafeHtml);
             safeHtml = cleanser.Cleanse();
             Assert.IsTrue(safeHtml.Contains(unsafeTag1.SubstringLeft(6)) == false, "Did not work.");

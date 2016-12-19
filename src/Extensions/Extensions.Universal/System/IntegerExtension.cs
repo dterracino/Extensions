@@ -59,7 +59,7 @@ namespace Genesys.Extensions
 
             try
             {
-                byte[] bytes = new byte[16];
+            var bytes = new byte[16];
                 BitConverter.GetBytes(item).CopyTo(bytes, 0);
                 returnValue = new Guid(bytes);
             }

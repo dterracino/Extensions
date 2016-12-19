@@ -76,21 +76,21 @@ namespace Genesys.Extras.Net
         /// </summary>
         protected internal HttpRequestClient() : base()
         {
-            this.SendPlainText = true;
+            SendPlainText = true;
 #if (DEBUG)
-            this.ThrowExceptionWithEmptyReponse = true;
+            ThrowExceptionWithEmptyReponse = true;
 #endif
         }
 
         /// <summary>
         /// Construct with data
         /// </summary>
-        public HttpRequestClient(string url) : this() { this.Url = url; }
+        public HttpRequestClient(string url) : this() { Url = url; }
 
         /// <summary>
         /// Construct with data
         /// </summary>
-        public HttpRequestClient(string url, IEncryptor encrptor) : this(url) { this.Encryptor = Encryptor; }
+        public HttpRequestClient(string url, IEncryptor encrptor) : this(url) { Encryptor = Encryptor; }
                 
         /// <summary>
         /// Synchronously sends a GET request, Receives string response
@@ -110,7 +110,7 @@ namespace Genesys.Extras.Net
         /// <returns></returns>
         public override string ToString()
         {
-            return this.Url.ToString();
+            return Url.ToString();
         }
     }
 }

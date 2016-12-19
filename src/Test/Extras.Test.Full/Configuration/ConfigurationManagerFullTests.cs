@@ -29,7 +29,7 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Configuration_ConfigurationManagerFull_AppSettings()
         {
-            string itemToTestString = TypeExtension.DefaultString;
+            var itemToTestString = TypeExtension.DefaultString;
             AppSettingSafe itemToTest = new AppSettingSafe();
             ConfigurationManagerSafe configuration = new ConfigurationManagerFull();
             itemToTest = configuration.AppSetting("TestAppSetting");

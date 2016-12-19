@@ -29,7 +29,7 @@ namespace Genesys.Extras.Test
         public void Text_StringMutable()
         {
             // Common
-            string data = "test string";
+            var data = "test string";
             // Creation
             StringMutable item1 = data;
             Assert.IsTrue(item1 == data, "Failed. Should have same data.");

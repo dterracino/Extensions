@@ -44,7 +44,7 @@ namespace Genesys.Extras.Text
         /// </summary>
         private TemplateBuilder() : base() {
 #if (DEBUG)
-            this.ThrowException = true;
+            ThrowException = true;
 #endif
         }
 
@@ -54,9 +54,9 @@ namespace Genesys.Extras.Text
         public TemplateBuilder(string template, List<String> data)
             : base()
         {
-            this.isHTML = true;
-            this.templateEmptyField = template;
-            this.templateDataField = data;
+            isHTML = true;
+            templateEmptyField = template;
+            templateDataField = data;
         }
         
         /// <summary>
@@ -64,17 +64,17 @@ namespace Genesys.Extras.Text
         /// </summary>
         private void TemplateFill()
         {            
-            string dataFormatted = TypeExtension.DefaultString;
-            string templateFilled = TypeExtension.DefaultString;
+            var dataFormatted = TypeExtension.DefaultString;
+            var templateFilled = TypeExtension.DefaultString;
 
-            this.IsValid(); // throw exception if bad data
+            IsValid(); // throw exception if bad data
             templateFilled = this.templateEmptyField;
-            for (int dataCount = 0; dataCount <= this.templateDataField.Count - 1; dataCount++)
+            for (var dataCount = 0; dataCount <= this.templateDataField.Count - 1; dataCount++)
             {
                 if (this.isHTML) { dataFormatted = this.templateDataField[dataCount].Replace(Environment.NewLine, "<br />").Replace("\n", "<br />"); }
                 templateFilled = templateFilled.Replace("{" + dataCount.ToString() + "}", dataFormatted);
             }
-            this.templateFilledField = templateFilled;
+            templateFilledField = templateFilled;
         }
         
         /// <summary>
@@ -83,8 +83,8 @@ namespace Genesys.Extras.Text
         /// <returns></returns>
         public override string ToString() 
         {
-            this.TemplateFill();
-            return this.templateFilledField;
+            TemplateFill();
+            return templateFilledField;
         }
         
         /// <summary>

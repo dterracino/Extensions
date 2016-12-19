@@ -66,7 +66,7 @@ namespace Genesys.Extras.Text.Cleansing
         public HtmlUnsafeCleanser(string textToCleanse)
             : this()
         {
-            this.TextToCleanse = textToCleanse;
+            TextToCleanse = textToCleanse;
         }
 
         /// <summary>
@@ -77,10 +77,10 @@ namespace Genesys.Extras.Text.Cleansing
             var docToParse = XDocument.Parse(String.Format("{0}{1}{2}", FormatBeginTag(wrapperTag), this.TextToCleanse, FormatEndTag(wrapperTag)));
 
             CleanseUnsafeHtml(docToParse);
-            this.TextCleansed = docToParse.ToString();
-            this.TextCleansed = this.TextCleansed.RemoveFirst(FormatBeginTag(wrapperTag)).RemoveLast(FormatEndTag(wrapperTag));
+            TextCleansed = docToParse.ToString();
+            TextCleansed = this.TextCleansed.RemoveFirst(FormatBeginTag(wrapperTag)).RemoveLast(FormatEndTag(wrapperTag));
 
-            return this.TextCleansed;
+            return TextCleansed;
         }
 
         /// <summary>

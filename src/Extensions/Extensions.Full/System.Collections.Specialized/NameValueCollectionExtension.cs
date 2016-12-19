@@ -39,13 +39,10 @@ namespace Genesys.Extensions
             NameValueCollection itemToConvert = item ?? new NameValueCollection();
             string[,] returnValue = new string[itemToConvert.Count, 2];
 
-            for(int count = 0; count < itemToConvert.Count; count++)
+            for (var count = 0; count < itemToConvert.Count; count++)
             {
-                foreach(string itemKey in itemToConvert)
-                {
-                    returnValue[count, 0] = itemKey;
-                    returnValue[count, 1] = itemToConvert[count];
-                }
+                returnValue[count, 0] = itemToConvert.Keys[count];
+                returnValue[count, 1] = itemToConvert[count];
             }
 
             return returnValue;

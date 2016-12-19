@@ -26,7 +26,7 @@ using Genesys.Extras.Security.Cryptography;
 namespace Genesys.Extras.Net
 {
     /// <summary>
-    /// Communicates via Put, string in and string out
+    /// Communicates via PUT, string in and string out
     /// </summary>
     [CLSCompliant(true)]
     public class HttpRequestPutString : HttpRequestClient
@@ -48,12 +48,12 @@ namespace Genesys.Extras.Net
         /// <summary>
         /// Construct with data
         /// </summary>
-        public HttpRequestPutString(string url, string dataToSend) : this(url) { this.DataToSend = dataToSend; }
+        public HttpRequestPutString(string url, string dataToSend) : this(url) { DataToSend = dataToSend; }
 
         /// <summary>
         /// Construct with data
         /// </summary>
-        public HttpRequestPutString(string url, string dataToSend, IEncryptor encrptor) : this(url, dataToSend) { this.Encryptor = Encryptor; }
+        public HttpRequestPutString(string url, string dataToSend, IEncryptor encrptor) : this(url, dataToSend) { Encryptor = Encryptor; }
         
         /// <summary>
         /// Sends a GET request, Receives string response
@@ -62,19 +62,19 @@ namespace Genesys.Extras.Net
         /// <returns></returns>
         public override string Send()
         {
-            string returnValue = TypeExtension.DefaultString;
-            HttpClientBuilder client = new HttpClientBuilder();
-            StringContent data = new StringContent(this.DataToSend, System.Text.Encoding.UTF8, this.ContentType);
+            var returnValue = TypeExtension.DefaultString;
+            var client = new HttpClientBuilder();
+            var data = new StringContent(DataToSend, System.Text.Encoding.UTF8, this.ContentType);
 
-            this.Response = client.PutAsync(this.Url, data).Result;
+            Response = client.PutAsync(this.Url, data).Result;
             if (this.Response.IsSuccessStatusCode)
             {
-                this.DataReceivedRaw = this.Response.Content.ReadAsStringAsync().Result;
-                if (this.SendPlainText == false)
-                { this.DataReceivedDecrypted = this.Encryptor.Decrypt(this.DataReceivedRaw); } else { this.DataReceivedDecrypted = this.DataReceivedRaw; }
+                DataReceivedRaw = this.Response.Content.ReadAsStringAsync().Result;
+                if (SendPlainText == false)
+                { DataReceivedDecrypted = this.Encryptor.Decrypt(DataReceivedRaw); } else { DataReceivedDecrypted = DataReceivedRaw; }
             }
 
-            return this.DataReceivedDecrypted;
+            return DataReceivedDecrypted;
         }
 
         /// <summary>
@@ -84,19 +84,19 @@ namespace Genesys.Extras.Net
         /// <returns></returns>
         public override async Task<string> SendAsync()
         {
-            string returnValue = TypeExtension.DefaultString;
-            HttpClientBuilder client = new HttpClientBuilder();
-            StringContent data = new StringContent(this.DataToSend, System.Text.Encoding.UTF8, this.ContentType);
+            var returnValue = TypeExtension.DefaultString;
+            var client = new HttpClientBuilder();
+            var data = new StringContent(DataToSend, System.Text.Encoding.UTF8, this.ContentType);
 
-            this.Response = await client.PutAsync(this.Url, data);
+            Response = await client.PutAsync(this.Url, data);
             if (this.Response.IsSuccessStatusCode)
             {
-                this.DataReceivedRaw = await this.Response.Content.ReadAsStringAsync();
-                if (this.SendPlainText == false)
-                { this.DataReceivedDecrypted = this.Encryptor.Decrypt(this.DataReceivedRaw); } else { this.DataReceivedDecrypted = this.DataReceivedRaw; }
+                DataReceivedRaw = await this.Response.Content.ReadAsStringAsync();
+                if (SendPlainText == false)
+                { DataReceivedDecrypted = this.Encryptor.Decrypt(DataReceivedRaw); } else { DataReceivedDecrypted = DataReceivedRaw; }
             }
 
-            return this.DataReceivedDecrypted;
+            return DataReceivedDecrypted;
         }
     }
 }

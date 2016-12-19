@@ -45,7 +45,7 @@ namespace Genesys.Extras.Text.Cleansing
         public DefaultCleanser(string textToCleanse)
             : this()
         {
-            this.TextToCleanse = textToCleanse;
+            TextToCleanse = textToCleanse;
         }
 
         /// <summary>
@@ -53,8 +53,8 @@ namespace Genesys.Extras.Text.Cleansing
         /// </summary>
         public override string Cleanse()
         {
-            this.TextCleansed = TextToCleanse;
-            return this.TextCleansed;
+            TextCleansed = TextToCleanse;
+            return TextCleansed;
         }
     }
 }

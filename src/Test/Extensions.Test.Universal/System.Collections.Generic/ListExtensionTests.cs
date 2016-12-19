@@ -36,7 +36,7 @@ namespace Genesys.Extensions.Test
         {
             public ComplexList() : base()
             {
-                this.AddRange(new List<ComplexObject>() {
+                AddRange(new List<ComplexObject>() {
                     new ComplexObject() { Name = "Larry" }, new ComplexObject() { Name = "Curly" }, new ComplexObject() { Name = "Mo" }});
             }
         }

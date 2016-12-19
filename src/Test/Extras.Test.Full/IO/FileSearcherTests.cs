@@ -33,7 +33,7 @@ namespace Genesys.Extras.Test
         public void IO_FileSearcher()
         {
             List<String> PathsToSearch = new List<String>() { Directory.GetCurrentDirectory() };
-            string MaskToSearch = @"app.config";
+            var MaskToSearch = @"app.config";
             FileSearcher Searcher = new FileSearcher(PathsToSearch, MaskToSearch, 2);
             Searcher.Search();
             Assert.IsTrue(Searcher.FoundFiles.Count() > 0, "Did not work");

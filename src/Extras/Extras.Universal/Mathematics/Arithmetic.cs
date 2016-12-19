@@ -90,8 +90,8 @@ namespace Genesys.Extras.Mathematics
         /// <returns>Divided result</returns>
         public static int Divide(int dividend, int divisor)
         {
-            int returnValue = TypeExtension.DefaultInteger;
-            int Remainder = TypeExtension.DefaultInteger;
+            var returnValue = TypeExtension.DefaultInteger;
+            var Remainder = TypeExtension.DefaultInteger;
 
             if (divisor > 0)
             {
@@ -170,12 +170,12 @@ namespace Genesys.Extras.Mathematics
         /// <returns>Random number</returns>
         public static int Random(int digits = 4)
         {
-            int returnValue = TypeExtension.DefaultInteger;
+            var returnValue = TypeExtension.DefaultInteger;
 
             // Handle for Int32 limitation of 2,147,483,647, low 10 digits
             digits = digits < 1 ? 1 : digits > 10 ? 10 : digits;
-            int floor = Convert.ToInt32(Math.Pow(10, digits - 1));
-            int ceiling = Convert.ToInt32((floor * 10) - 1);
+            var floor = Convert.ToInt32(Math.Pow(10, digits - 1));
+            var ceiling = Convert.ToInt32((floor * 10) - 1);
             returnValue = Arithmetic.Random(floor, ceiling);
 
             return returnValue;
@@ -189,7 +189,7 @@ namespace Genesys.Extras.Mathematics
         /// <returns>Random integer value</returns>
         public static int Random(int minValue, int maxValue)
         {
-            int returnValue = TypeExtension.DefaultInteger;
+            var returnValue = TypeExtension.DefaultInteger;
             returnValue = Arithmetic.RandomGenerator.Next(minValue, maxValue);
 
             return returnValue;
@@ -234,7 +234,7 @@ namespace Genesys.Extras.Mathematics
         /// <returns>Width given original item was resized</returns>
         public static int WidthGet(int originalWidth, int originanHeight, int newHeight)
         {
-            int newWidth = TypeExtension.DefaultInteger;
+            var newWidth = TypeExtension.DefaultInteger;
             decimal multiplier = TypeExtension.DefaultDecimal;
 
             // Height is only specified, have to calculate width

@@ -36,7 +36,7 @@ namespace Genesys.Extras.Text.Encoding
         /// <param name="dataToProcess">Data to encrypt or decrypt</param>
         public Base64Encoder(string dataToProcess) : base()
         {
-            this.dataIn = dataToProcess;
+            dataIn = dataToProcess;
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace Genesys.Extras.Text.Encoding
         /// <returns></returns>
         public string Encode()
         {
-            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(this.dataIn);
+            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(dataIn);
             return Convert.ToBase64String(bytes);
         }
 
@@ -66,7 +66,7 @@ namespace Genesys.Extras.Text.Encoding
         /// <returns></returns>
         public string Decode()
         {
-            byte[] bytes = Convert.FromBase64String(this.dataIn);
+            byte[] bytes = Convert.FromBase64String(dataIn);
             return System.Text.Encoding.UTF8.GetString(bytes, 0, bytes.Length);
         }
 

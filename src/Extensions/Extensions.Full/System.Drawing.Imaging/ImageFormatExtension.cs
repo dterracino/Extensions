@@ -36,7 +36,7 @@ namespace Genesys.Extensions
         /// <returns>string containing the MIME content type text</returns>
         public static string ToContentType(this ImageFormat item)
         {
-            string returnValue = "image/unknown";
+            var returnValue = "image/unknown";
             Guid imgguid = item.Guid;
             foreach (ImageCodecInfo codec in ImageCodecInfo.GetImageDecoders())
             {

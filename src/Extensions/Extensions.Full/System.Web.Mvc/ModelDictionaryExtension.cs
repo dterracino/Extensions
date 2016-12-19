@@ -37,7 +37,7 @@ namespace Genesys.Extensions
         public static void AddModelError(this ModelStateDictionary item, IEnumerable<String> errors)
         {
             item.Clear();
-            foreach (string Error in errors)
+            foreach (var Error in errors)
             {
                 item.AddModelError("Error", Error);
             }

@@ -36,7 +36,7 @@ namespace Genesys.Extensions
         /// <returns>Byte array containing the icon</returns>
         public static byte[] ToBytes(this Icon item)
         {
-            MemoryStream returnValue = new MemoryStream();
+            var returnValue = new MemoryStream();
             if ((item == null == false) && (item.Size.Width > 0 & item.Size.Height > 0))
             {
                 item.Save(returnValue);

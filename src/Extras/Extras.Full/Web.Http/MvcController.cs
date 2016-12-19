@@ -1,7 +1,6 @@
 //-----------------------------------------------------------------------
 // <copyright file="MvcControllerBase.cs" company="Genesys Source">
 //      Copyright (c) 2016 Genesys Source. All rights reserved.
-// 
 //      Licensed to the Apache Software Foundation (ASF) under one or more 
 //      contributor license agreements.  See the NOTICE file distributed with 
 //      this work for additional information regarding copyright ownership.
@@ -59,12 +58,12 @@ namespace Genesys.Extras.Web.Http
         /// <summary>
         /// OnSendBegin()
         /// </summary>
-        protected virtual void OnSendBegin() { if (this.SendBegin != null) { this.SendBegin(this, EventArgs.Empty); } }
+        protected virtual void OnSendBegin() { if (SendBegin != null) { SendBegin(this, EventArgs.Empty); } }
 
         /// <summary>
         /// OnSendEnd()
         /// </summary>
-        protected virtual void OnSendEnd() { if (this.SendEnd != null) { this.SendEnd(this, EventArgs.Empty); } }
+        protected virtual void OnSendEnd() { if (SendEnd != null) { SendEnd(this, EventArgs.Empty); } }
 
         /// <summary>
         /// Parameterless constructor
@@ -77,11 +76,11 @@ namespace Genesys.Extras.Web.Http
         /// <returns></returns>
         protected virtual async Task<TDataOut> SendGetAsync<TDataOut>(string fullUrl) where TDataOut : new()
         {
-            this.OnSendBegin();
+            OnSendBegin();
             TDataOut returnValue =  TypeExtension.InvokeConstructorOrDefault<TDataOut>();
             HttpRequestGet<TDataOut> request = new HttpRequestGet<TDataOut>(fullUrl);
             returnValue = await request.SendAsync();
-            this.OnSendEnd();
+            OnSendEnd();
 
             return returnValue;
         }
@@ -92,11 +91,11 @@ namespace Genesys.Extras.Web.Http
         /// <returns></returns>
         protected virtual async Task<TDataOut> SendPostAsync<TDataIn, TDataOut>(string fullUrl, TDataIn itemToSend)
         {
-            this.OnSendBegin();
+            OnSendBegin();
             TDataOut returnValue =  TypeExtension.InvokeConstructorOrDefault<TDataOut>();
             HttpRequestPost<TDataIn, TDataOut> request = new HttpRequestPost<TDataIn, TDataOut>(fullUrl, itemToSend);
             returnValue = await request.SendAsync();
-            this.OnSendEnd();
+            OnSendEnd();
 
             return returnValue;
         }
@@ -107,11 +106,11 @@ namespace Genesys.Extras.Web.Http
         /// <returns></returns>
         protected virtual async Task<TDataOut> SendPutAsync<TDataIn, TDataOut>(string fullUrl, TDataIn itemToSend)
         {
-            this.OnSendBegin();
+            OnSendBegin();
             TDataOut returnValue =  TypeExtension.InvokeConstructorOrDefault<TDataOut>();
             HttpRequestPut<TDataIn, TDataOut> request = new HttpRequestPut<TDataIn, TDataOut>(fullUrl, itemToSend);
             returnValue = await request.SendAsync();
-            this.OnSendEnd();
+            OnSendEnd();
             return returnValue;
         }
 
@@ -121,11 +120,11 @@ namespace Genesys.Extras.Web.Http
         /// <returns></returns>
         protected virtual async Task<TDataOut> SendDeleteAsync<TDataOut>(string fullUrl) where TDataOut : new()
         {
-            this.OnSendBegin();            
+            OnSendBegin();            
             TDataOut returnValue =  TypeExtension.InvokeConstructorOrDefault<TDataOut>();
             HttpRequestDelete<TDataOut> request = new HttpRequestDelete<TDataOut>(fullUrl);
             returnValue = await request.SendAsync();
-            this.OnSendEnd();
+            OnSendEnd();
             return returnValue;
         }
     }

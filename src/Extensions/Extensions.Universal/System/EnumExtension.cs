@@ -144,11 +144,11 @@ namespace Genesys.Extensions
                 Type compare = Enum.GetUnderlyingType(myType);
                 if (compare.Equals(ValueParser.signedLongType) || compare.Equals(ValueParser.unsignedLongType))
                 {
-                    this.Unsigned = Convert.ToUInt64(value);
+                    Unsigned = Convert.ToUInt64(value);
                 }
                 else
                 {
-                    this.Signed = Convert.ToInt64(value);
+                    Signed = Convert.ToInt64(value);
                 }
             }
         }

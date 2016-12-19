@@ -28,9 +28,9 @@ namespace Genesys.Extras.Test
         [TestMethod()]
         public void Security_Cryptography_DesEncryptor()
         {
-            string rawData = "Hello, I am raw";
+            var rawData = "Hello, I am raw";
             DesEncryptor encryptor = new DesEncryptor(rawData);
-            string encrypted = encryptor.Encrypt(rawData);
+            var encrypted = encryptor.Encrypt(rawData);
             Assert.IsTrue(rawData != encrypted, "Did not work");
             Assert.IsTrue(encryptor.Decrypt(encrypted) == rawData, "Did not work");
         }        

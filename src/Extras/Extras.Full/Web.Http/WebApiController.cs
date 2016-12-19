@@ -52,17 +52,17 @@ namespace Genesys.Extras.Web.Http
         /// <summary>
         /// Worker for SendBegin event
         /// </summary>
-        protected virtual void OnSendBegin() { if (this.SendBegin != null) { this.SendBegin(this, EventArgs.Empty); } }
+        protected virtual void OnSendBegin() { if (SendBegin != null) { SendBegin(this, EventArgs.Empty); } }
 
         /// <summary>
         /// Worker for SendEnd event
         /// </summary>
-        protected virtual void OnSendEnd() { if (this.SendEnd != null) { this.SendEnd(this, EventArgs.Empty); } }
+        protected virtual void OnSendEnd() { if (SendEnd != null) { SendEnd(this, EventArgs.Empty); } }
 
         /// <summary>
         /// Middle-tier web service supporting this application
         /// </summary>  
-        public Uri MyWebService { get { return new UrlInfo(this.configurationManager.AppSetting("MyWebService").Value).Uri; } }
+        public Uri MyWebService { get { return new UrlInfo(configurationManager.AppSetting("MyWebService").Value).Uri; } }
         
         /// <summary>
         /// Parameterless constructor
@@ -75,11 +75,11 @@ namespace Genesys.Extras.Web.Http
         /// <returns></returns>
         protected virtual async Task<TDataOut> SendGetAsync<TDataOut>(string fullUrl) where TDataOut : new()
         {
-            this.OnSendBegin();
+            OnSendBegin();
             TDataOut returnValue =  TypeExtension.InvokeConstructorOrDefault<TDataOut>();
             HttpRequestGet<TDataOut> request = new HttpRequestGet<TDataOut>(fullUrl);
             returnValue = await request.SendAsync();
-            this.OnSendEnd();
+            OnSendEnd();
 
             return returnValue;
         }
@@ -90,11 +90,11 @@ namespace Genesys.Extras.Web.Http
         /// <returns></returns>
         protected virtual async Task<TDataOut> SendPostAsync<TDataIn, TDataOut>(string fullUrl, TDataIn itemToSend)
         {
-            this.OnSendBegin();
+            OnSendBegin();
             TDataOut returnValue =  TypeExtension.InvokeConstructorOrDefault<TDataOut>();
             HttpRequestPost<TDataIn, TDataOut> request = new HttpRequestPost<TDataIn, TDataOut>(fullUrl, itemToSend);
             returnValue = await request.SendAsync();
-            this.OnSendEnd();
+            OnSendEnd();
 
             return returnValue;
         }
@@ -105,11 +105,11 @@ namespace Genesys.Extras.Web.Http
         /// <returns></returns>
         protected virtual async Task<TDataOut> SendPutAsync<TDataIn, TDataOut>(string fullUrl, TDataIn itemToSend)
         {
-            this.OnSendBegin();
+            OnSendBegin();
             TDataOut returnValue =  TypeExtension.InvokeConstructorOrDefault<TDataOut>();
             HttpRequestPut<TDataIn, TDataOut> request = new HttpRequestPut<TDataIn, TDataOut>(fullUrl, itemToSend);
             returnValue = await request.SendAsync();
-            this.OnSendEnd();
+            OnSendEnd();
             return returnValue;
         }
 
@@ -119,11 +119,11 @@ namespace Genesys.Extras.Web.Http
         /// <returns></returns>
         protected virtual async Task<TDataOut> SendDeleteAsync<TDataOut>(string fullUrl) where TDataOut : new()
         {
-            this.OnSendBegin();
+            OnSendBegin();
             TDataOut returnValue =  TypeExtension.InvokeConstructorOrDefault<TDataOut>();
             HttpRequestDelete<TDataOut> request = new HttpRequestDelete<TDataOut>(fullUrl);
             returnValue = await request.SendAsync();
-            this.OnSendEnd();
+            OnSendEnd();
             return returnValue;
         }
 

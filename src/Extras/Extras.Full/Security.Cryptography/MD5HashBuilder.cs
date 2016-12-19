@@ -55,7 +55,7 @@ namespace Genesys.Extras.Security.Cryptography
         public Md5HashBuilder(string stringToHash, string salt = "")
             : this(salt)
         {
-            this.HashedString = this.HashCreate(stringToHash);
+            HashedString = this.HashCreate(stringToHash);
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace Genesys.Extras.Security.Cryptography
         /// <returns>Hashed string data</returns>
         private string HashCreate(string stringToHash)
         {
-            string returnValue = TypeExtension.DefaultString;
+            var returnValue = TypeExtension.DefaultString;
             StringBuilder hashValue = new StringBuilder();
 
             try
@@ -73,8 +73,8 @@ namespace Genesys.Extras.Security.Cryptography
                 stringToHash += this.salt;
                 using (MD5 MD55Hash = MD5.Create())
                 {
-                    byte[] Data = MD55Hash.ComputeHash(Encoding.UTF8.GetBytes(stringToHash));
-                    for (int Count = 0; Count <= Data.Length - 1; Count++)
+                var Data = MD55Hash.ComputeHash(Encoding.UTF8.GetBytes(stringToHash));
+                    for (var Count = 0; Count <= Data.Length - 1; Count++)
                     {
                         hashValue.Append(Data[Count].ToString("x2"));
                     }
@@ -98,7 +98,7 @@ namespace Genesys.Extras.Security.Cryptography
         {
             StringComparer comparer = StringComparer.OrdinalIgnoreCase;
             bool returnValue = TypeExtension.DefaultBoolean;
-            string rawStringHash = TypeExtension.DefaultString;
+            var rawStringHash = TypeExtension.DefaultString;
 
             rawStringHash = this.HashCreate(rawString);
             if (0 == comparer.Compare(rawStringHash, this.HashedString))
