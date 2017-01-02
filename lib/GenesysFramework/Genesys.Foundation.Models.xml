@@ -139,15 +139,24 @@
         </member>
         <member name="E:Genesys.Foundation.Entity.ModelEntity`1.PropertyChanged">
             <summary>
-            Fired when property is changed
+            Property changed event handler for INotifyPropertyChanged
             </summary>
         </member>
-        <member name="M:Genesys.Foundation.Entity.ModelEntity`1.NotifyPropertyChanged(System.String)">
+        <member name="M:Genesys.Foundation.Entity.ModelEntity`1.OnPropertyChanged(System.String)">
             <summary>
-            Save and raise changed event
+            Property changed event for INotifyPropertyChanged
             </summary>
+            <param name="propertyName">String name of property</param>
+        </member>
+        <member name="M:Genesys.Foundation.Entity.ModelEntity`1.SetField``1(``0@,``0,System.String)">
+            <summary>
+            Sets the property data as well as fired OnPropertyChanged() for INotifyPropertyChanged
+            </summary>
+            <typeparam name="TField"></typeparam>
+            <param name="field"></param>
+            <param name="value"></param>
             <param name="propertyName"></param>
-            <remarks></remarks>
+            <returns></returns>
         </member>
         <member name="M:Genesys.Foundation.Entity.ModelEntity`1.Equals(`0)">
             <summary>

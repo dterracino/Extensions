@@ -290,6 +290,13 @@
                 (None = 0, FirstOption = 1, SecondOption = 2, ThirdOption = 4, etc.)
             </summary>
         </member>
+        <member name="M:Genesys.Extensions.EnumExtensions.ToDictionary(System.Enum)">
+            <summary>
+            Converts enum to Dictionary
+            </summary>
+            <param name="item">enumeration to change</param>
+            <returns></returns>
+        </member>
         <member name="M:Genesys.Extensions.EnumExtensions.Add``1(System.Enum,``0)">
             <summary>
             Adds to the list

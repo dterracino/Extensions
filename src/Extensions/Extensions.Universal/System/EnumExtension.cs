@@ -19,6 +19,8 @@
 // </copyright>
 //-----------------------------------------------------------------------
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 namespace Genesys.Extensions
@@ -31,6 +33,16 @@ namespace Genesys.Extensions
     /// </summary>
     public static class EnumExtensions
     {
+        /// <summary>
+        /// Converts enum to Dictionary
+        /// </summary>
+        /// <param name="item">enumeration to change</param>
+        /// <returns></returns>
+        public static Dictionary<int, string> ToDictionary(this Enum item)
+        {
+            return Enum.GetValues(item.GetType()).Cast<int>().ToDictionary(x => x, x => Enum.GetName(item.GetType(), x));
+        }
+
         /// <summary>
         /// Adds to the list
         /// </summary>

@@ -60,6 +60,17 @@
             CreatedDate
             </summary>
         </member>
+        <member name="T:Genesys.Foundation.Entity.ICode">
+            <summary>
+            Code, short character-based identifier of a record. 
+             Not always ISO codes, sometimes custom or a legacy systems identifier
+            </summary>    
+        </member>
+        <member name="P:Genesys.Foundation.Entity.ICode.Code">
+            <summary>
+            Code
+            </summary>
+        </member>
         <member name="T:Genesys.Foundation.Entity.IModifiedDate">
             <summary>
             Modified date of the record
@@ -164,6 +175,42 @@
         <member name="T:Genesys.Foundation.Entity.IReadOnlyEntity">
             <summary>
             Data access entity that can only read
+            </summary>
+        </member>
+        <member name="T:Genesys.Foundation.Name.INameCode">
+            <summary>
+            Name and code
+             Such as an ISO code and a friendly name combination
+            </summary>
+        </member>
+        <member name="T:Genesys.Foundation.Name.INameKey">
+            <summary>
+            Name and ID, used in all lookup records/classes
+            </summary>
+        </member>
+        <member name="T:Genesys.Foundation.Name.INameID">
+            <summary>
+            Name and ID, used in all lookup records/classes
+            </summary>
+        </member>
+        <member name="T:Genesys.Foundation.Name.IName">
+            <summary>
+            Name, used in all lookup items
+            </summary>
+        </member>
+        <member name="P:Genesys.Foundation.Name.IName.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="T:Genesys.Foundation.Name.INameDescription">
+            <summary>
+            Name, ID and Description used in nearly all lookup items
+            </summary>
+        </member>
+        <member name="P:Genesys.Foundation.Name.INameDescription.Description">
+            <summary>
+            Description
             </summary>
         </member>
         <member name="T:Genesys.Foundation.Process.KeyParameter">
@@ -409,36 +456,6 @@
         <member name="P:Genesys.Foundation.Process.IProcessResult.ReturnData">
             <summary>
             Serialized data to be returned to caller
-            </summary>
-        </member>
-        <member name="T:Genesys.Foundation.Name.INameKey">
-            <summary>
-            Name and ID, used in all lookup records/classes
-            </summary>
-        </member>
-        <member name="T:Genesys.Foundation.Name.INameID">
-            <summary>
-            Name and ID, used in all lookup records/classes
-            </summary>
-        </member>
-        <member name="T:Genesys.Foundation.Name.IName">
-            <summary>
-            Name, used in all lookup items
-            </summary>
-        </member>
-        <member name="P:Genesys.Foundation.Name.IName.Name">
-            <summary>
-            Name
-            </summary>
-        </member>
-        <member name="T:Genesys.Foundation.Name.INameDescription">
-            <summary>
-            Name, ID and Description used in nearly all lookup items
-            </summary>
-        </member>
-        <member name="P:Genesys.Foundation.Name.INameDescription.Description">
-            <summary>
-            Description
             </summary>
         </member>
         <member name="T:Genesys.Foundation.Security.IIdentityUserName">

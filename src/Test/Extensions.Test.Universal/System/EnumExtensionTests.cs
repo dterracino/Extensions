@@ -26,6 +26,19 @@ namespace Genesys.Extensions.Test
     [TestClass()]
     public class EnumExtensionTests
     {
+        [TestMethod()]
+        public void Enum_Contains()
+        {
+            EnumConsumer consumer = new EnumConsumer();
+            Assert.IsTrue(consumer.enumFlag.Contains(0x01) == true, "Did not work");
+        }
+
+        [TestMethod()]
+        public void Enum_ToDictionary()
+        {
+            var dict = EnumConsumer.MyEnumInts.one.ToDictionary();
+            Assert.IsTrue(dict.Count > 0 == true, "Did not work");
+        }
         public class EnumConsumer
         {
             public enum MyEnumInts
@@ -48,12 +61,5 @@ namespace Genesys.Extensions.Test
             public MyEnumFlags enumFlag = MyEnumFlags.one;
         }
 
-
-        [TestMethod()]
-        public void Enum_Contains()
-        {
-            EnumConsumer consumer = new EnumConsumer();
-            Assert.IsTrue(consumer.enumFlag.Contains(0x01) == true, "Did not work");
-        }
     }
 }

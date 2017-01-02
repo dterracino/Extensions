@@ -258,67 +258,68 @@
             </summary>
             <remarks></remarks>
         </member>
-        <member name="T:Genesys.Framework.Person.PersonSearchModel">
+        <member name="T:Genesys.Framework.Entity.GenderModel">
             <summary>
-            Person Search Results
+            EntityGender
             </summary>
         </member>
-        <member name="P:Genesys.Framework.Person.PersonSearchModel.Results">
+        <member name="T:Genesys.Framework.Entity.GenderModel.Genders">
             <summary>
-            Search results
+            ISO 5218 Standard for Gender values
             </summary>
         </member>
-        <member name="T:Genesys.Framework.Person.GenderList">
+        <member name="P:Genesys.Framework.Entity.GenderModel.Genders.NotSet">
             <summary>
-            Common object across models and business entity
+            Default. Not set
             </summary>
-            <remarks></remarks>
         </member>
-        <member name="M:Genesys.Framework.Person.GenderList.#ctor">
+        <member name="P:Genesys.Framework.Entity.GenderModel.Genders.NotKnown">
+            <summary>
+            Unknown gender
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Entity.GenderModel.Genders.Male">
+            <summary>
+            Male gender
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Entity.GenderModel.Genders.Female">
+            <summary>
+            Femal Gender
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Entity.GenderModel.Genders.NotApplicable">
+            <summary>
+            Not applicable or do not want to specify
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Entity.GenderModel.GenderSelections">
+            <summary>
+            List of Genders, bindable to int ID and string Name
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Entity.GenderModel.Name">
+            <summary>
+            Friendly name of the Gender
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Entity.GenderModel.Code">
+            <summary>
+            Gender code: M, F, N, U, A
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Entity.GenderModel.#ctor">
             <summary>
             Constructor
             </summary>
-            <remarks></remarks>
         </member>
-        <member name="T:Genesys.Framework.Person.PersonModel">
+        <member name="M:Genesys.Framework.Entity.GenderModel.ToString(System.String,System.IFormatProvider)">
             <summary>
-            Common object across models and business entity
+            Concatenates name field into common combinations (G, cn)
             </summary>
-            <remarks></remarks>
-        </member>
-        <member name="P:Genesys.Framework.Person.PersonModel.FirstName">
-            <summary>
-            FirstName
-            </summary>
-        </member>
-        <member name="P:Genesys.Framework.Person.PersonModel.MiddleName">
-            <summary>
-            MiddleName
-            </summary>
-        </member>
-        <member name="P:Genesys.Framework.Person.PersonModel.LastName">
-            <summary>
-            LastName
-            </summary>
-        </member>
-        <member name="P:Genesys.Framework.Person.PersonModel.BirthDate">
-            <summary>
-            BirthDate
-            </summary>
-        </member>
-        <member name="M:Genesys.Framework.Person.PersonModel.#ctor">
-            <summary>
-            Constructor
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="M:Genesys.Framework.Person.PersonModel.ToString(System.String,System.IFormatProvider)">
-            <summary>
-            supports fml (First Middle Last), lfm (Last, First Middle)
-            </summary>
-            <param name="format"></param>
-            <param name="formatProvider"></param>
-            <returns></returns>
+            <param name="format">G (Name), cn (Code - Name)</param>
+            <param name="formatProvider">ICustomFormatter compatible class</param>
+            <returns>Name field formatted in common combinations</returns>
         </member>
         <member name="T:Genesys.Framework.Entity.ImageModel">
             <summary>
@@ -384,6 +385,56 @@
             Constructor
             </summary>
             <remarks></remarks>
+        </member>
+        <member name="T:Genesys.Framework.Person.PersonSearchModel">
+            <summary>
+            Person Search Results
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Person.PersonSearchModel.Results">
+            <summary>
+            Search results
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Person.PersonModel">
+            <summary>
+            Common object across models and business entity
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Genesys.Framework.Person.PersonModel.FirstName">
+            <summary>
+            FirstName
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Person.PersonModel.MiddleName">
+            <summary>
+            MiddleName
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Person.PersonModel.LastName">
+            <summary>
+            LastName
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Person.PersonModel.BirthDate">
+            <summary>
+            BirthDate
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Person.PersonModel.#ctor">
+            <summary>
+            Constructor
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Genesys.Framework.Person.PersonModel.ToString(System.String,System.IFormatProvider)">
+            <summary>
+            supports fml (First Middle Last), lfm (Last, First Middle)
+            </summary>
+            <param name="format"></param>
+            <param name="formatProvider"></param>
+            <returns></returns>
         </member>
         <member name="T:Genesys.Framework.Flow.SessionflowModel">
             <summary>

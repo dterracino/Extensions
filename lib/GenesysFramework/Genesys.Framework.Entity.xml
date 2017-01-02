@@ -549,6 +549,54 @@
             Validation failed
             </summary>
         </member>
+        <member name="T:Genesys.Framework.Entity.GenderInfo">
+            <summary>
+            EntityGender
+            </summary>
+        </member>
+        <member name="T:Genesys.Framework.Entity.GenderInfo.Genders">
+            <summary>
+            ISO 5218 Standard for Gender values
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Entity.GenderInfo.Genders.NotSet">
+            <summary>
+            Default. Not set
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Entity.GenderInfo.Genders.NotKnown">
+            <summary>
+            Unknown gender
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Entity.GenderInfo.Genders.Male">
+            <summary>
+            Male gender
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Entity.GenderInfo.Genders.Female">
+            <summary>
+            Femal Gender
+            </summary>
+        </member>
+        <member name="P:Genesys.Framework.Entity.GenderInfo.Genders.NotApplicable">
+            <summary>
+            Not applicable or do not want to specify
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Entity.GenderInfo.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Genesys.Framework.Entity.GenderInfo.ToString(System.String,System.IFormatProvider)">
+            <summary>
+            Concatenates name field into common combinations (G, cn)
+            </summary>
+            <param name="format">G (Name), cn (Code - Name)</param>
+            <param name="formatProvider">ICustomFormatter compatible class</param>
+            <returns>Name field formatted in common combinations</returns>
+        </member>
         <member name="T:Genesys.Framework.Entity.GovernmentInfo">
             <summary>
             EntityGovernment

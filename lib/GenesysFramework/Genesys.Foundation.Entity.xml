@@ -891,7 +891,7 @@
         </member>
         <member name="M:Genesys.Extras.Exceptions.ExceptionLogger.Create(System.Exception,System.Type,System.String,System.String,System.String)">
             <summary>
-            Hydrates object and saves the log record    
+            Hydrates object and saves the log record
             </summary>
             <param name="exception">System.Exception object to log</param>
             <param name="concreteType">Type that is logging the exception</param>
