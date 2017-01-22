@@ -1771,7 +1771,7 @@
         </member>
         <member name="M:Genesys.Extras.Configuration.ConfigurationManagerSafe.#ctor(System.IO.Stream)">
             <summary>
-            Constructor that accepts ConfigurationManager.AppSettings and ConfigurationManager.ConnectionStrings
+            Constructor that accepts Stream, for .Net Core/PCL/Universal apps
             </summary>
             <param name="configFile">Raw XML from Web.config, AppSettings.config and ConnectionStrings.config</param>
         </member>

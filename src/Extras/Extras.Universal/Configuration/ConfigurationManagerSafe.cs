@@ -79,7 +79,7 @@ namespace Genesys.Extras.Configuration
         public ConfigurationManagerSafe() : base() { ThrowException = true; }
 
         /// <summary>
-        /// Constructor that accepts ConfigurationManager.AppSettings and ConfigurationManager.ConnectionStrings
+        /// Constructor that accepts Stream, for .Net Core/PCL/Universal apps
         /// </summary>
         /// <param name="configFile">Raw XML from Web.config, AppSettings.config and ConnectionStrings.config</param>
         public ConfigurationManagerSafe(Stream configFile) : this()

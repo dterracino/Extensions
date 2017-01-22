@@ -7,14 +7,14 @@ For C# files (*.cs, *.cshtml, *.xaml.cs), we use Pascal Case, strongly-typed, OO
 
 For non code files (*.html, *.xml, *.xaml, etc), please have the non-code markup/text reference any code methods directly. I.e. A XAML/MVC event must be specified in the markup, so a developer knows what .cs code this markup calls.
 
-For *.config files, keep custom entries to a minimum. But DO include: Web service root URLs, redirect out URLs, 100% uptime connection strings (i.e. for exception log tables.)
+For *.config files, keep custom entries to a minimum. But do include: Web service root URLs, redirect out URLs, 100% uptime connection strings (i.e. for exception log tables.)
 
 The general rule we follow is "use Visual Studio defaults".
 
 1. We use [Allman style](http://en.wikipedia.org/wiki/Indent_style#Allman_style) braces, where each brace begins on a new line. A single line statement block can go without braces but the block must be properly indented on its own line and it must not be nested in other statement blocks that use braces 
 2. We use four spaces of indentation (no tabs).
-3. We use `PascalCaseField` for internal and private fields and use `readonly` where possible. 
-4. We always use `this.` Visible references to source class is critical in code maintenance. 
+3. We use `camelCaseField` for internal and private fields and use `readonly` where possible. 
+4. Use `this` and `base` when ambiguity exists. Visible references to source class is critical in code maintenance. 
 5. We always specify the scope, even if it's the default (i.e.
    `private string _foo` not `string _foo`).
 6. Namespace imports should be specified at the top of the file, *outside* of
@@ -27,9 +27,9 @@ The general rule we follow is "use Visual Studio defaults".
    Consider enabling "View White Space (Ctrl+E, S)" if using Visual Studio, to aid detection.
 9. If a file happens to differ in style from these guidelines (e.g. private members are named `m_member`
    rather than `_member`), the existing style in that file takes precedence.
-10. Avoid using var. We only use `var` when it's obvious what the variable type is (i.e. `var stream = new FileStream(...)` not `var stream = OpenStandardInput()`).
+10. Use consise conventions. I.e. use `var` when it's obvious what the variable type is (i.e. `var stream = new FileStream(...)` not `var stream = OpenStandardInput()`).
 11. We use BCL types instead of language-specific type aliases (i.e. `Int32, String, Boolean` instead of `int, string, bool`, etc) for both type references as well as method calls
-12. We use PascalCasing to name all our constant local variables and fields. The only exception is for interop code where the constant value should exactly match the name and value of the code you are calling via interop.
+12. We use PascalCasing to name all our constant local variables. The only exception is for interop code where the constant value should exactly match the name and value of the code you are calling via interop.
 
 ### Example File:
 
@@ -49,8 +49,8 @@ namespace System.Collections.Generic
 {
     public partial class ObservableLinkedList<T> : INotifyCollectionChanged, INotifyPropertyChanged
     {
-        private ObservableLinkedListNode<T> _head;
-        private int _count;
+        private ObservableLinkedListNode<T> headField;
+        private int countField;
 
         public ObservableLinkedList(IEnumerable<T> items)
         {
@@ -67,14 +67,14 @@ namespace System.Collections.Generic
 
         public int Count
         {
-            get { return _count; }
+            get { return countField; }
         }
 
         public ObservableLinkedListNode AddLast(T value) 
         {
             var newNode = new LinkedListNode<T>(this, value);
 
-            InsertNodeBefore(_head, node);
+            InsertNodeBefore(headField, node);
         }
 
         protected virtual void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
@@ -95,37 +95,3 @@ namespace System.Collections.Generic
     }
 }
 ```
-
-``ObservableLinkedList`1.ObservableLinkedListNode.cs:``
-
-```C#
-using System;
-
-namespace System.Collections.Generics
-{
-    partial class ObservableLinkedList<T>
-    {
-        public class ObservableLinkedListNode
-        {
-            private readonly ObservableLinkedList<T> _parent;
-            private readonly T _value;
-
-            internal ObservableLinkedListNode(ObservableLinkedList<T> parent, T value)
-            {
-                Debug.Assert(parent != null);
-
-                _parent = parent;
-                _value = value;
-            }
-            
-            public T Value
-            {
-               get { return _value; }
-            }
-        }
-
-        ...
-    }
-}
-```
-

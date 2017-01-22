@@ -18,6 +18,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 using System;
+using System.Collections.Generic;
 using Genesys.Extensions;
 
 namespace Genesys.Extras.Mathematics
@@ -28,8 +29,8 @@ namespace Genesys.Extras.Mathematics
     [CLSCompliant(true)]
     public class Arithmetic
     {
-        private static object lockObject = new object();
-        private static Random random = null;
+        private static readonly object lockObject = new object();
+        private static volatile Random random = null;
         /// <summary>
         /// Singleton for random number generator
         /// </summary>
@@ -41,13 +42,15 @@ namespace Genesys.Extras.Mathematics
                 {
                     lock (lockObject)
                     {
-                            random = random ?? new Random();
-                    }                    
+                        if (random == null)
+                        {
+                            random = new Random();
+                        }
+                    }
                 }
                 return random;
             }
         }
-
 
         /// <summary>
         /// Addition
@@ -107,7 +110,7 @@ namespace Genesys.Extras.Mathematics
         /// <param name="dividend">Dividend to be divided</param>
         /// <param name="divisor">Divisor to divide</param>
         /// <returns>Divided result</returns>
-        public static decimal Divide(Decimal dividend, decimal divisor)
+        public static decimal Divide(decimal dividend, decimal divisor)
         {
             // Local variable
             decimal returnValue = TypeExtension.DefaultDecimal;
@@ -126,7 +129,7 @@ namespace Genesys.Extras.Mathematics
         /// </summary>
         /// <param name="lineItems">Items to average</param>
         /// <returns>Divided result</returns>
-        public static decimal AverageDecimal(System.Collections.Generic.List<Decimal> lineItems)
+        public static decimal AverageDecimal(List<decimal> lineItems)
         {
 
             decimal returnValue = TypeExtension.DefaultDecimal;
