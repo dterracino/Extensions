@@ -420,7 +420,43 @@ namespace Genesys.Extensions
 
             return returnValue;
         }
-        
+
+        /// <summary>
+        /// Adds string/char if string begins with that string/char
+        /// </summary>
+        /// <param name="item">Item to Add part</param>
+        /// <param name="toAdd">string to Add if match</param>
+        /// <returns>Original item without the Addd substring</returns>
+        public static string AddFirst(this string item, string toAdd)
+        {
+            var returnValue = item.Trim();
+
+            if (item.IsFirst(toAdd) == false)
+            {
+                returnValue = (toAdd + item);
+            }
+
+            return returnValue;
+        }
+
+        /// <summary>
+        /// Adds string/char if string ends with that string/char
+        /// </summary>
+        /// <param name="item">Item to Add part</param>
+        /// <param name="toAdd">string to Add if match</param>
+        /// <returns>Original item without the Addd substring</returns>
+        public static string AddLast(this string item, string toAdd)
+        {
+            var returnValue = item.Trim();
+
+            if (item.IsLast(toAdd) == false)
+            {
+                returnValue = (item + toAdd);
+            }
+
+            return returnValue;
+        }
+
         /// <summary>
         /// Removes string/char if string begins with that string/char
         /// </summary>
