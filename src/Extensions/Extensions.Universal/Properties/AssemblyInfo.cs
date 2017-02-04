@@ -1,6 +1,6 @@
 //-----------------------------------------------------------------------
 // <copyright file="AssemblyInfo.cs" company="Genesys Source">
-//      Copyright (c) 2016 Genesys Source. All rights reserved.
+//      Copyright (c) 2017 Genesys Source. All rights reserved.
 //      Licensed to the Apache Software Foundation (ASF) under one or more 
 //      contributor license agreements.  See the NOTICE file distributed with 
 //      this work for additional information regarding copyright ownership.
@@ -29,7 +29,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Genesys Source")]
 [assembly: AssemblyProduct("Genesys Framework Extensions for .Net Core and .Net Full")]
-[assembly: AssemblyCopyright("Copyright © 2016 Genesys Source. All rights reserved")]
+[assembly: AssemblyCopyright("Copyright © 2017 Genesys Source. All rights reserved")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
@@ -51,8 +51,8 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("3.0.12")]
-[assembly: AssemblyFileVersion("3.0.12")]
+[assembly: AssemblyVersion("3.17.01")]
+[assembly: AssemblyFileVersion("3.17.01")]
 
 // Must add this to every AssemblyInfo.cs that wants to be compliant
 [assembly: System.CLSCompliant(true)]
