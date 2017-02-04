@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
@@ -76,43 +76,5 @@ Global
 		{C21FBC0A-299C-4297-A50E-CB3BE059AEE9} = {421AB60D-E150-425F-AB9A-091B8DB00C3B}
 		{C92EDAB1-E331-487C-B6E6-306379173DDF} = {8963EC02-4294-4B8F-B77A-D1335195854B}
 		{39DE41A4-A783-4FD2-B9D6-4214F2E0B87D} = {8963EC02-4294-4B8F-B77A-D1335195854B}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 9
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://vgo-tfs-02:8080/tfs/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Extensions\\Extensions.Full\\Genesys.Extensions\u0020(Full).csproj
-		SccProjectTopLevelParentUniqueName1 = Extensions.sln
-		SccProjectName1 = Extensions/Extensions.Full
-		SccLocalPath1 = Extensions\\Extensions.Full
-		SccProjectUniqueName2 = Extensions\\Extensions.Universal\\Genesys.Extensions\u0020(Universal).csproj
-		SccProjectTopLevelParentUniqueName2 = Extensions.sln
-		SccProjectName2 = Extensions/Extensions.Universal
-		SccLocalPath2 = Extensions\\Extensions.Universal
-		SccProjectUniqueName3 = Extras\\Extras.Full\\Genesys.Extras\u0020(Full).csproj
-		SccProjectTopLevelParentUniqueName3 = Extensions.sln
-		SccProjectName3 = Extras/Extras.Full
-		SccLocalPath3 = Extras\\Extras.Full
-		SccProjectUniqueName4 = Extras\\Extras.Universal\\Genesys.Extras\u0020(Universal).csproj
-		SccProjectTopLevelParentUniqueName4 = Extensions.sln
-		SccProjectName4 = Extras/Extras.Universal
-		SccLocalPath4 = Extras\\Extras.Universal
-		SccProjectUniqueName5 = Test\\Extensions.Test.Full\\Genesys.Extensions.Test\u0020(Full).csproj
-		SccProjectTopLevelParentUniqueName5 = Extensions.sln
-		SccProjectName5 = Test/Extensions.Test.Full
-		SccLocalPath5 = Test\\Extensions.Test.Full
-		SccProjectUniqueName6 = Test\\Extensions.Test.Universal\\Genesys.Extensions.Test\u0020(Universal).csproj
-		SccProjectTopLevelParentUniqueName6 = Extensions.sln
-		SccProjectName6 = Test/Extensions.Test.Universal
-		SccLocalPath6 = Test\\Extensions.Test.Universal
-		SccProjectUniqueName7 = Test\\Extras.Test.Full\\Genesys.Extras.Test\u0020(Full).csproj
-		SccProjectTopLevelParentUniqueName7 = Extensions.sln
-		SccProjectName7 = Test/Extras.Test.Full
-		SccLocalPath7 = Test\\Extras.Test.Full
-		SccProjectUniqueName8 = Test\\Extras.Test.Universal\\Genesys.Extras.Test\u0020(Universal).csproj
-		SccProjectTopLevelParentUniqueName8 = Extensions.sln
-		SccProjectName8 = Test/Extras.Test.Universal
-		SccLocalPath8 = Test\\Extras.Test.Universal
 	EndGlobalSection
 EndGlobal
